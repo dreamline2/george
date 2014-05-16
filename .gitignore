@@ -1,0 +1,8 @@
+*.py[cod]
+
+.DS_Store
+*.scss.
+*.scssc
+*.sass.
+
+config.rb

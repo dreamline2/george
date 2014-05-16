@@ -1,0 +1,96 @@
+body, input, select, textarea {
+	font-size: 12.5pt;
+	line-height: 1.5em;
+}
+
+h1 {
+	font-size: 1.5em;
+	margin-bottom: 1em;
+}
+
+h2 {
+	font-size: 1.25em;
+	margin-bottom: 0.5em;
+}
+
+.container {
+	padding: 0 1em 0 1em;
+}
+
+.button {
+	display: block;
+	font-size: 1.25em;
+	padding: 0.65em 0 0.65em 0;
+	width: 100%;
+}
+
+/* Header */
+
+	#header {
+		margin-top: 4.5em;
+		text-align: center;
+	}
+
+/* Title */
+
+	#title {
+		display: none;
+	}
+
+/* Nav */
+
+	#nav a {
+		margin: 0 0.5em 0 0.5em;
+	}
+
+/* Hero */
+
+	#hero {
+		border-radius: 0.5em;
+		line-height: 2em;
+		margin: 2em 0 2em 0;
+		padding: 3em 2em 3em 2em;
+	}
+
+	#hero h2 {
+		font-size: 2em;
+		margin-bottom: 0.75em;
+	}
+
+	#hero p {
+		font-size: 1.25em;
+		margin-bottom: 1.5em;
+	}
+
+/* Footer */
+
+	#footer {
+		margin-bottom: 2em;
+	}
+
+/* Overlays */
+
+	#leftPanelButton .toggle,
+	#rightPanelButton .toggle {
+		display: block;
+		background: none;
+		height: 44px;
+		line-height: 44px;
+	}
+
+	#leftPanelButton .toggle {
+		text-align: left;
+		padding-left: 20px;
+	}
+
+	#rightPanelButton .toggle {
+		text-align: right;
+		padding-right: 20px;
+	}
+
+	#titleBar {
+		background: rgba(71,86,91,0.9);
+		text-align: center;
+		line-height: 44px;
+		color: #fff;
+	}

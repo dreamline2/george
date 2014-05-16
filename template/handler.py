@@ -12,7 +12,7 @@ def js_template(js_file):
 
 class HtmlHandler(webapp2.RequestHandler):
     jinja_environment = jinja2.Environment(
-        loader=jinja2.FileSystemLoader('web')
+        loader=jinja2.FileSystemLoader('george')
     )
     jinja_environment.globals['js_template'] = js_template
 

@@ -15,13 +15,12 @@
 # limitations under the License.
 #
 import webapp2
-from view.handler import HtmlHandler
+from template.handler import HtmlHandler
 
 class MainHandler(HtmlHandler):
     def get(self):
     	self.HtmlResponse("index.html", {"mode": "auto"})
-        # self.response.write('Hello world!')
 
 app = webapp2.WSGIApplication([
-    ('/web', MainHandler)
+    (r'/george', MainHandler)
 ], debug=True)
