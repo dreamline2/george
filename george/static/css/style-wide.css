@@ -1,62 +1,70 @@
+/* line 1, ../sass/style-wide.scss */
 body, input, select, textarea {
-	font-size: 15pt;
-	letter-spacing: 0.035em;
-	line-height: 1.75em;
+  font-size: 15pt;
+  letter-spacing: 0.035em;
+  line-height: 1.75em;
 }
 
+/* line 7, ../sass/style-wide.scss */
 h1 {
-	font-size: 1.5em;
+  font-size: 1.5em;
 }
 
+/* line 11, ../sass/style-wide.scss */
 h2 {
-	font-size: 1.25em;
-	margin-bottom: 0.75em;
+  font-size: 1.25em;
+  margin-bottom: 0.75em;
 }
 
+/* line 16, ../sass/style-wide.scss */
 .button {
-	font-size: 1.25em;
-	padding: 0.65em 2.25em 0.65em 2.25em;
+  font-size: 1.25em;
+  padding: 0.65em 2.25em 0.65em 2.25em;
 }
 
 /* Header */
-
-	#header {
-		position: relative;
-		margin-top: 3em;
-	}
+/* line 23, ../sass/style-wide.scss */
+#header {
+  position: relative;
+  margin-top: 3em;
+}
 
 /* Nav */
+/* line 30, ../sass/style-wide.scss */
+#nav {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 1em 0;
+}
 
-	#nav {
-		position: absolute;
-		top: 0;
-		right: 0;
-	}
-
-	#nav a {
-		margin-left: 2em;
-	}
+/* line 37, ../sass/style-wide.scss */
+#nav a {
+  margin-left: 2em;
+}
 
 /* Hero */
+/* line 43, ../sass/style-wide.scss */
+#hero {
+  border-radius: 0.5em;
+  margin: 3em 0 3em 0;
+  padding: 4em 0 4em 0;
+}
 
-	#hero {
-		border-radius: 0.5em;
-		margin: 3em 0 3em 0;
-		padding: 4em 0 4em 0;
-	}
+/* line 49, ../sass/style-wide.scss */
+#hero h2 {
+  font-size: 2.5em;
+  margin-bottom: 1em;
+}
 
-	#hero h2 {
-		font-size: 2.5em;
-		margin-bottom: 1em;
-	}
-
-	#hero p {
-		font-size: 1.25em;
-		margin-bottom: 1.75em;
-	}
+/* line 54, ../sass/style-wide.scss */
+#hero p {
+  font-size: 1.25em;
+  margin-bottom: 1.75em;
+}
 
 /* Footer */
-
-	#footer {
-		margin: 3em 0 3em 0;
-	}
+/* line 61, ../sass/style-wide.scss */
+#footer {
+  margin: 3em 0 1em 0;
+}

@@ -1,107 +1,67 @@
 <div class="container">
 	<!-- Header -->
 		<div id="header">
-			<h1 id="title">阿哲心中的一把尺</h1>
-			<nav id="nav">今天要買什麼菜?</nav>
-<!-- 					<nav id="nav">
-				<a href="#">Home</a>
-				<a href="#">About Me</a>
-				<a href="#">Blog</a>
-				<a href="#" class="skel-panels-include" data-action="togglePanel" data-args="bottomPanel">Contact</a>
-			</nav> -->
+			<h1 id="title"><img width="15" src="/static/images/guy.png" alt=""><span>阿哲心中的一把尺</span></h1>
+			<nav id="nav">今天想要買什麼「蔬菜」</nav>
 		</div>
-	<!-- Hero -->
-		<section id="hero">
-			<h2>蔬菜類</h2>
-			<p>Lorem ipsum dolor sit amet sed magna etiam adipiscing.</p>
-			<a href="#" class="button">Get Started</a>
-		</section>
+
+	<!-- category -->
+		<div class="level">
+			<div class="row">
+				{{ for(var i = 0 ; i < 3 ; i++){ }}
+				<section class="4u">
+					<div class="level-box">
+						<div class="level-head">
+							<p>Top {{=i+1}}</p>
+						</div>
+						<div class="level-body">
+							<div class="level-name"></div>
+							<div class="level-img">
+								<img src="http://news.xinhuanet.com/food/2011-05/03/121373757_11n.jpg" alt="">
+								<h1>高麗菜</h1>
+							</div>
+							<div class="level-desc">
+								<p>賣場高於盤傷價<span class="level-hightlight">20</span>元</p>
+								<p>賣場平均價<span>30</span>元/kg</p>
+								<p>盤商平均價<span>10</span>元/kg</p>
+								<a href="#" class="button">See More</a>
+							</div>
+						</div>
+					</div>
+				</section>
+				{{ } }}
+			</div>
+		</div>
+
 	<!-- Main -->
 		<div class="row">
-			<!-- Left Sidebar -->
-				<section class="3u" id="left-sidebar">
-					<section>
-						<h2>Left Sidebar</h2>
-						<p>Lorem ipsum dolor sit amet sed magna etiam elit.
-						lorem elit nec fringilla urna sed tempor in. Cras et sodales
-						consectetur viverra lorem.</p>
-					</section>
-					<section>
-						<h2>Heading</h2>
-						<p>Lorem ipsum dolor sit amet sed magna etiam elit.
-						lorem elit nec fringilla urna sed tempor in. Cras et sodales
-						consectetur viverra lorem.</p>
-					</section>
-					<section>
-						<h2>Heading</h2>
-						<p>Lorem ipsum dolor sit amet sed magna etiam elit.
-						lorem elit nec fringilla urna sed tempor in. Cras et sodales
-						consectetur viverra lorem.</p>
-					</section>
-				</section>
 			<!-- Content -->
 				<section class="6u" id="content">
-					<h2>Content</h2>
-					<p>Lorem ipsum dolorsit amet sed magna etiam adipiscing elit.
-					adipiscing elit nec fringilla urna tempor in. Cras et sodales
-					consectetur viverra lorem ipsum. Lorem ipsum dolor sit amet
-					sed magna etiam adipiscing elit adipiscing elit nec fringilla
-					urna tempor in. Cras et sodales lorem ipsum dolor.</p>
-					<p>Nam ac justo in justo aliquet volutpat. Curabitur arcu tortor,
-					congue non nisi in, cursus tempor purus. Curabitur sagittis, nisl
-					eu bibendum egestas, tortor massa vestibulum est, nec rhoncus
-					massa orci eget leo. Aliquam erat volutpat. Cum sociis natoque
-					penatibus et magnis dis parturient montes, nascetur ridiculus
-					mus. Aliquam vel euismod velit. Nulla non lorem eget velit
-					venenatis vulputate. Vestibulum a rutrum ipsum. Suspendisse
-					sit amet orci quis neque fringilla tempor quis eu metus.
-					Aenean consequat tempor est, ac pellentesque lectus Lorem ipsum
-					dolor sit amet sed magna etiam adipiscing adipiscing.</p>
-					<p>Lorem ipsum dolor sit amet sed magna etiam adipiscing elit.
-					adipiscing elit nec fringilla urna tempor in. Cras et sodales
-					consectetur viverra lorem ipsum. Lorem ipsum dolor sit amet
-					sed magna etiam adipiscing elit adipiscing elit nec fringilla
-					urna tempor in. Cras et sodales consectetur viverra.</p>
+
 				</section>
 			<!-- Right Sidebar -->
-				<section class="3u" id="right-sidebar">
+				<section class="3u not-narrow not-wide" id="right-sidebar">
 					<section>
-						<h2>Right Sidebar</h2>
-						<p>Lorem ipsum dolor sit amet sed magna etiam elit.
-						lorem elit nec fringilla urna sed tempor in. Cras et sodales
-						consectetur viverra lorem.</p>
+						<h2>查看豬肉價錢</h2>
 					</section>
 					<section>
-						<h2>Heading</h2>
-						<p>Lorem ipsum dolor sit amet sed magna etiam elit.
-						lorem elit nec fringilla urna sed tempor in. Cras et sodales
-						consectetur viverra lorem.</p>
-					</section>
-					<section>
-						<h2>Heading</h2>
-						<p>Lorem ipsum dolor sit amet sed magna etiam elit.
-						lorem elit nec fringilla urna sed tempor in. Cras et sodales
-						consectetur viverra lorem.</p>
+						<h2>查看水果價錢</h2>
 					</section>
 				</section>
 		</div>
+
 	<!-- Footer -->
 		<div id="footer">
-			&copy; Wilson. All rights reserved.
+			&copy; 2014 George. All rights reserved.
 		</div>
 </div>
-<!-- Bottom Panel -->
-	<div id="bottomPanel">
-		<form>
-			<div class="row half">
-				<div class="6u"><input type="text" placeholder="Name" /></div>
-				<div class="6u"><input type="text" placeholder="Email" /></div>
-			</div>
-			<div class="row half">
-				<div class="12u"><textarea placeholder="Message"></textarea></div>
-			</div>
-			<div class="row half">
-				<div class="12u"><input type="button" class="button" value="Send Message" /></div>
-			</div>
-		</form>
-	</div>
+
+	<!-- btn -->
+		<div class="prev btn not-narrower not-mobile">
+			<div class="prev_tri"></div>
+			<p>肉類</p>
+		</div>
+		<div class="next btn not-narrower not-mobile">
+			<div class="next_tri"></div>
+			<p>水果</p>
+		</div>

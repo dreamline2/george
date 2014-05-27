@@ -1,23 +1,46 @@
 /* Header */
-
-	#header {
-		margin-top: 2em;
-	}
+/* line 3, ../sass/style-narrower.scss */
+#header {
+  margin-top: 2em;
+}
 
 /* Title */
-
-	#title {
-		text-align: center;
-		margin: 0 0 1em 0;
-	}
+/* line 9, ../sass/style-narrower.scss */
+#title {
+  text-align: center;
+  margin: 0 0 1em 0;
+}
 
 /* Nav */
+/* line 16, ../sass/style-narrower.scss */
+#nav {
+  position: relative;
+  text-align: center;
+}
 
-	#nav {
-		position: relative;
-		text-align: center;
-	}
+/* line 21, ../sass/style-narrower.scss */
+#nav a {
+  margin: 0 1em 0 1em;
+}
 
-	#nav a {
-		margin: 0 1em 0 1em;
-	}
+/* Overlays */
+/* line 28, ../sass/style-narrower.scss */
+#leftPanelButton .toggle,
+#rightPanelButton .toggle {
+  display: block;
+  background: none;
+  height: 44px;
+  line-height: 44px;
+}
+
+/* line 35, ../sass/style-narrower.scss */
+#leftPanelButton .toggle {
+  text-align: left;
+  padding-left: 20px;
+}
+
+/* line 40, ../sass/style-narrower.scss */
+#rightPanelButton .toggle {
+  text-align: right;
+  padding-right: 20px;
+}
