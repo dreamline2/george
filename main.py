@@ -19,8 +19,8 @@ from views import pages, apis
 
 
 app = webapp2.WSGIApplication([
-    (r'/george', pages.MainHandler)
-    (r'/api/food/([\w]+)/', apis.InfoApi)
-    (r'/api/food/([\w]+)/trand', apis.TrendApi)
-    (r'/api/food/([\w+])/list', apis.ListApi)
+    (r'/george', pages.MainHandler), 
+    (r'/api/food/([\w]+)/', apis.InfoApi), 
+    (r'/api/food/([\w]+)/list', apis.ListApi),
+    (r'/api/food/([\w]+)/trand', apis.TrendApi), 
 ], debug=True)

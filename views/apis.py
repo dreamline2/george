@@ -7,8 +7,6 @@
 
 
 import webapp2
-from models import _GP_code, GenericPipeline
-from mapreduce import base_handler
 
 import re
 
