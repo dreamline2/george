@@ -15,12 +15,12 @@
 # limitations under the License.
 #
 import webapp2
-from template.handler import HtmlHandler
+from views import pages, apis
 
-class MainHandler(HtmlHandler):
-    def get(self):
-    	self.HtmlResponse("index.html", {"mode": "auto"})
 
 app = webapp2.WSGIApplication([
-    (r'/george', MainHandler)
+    (r'/george', pages.MainHandler), 
+    (r'/api/food/([\w]+)/', apis.InfoApi), 
+    (r'/api/food/([\w]+)/list', apis.ListApi),
+    (r'/api/food/([\w]+)/trand', apis.TrendApi), 
 ], debug=True)
