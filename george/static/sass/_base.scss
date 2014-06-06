@@ -49,3 +49,11 @@ textarea {
 // section, p {
 // 	margin-bottom: 2em;
 // }
+
+.clearfix {
+	&:after {
+		content: '';
+		display: block;
+		clear: both;
+	}
+}

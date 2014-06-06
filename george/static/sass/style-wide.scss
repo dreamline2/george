@@ -1,3 +1,5 @@
+@import "desktop";
+
 body, input, select, textarea {
 	font-size: 15pt;
 	letter-spacing: 0.035em;
@@ -22,7 +24,7 @@ h2 {
 
 	#header {
 		position: relative;
-		margin-top: 3em;
+		margin-top: 5em;
 	}
 
 /* Nav */
@@ -61,3 +63,20 @@ h2 {
 	#footer {
 		margin: 3em 0 1em 0;
 	}
+
+
+	#titleBar {
+		height: 80px !important;
+
+		img {
+			width: 30px;
+		}
+
+		span {
+			position: relative;
+			top: -9px;
+			left: 10px;
+			font-size: 1.5em;
+		}
+	}
+

@@ -1,36 +1,46 @@
-/* line 1, ../sass/style-narrow.scss */
+/* line 1, ../sass/_desktop.scss */
+.share {
+  float: right;
+}
+
+/* line 6, ../sass/_desktop.scss */
+.detail section {
+  margin: 1em 0;
+}
+
+/* line 2, ../sass/style-narrow.scss */
 body, input, select, textarea {
   font-size: 14pt;
   letter-spacing: 0.035em;
   line-height: 1.5em;
 }
 
-/* line 7, ../sass/style-narrow.scss */
+/* line 8, ../sass/style-narrow.scss */
 h1 {
   font-size: 1.25em;
 }
 
-/* line 11, ../sass/style-narrow.scss */
+/* line 12, ../sass/style-narrow.scss */
 h2 {
   font-size: 1.1em;
   margin-bottom: 0.5em;
 }
 
-/* line 16, ../sass/style-narrow.scss */
+/* line 17, ../sass/style-narrow.scss */
 .button {
   font-size: 1.25em;
   padding: 0.75em 2em 0.75em 2em;
 }
 
 /* Header */
-/* line 23, ../sass/style-narrow.scss */
+/* line 24, ../sass/style-narrow.scss */
 #header {
   position: relative;
-  margin-top: 2em;
+  margin-top: 5em;
 }
 
 /* Nav */
-/* line 30, ../sass/style-narrow.scss */
+/* line 31, ../sass/style-narrow.scss */
 #nav {
   position: absolute;
   top: 0;
@@ -38,33 +48,49 @@ h2 {
   margin: 1em 0;
 }
 
-/* line 37, ../sass/style-narrow.scss */
+/* line 38, ../sass/style-narrow.scss */
 #nav a {
   margin-left: 2em;
 }
 
 /* Hero */
-/* line 43, ../sass/style-narrow.scss */
+/* line 44, ../sass/style-narrow.scss */
 #hero {
   border-radius: 0.5em;
   margin: 2em 0 2em 0;
   padding: 3em 2em 3em 2em;
 }
 
-/* line 49, ../sass/style-narrow.scss */
+/* line 50, ../sass/style-narrow.scss */
 #hero h2 {
   font-size: 2.5em;
   margin-bottom: 0.75em;
 }
 
-/* line 54, ../sass/style-narrow.scss */
+/* line 55, ../sass/style-narrow.scss */
 #hero p {
   font-size: 1.25em;
   margin-bottom: 1.5em;
 }
 
 /* Footer */
-/* line 61, ../sass/style-narrow.scss */
+/* line 62, ../sass/style-narrow.scss */
 #footer {
   margin: 3em 0 3em 0;
+}
+
+/* line 66, ../sass/style-narrow.scss */
+#titleBar {
+  height: 80px !important;
+}
+/* line 69, ../sass/style-narrow.scss */
+#titleBar img {
+  width: 30px;
+}
+/* line 73, ../sass/style-narrow.scss */
+#titleBar span {
+  position: relative;
+  top: -9px;
+  left: 10px;
+  font-size: 1.5em;
 }

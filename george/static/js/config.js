@@ -5,7 +5,7 @@ window._skel_config = {
 	boxModel: 'border',
 	grid: { gutters: 30 },
 	breakpoints: {
-		wide: { range: '1200-', containers: '90%', grid: { gutters: 0 } },
+		wide: { range: '1200-', containers: 1200, grid: { gutters: 0 } },
 		narrow: { range: '961-1199', containers: 960 },
 		narrower: { range: '481-960', containers: 'fluid', lockViewport: true, grid: { collapse: true, gutters: 0 }},
 		mobile: { range: '-480', containers: 'fluid', lockViewport: true, grid: { collapse: true, gutters: 0 } }

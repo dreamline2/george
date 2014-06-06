@@ -19,8 +19,13 @@ from template.handler import HtmlHandler
 
 class MainHandler(HtmlHandler):
     def get(self):
-    	self.HtmlResponse("index.html", {"mode": "auto"})
+    	self.HtmlResponse("page_index.html", {"mode": "auto"})
+
+class detailHandler(HtmlHandler):
+    def get(self):
+    	self.HtmlResponse("page_detail.html", {"mode": "auto"})
 
 app = webapp2.WSGIApplication([
-    (r'/george', MainHandler)
+    (r'/george', MainHandler),
+    (r'/detail', detailHandler)
 ], debug=True)
