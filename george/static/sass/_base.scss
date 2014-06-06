@@ -4,7 +4,7 @@ body, input, select, textarea {
 }
 
 body {
-	background: $body_bg_color url('../images/bg.jpg');
+	background: $body_bg_color url('../images/bg.jpg') fixed;
 	color: #b2b9bC;
 	line-height: 2em;
 }

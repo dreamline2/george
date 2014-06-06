@@ -170,6 +170,11 @@
 			top: 6px;
 			margin-right: 10px;
 		}
+
+		a {
+			color: #66371a;
+			text-decoration: none;
+		}
 	}
 	.container {
 		padding: 0 2em 0 2em;
@@ -180,9 +185,9 @@
 		border-radius: 10px;
 		padding: 1em;
 
-		section{
-			margin: 1em 0 ;
-		}
+		// section{
+		// 	margin: 1em 0 ;
+		// }
 	}
 		.level-box{
 			margin: 1em;

@@ -10,8 +10,8 @@
 	<div class="level"></div>
 
 	{% include "component_footer.html" %}
-	{% include "component_btn.html" %}
 </div>
+{% include "component_btn.html" %}
 {% endblock %}
 
 
@@ -22,44 +22,7 @@
 
 		// jquery object
 		$level = $('.level'),
-		$w = $(window),
-
-		// fake data
-		fake_data = {
-			'肉類': [{
-					price: 1000,
-				},{
-					price: 1000,
-				},{
-					price: 1000,
-				}],
-			'蔬菜類': [{
-					price: 1000,
-				},{
-					price: 1000,
-				},{
-					price: 1000,
-				}],
-			'水果類': [{
-					price: 1000,
-				},{
-					price: 1000,
-				},{
-					price: 1000,
-				}]
-		},
-
-		// final data
-		Data = George.getData(function(res){
-			var real_data = {};
-			real_data = res;
-			return real_data
-		}) || fake_data;
-
-
-
-	$level.html(George.render(Temp, Data));
-
+		$w = $(window);
 
 	$w.on({
 	    ready: George.event.initDisplay,

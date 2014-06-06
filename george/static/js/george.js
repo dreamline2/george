@@ -37,7 +37,7 @@ var George = George || {};
 
 George = (function($){
 
-	var api = "//ad.tagtoo.co/ad/query/",
+	var api = "/api/food/fish/list",
 
 		__ajax = function(url, succss_callback, error_callback){
 	        $.ajax({
@@ -64,7 +64,7 @@ George = (function($){
             return html;
 		},
 
-		getData: function(succss_callback,error_callback){
+		getList: function(succss_callback,error_callback){
 			var url = api;
 			__ajax(url, succss_callback, error_callback);
 		}
@@ -85,6 +85,12 @@ George.event = {
         	$img.attr('width',15);
         }
 
+        George.getList(function(res){
+            var real_data = [];
+            real_data = res;
+            George.Data = real_data;
+            $level.html(George.render(Temp, George.Data));
+        });
 	},
 
 	resizeDisplay: function () {

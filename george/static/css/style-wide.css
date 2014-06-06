@@ -88,7 +88,7 @@ h2 {
   width: 30px;
 }
 /* line 75, ../sass/style-wide.scss */
-#titleBar span {
+#titleBar a {
   position: relative;
   top: -9px;
   left: 10px;

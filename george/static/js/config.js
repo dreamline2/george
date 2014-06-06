@@ -45,6 +45,20 @@ window._skel_panels_config = {
 		// 			'<a href="#" class="toggle icon-envelope" data-action="togglePanel" data-args="bottomPanel"></a>' +
 		// 			'<a href="http://twitter.com/n33co" class="icon-facebook"></a>'
 		// },
+		// rightButton: {
+		// 	breakpoints: 'narrower,mobile',
+		// 	position: 'right-center',
+		// 	width: 80,
+		// 	height: 60,
+		// 	html: '<div class="prev btn not-narrower not-mobile"><div class="prev_tri"></div><p>肉類</p></div>'
+		// },
+		// leftButton: {
+		// 	breakpoints: 'narrower,mobile',
+		// 	position: 'left-center',
+		// 	width: 80,
+		// 	height: 60,
+		// 	html: '<div class="prev btn not-narrower not-mobile"><div class="prev_tri"></div><p>肉類</p></div>'
+		// },
 		rightPanelButton: {
 			breakpoints: 'narrower,mobile',
 			position: 'top-right',
