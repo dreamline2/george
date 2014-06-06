@@ -1,0 +1,139 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<div class="container">
+
+	{% include "component_header.html" %}
+	{% include "component_nav.html" %}
+
+	<div class="detail">
+		<div class="row">
+			<section class="5u">
+				<div class="level-box">
+					<div class="level-head">
+						<p>Top</p>
+					</div>
+					<div class="level-body">
+						<div class="level-name"></div>
+						<div class="level-img">
+							<img src="http://news.xinhuanet.com/food/2011-05/03/121373757_11n.jpg" alt="">
+							<h1>高麗菜</h1>
+						</div>
+						<div class="level-desc">
+							<p>賣場高於盤傷價<span class="level-hightlight">20</span>元</p>
+							<p>賣場平均價<span>30</span>元/kg</p>
+							<p>盤商平均價<span>10</span>元/kg</p>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="7u">
+				<div id="chart_div" class="chart"></div>
+			</section>
+		</div>
+		<hr class="separation">
+		<div id="chart_bottom" class="row">
+			<div class="6u">
+				<ul class="other clearfix">
+					<li>觀看其他蔬菜</li>
+					<li>Top1</li>
+					<li>Top2</li>
+				</ul>
+			</div>
+			<div class="6u clearfix">
+				<ul class="share clearfix">
+					<li>尋找食譜</li>
+					<li>分享給朋友</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	{% include "component_footer.html" %}
+	{% include "component_btn.html" %}
+</div>
+{% endblock %}
+
+
+{% block js %}
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
+
+	// jquery object
+	var $level = $('.level'),
+		$w = $(window),
+
+		// fake data
+		fake_data = {
+			'肉類': [{
+					price: 1000,
+				},{
+					price: 1000,
+				},{
+					price: 1000,
+				}],
+			'蔬菜類': [{
+					price: 1000,
+				},{
+					price: 1000,
+				},{
+					price: 1000,
+				}],
+			'水果類': [{
+					price: 1000,
+				},{
+					price: 1000,
+				},{
+					price: 1000,
+				}]
+		},
+
+		// final data
+		Data = George.getData(function(res){
+			var real_data = {};
+			real_data = res;
+			return real_data
+		}) || fake_data;
+
+
+
+	// $level.html(George.render(Temp, Data));
+
+
+	$w.on({
+	    ready: George.event.initDisplay,
+	    resize: George.event.resizeDisplay
+	});
+
+	// Load the Visualization API and the piechart package.
+	google.load('visualization', '1.0', {'packages':['corechart']});
+
+	// Set a callback to run when the Google Visualization API is loaded.
+	google.setOnLoadCallback(George.chart);
+
+	$('#fb_login').on('click',function(){
+		FB.login(function(response) {
+			FB.api('/me?fields=id,name', function(d) {
+
+                 $('#fb_user').text(d.name);
+                 $('#fb_login').hide();
+                 $('#fb_logout').show();
+
+            });
+		}, {scope: 'public_profile,email'});
+	});
+
+	$('#fb_logout').on('click',function(){
+	   	FB.logout(function(response) {
+	   		$('#fb_user').text('訪客');
+			$('#fb_login').show();
+			$('#fb_logout').hide();
+	    });
+	});
+
+
+
+
+</script>
+{% endblock %}

@@ -1,0 +1,24 @@
+<div class="row">
+	{{ for(var i = 0 ; i < 3 ; i++){ }}
+	<section class="4u">
+		<div class="level-box">
+			<div class="level-head">
+				<p>Top {{=i+1}}</p>
+			</div>
+			<div class="level-body">
+				<div class="level-name"></div>
+				<div class="level-img">
+					<img src="http://news.xinhuanet.com/food/2011-05/03/121373757_11n.jpg" alt="">
+					<h1>高麗菜</h1>
+				</div>
+				<div class="level-desc">
+					<p>賣場高於盤商價<span class="level-hightlight">20</span>元</p>
+					<p>賣場平均價<span>30</span>元/kg</p>
+					<p>盤商平均價<span>10</span>元/kg</p>
+					<a href="/detail" class="button">See More</a>
+				</div>
+			</div>
+		</div>
+	</section>
+	{{ } }}
+</div>

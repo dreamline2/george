@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<div class="container">
+
+	{% include "component_header.html" %}
+	{% include "component_nav.html" %}
+
+	<div class="level"></div>
+
+	{% include "component_footer.html" %}
+	{% include "component_btn.html" %}
+</div>
+{% endblock %}
+
+
+{% block js %}
+<script type="text/javascript">
+
+	var Temp = {{ js_template('george/template_item.html') }},
+
+		// jquery object
+		$level = $('.level'),
+		$w = $(window),
+
+		// fake data
+		fake_data = {
+			'肉類': [{
+					price: 1000,
+				},{
+					price: 1000,
+				},{
+					price: 1000,
+				}],
+			'蔬菜類': [{
+					price: 1000,
+				},{
+					price: 1000,
+				},{
+					price: 1000,
+				}],
+			'水果類': [{
+					price: 1000,
+				},{
+					price: 1000,
+				},{
+					price: 1000,
+				}]
+		},
+
+		// final data
+		Data = George.getData(function(res){
+			var real_data = {};
+			real_data = res;
+			return real_data
+		}) || fake_data;
+
+
+
+	$level.html(George.render(Temp, Data));
+
+
+	$w.on({
+	    ready: George.event.initDisplay,
+	    // resize: George.event.resizeDisplay
+	});
+
+	$('#fb_login').on('click',function(){
+		FB.login(function(response) {
+			FB.api('/me?fields=id,name', function(d) {
+                 $('#fb_user').text(d.name);
+                 $('#fb_login').hide();
+                 $('#fb_logout').show();
+            });
+		}, {scope: 'public_profile,email'});
+	});
+
+	$('#fb_logout').on('click',function(){
+	   	FB.logout(function(response) {
+	   		$('#fb_user').text('訪客');
+			$('#fb_login').show();
+			$('#fb_logout').hide();
+	    });
+	});
+
+</script>
+{% endblock %}
