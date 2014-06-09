@@ -45,20 +45,20 @@ window._skel_panels_config = {
 		// 			'<a href="#" class="toggle icon-envelope" data-action="togglePanel" data-args="bottomPanel"></a>' +
 		// 			'<a href="http://twitter.com/n33co" class="icon-facebook"></a>'
 		// },
-		// rightButton: {
-		// 	breakpoints: 'narrower,mobile',
-		// 	position: 'right-center',
-		// 	width: 80,
-		// 	height: 60,
-		// 	html: '<div class="prev btn not-narrower not-mobile"><div class="prev_tri"></div><p>肉類</p></div>'
-		// },
-		// leftButton: {
-		// 	breakpoints: 'narrower,mobile',
-		// 	position: 'left-center',
-		// 	width: 80,
-		// 	height: 60,
-		// 	html: '<div class="prev btn not-narrower not-mobile"><div class="prev_tri"></div><p>肉類</p></div>'
-		// },
+		rightButton: {
+			breakpoints: 'wide,narrow,narrower,mobile',
+			position: 'middle-right',
+			width: 80,
+			height: 60,
+			html: '<div class="next btn"><div class="next_tri"></div><p>下一個</p></div>'
+		},
+		leftButton: {
+			breakpoints: 'wide,narrow,narrower,mobile',
+			position: 'middle-left',
+			width: 80,
+			height: 60,
+			html: '<div class="prev btn"><div class="prev_tri"></div><p>上一個</p></div>'
+		},
 		rightPanelButton: {
 			breakpoints: 'narrower,mobile',
 			position: 'top-right',

@@ -94,6 +94,6 @@ class ListApi(ApiHandler):
 
 class InfoApi(ApiHandler):
     def get(self, _id):
-        result = {"name": "高麗菜", "day_price": "50", "description": ""}
+        result = {"name": "高麗菜", "day_price": "50", "description": "夏季水果盛產，momo電視購物即日起推出多款本土及進口水果下殺4.8折起，而販售的水果皆為產地直送。"}
 
         self.output(result)

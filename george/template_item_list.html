@@ -1,0 +1,28 @@
+<div class="row">
+	{{~it.data:v:i}}
+	<section class="4u">
+		<div class="level-box">
+			<div class="level-head">
+				<p>Top {{=i+1}}</p>
+			</div>
+			<div class="level-body">
+				<div class="level-name"></div>
+				<div class="level-img">
+					<img src="http://news.xinhuanet.com/food/2011-05/03/121373757_11n.jpg" alt="">
+					<h1>{{=it.data[i].name}}</h1>
+				</div>
+				<div class="level-desc">
+					{{?it.data[i].wholesaler_price < it.data[i].price}}
+						<p>賣場高於盤商價<span class="level-hightlight">{{=it.data[i].price - it.data[i].wholesaler_price}}</span>元</p>
+					{{??}}
+						<p>賣場低於盤商價<span class="level-hightlight">{{=it.data[i].wholesaler_price - it.data[i].price}}</span>元</p>
+					{{?}}
+					<p>今日賣場價<span>{{=it.data[i].price}}</span>元/斤</p>
+					<p>今日盤商價<span>{{=it.data[i].wholesaler_price}}</span>元/斤</p>
+					<a href="/detail?id={{=i+1}}" class="button">近期走勢</a>
+				</div>
+			</div>
+		</div>
+	</section>
+	{{~}}
+</div>

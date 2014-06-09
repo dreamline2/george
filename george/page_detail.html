@@ -1,5 +1,9 @@
 {% extends "base.html" %}
 
+{% block facebook_graph_meta %}
+<meta property="og:image" content="http://davidwalsh.name/wp-content/themes/klass/img/facebooklogo.png"/>
+<meta property="og:description" content="由阿哲來推薦婆婆媽媽買菜的小幫手!!"/>
+{% endblock%}
 
 {% block content %}
 <div class="container">
@@ -10,37 +14,21 @@
 	<div class="detail">
 		<div class="row">
 			<section class="5u">
-				<div class="level-box">
-					<div class="level-head">
-						<p>Top</p>
-					</div>
-					<div class="level-body">
-						<div class="level-name"></div>
-						<div class="level-img">
-							<img src="http://news.xinhuanet.com/food/2011-05/03/121373757_11n.jpg" alt="">
-							<h1>高麗菜</h1>
-						</div>
-						<div class="level-desc">
-							<p>賣場高於盤傷價<span class="level-hightlight">20</span>元</p>
-							<p>賣場平均價<span>30</span>元/kg</p>
-							<p>盤商平均價<span>10</span>元/kg</p>
-						</div>
-					</div>
-				</div>
+				<div class="item-box"></div>
 			</section>
 			<section class="7u">
 				<div id="chart_div" class="chart"></div>
 			</section>
 		</div>
-		<hr class="separation">
+		<!-- <hr class="separation"> -->
 		<div id="chart_bottom" class="row">
-			<div class="6u">
+<!-- 			<div class="6u">
 				<ul class="other clearfix">
 					<li>觀看其他蔬菜</li>
 					<li>Top1</li>
 					<li>Top2</li>
 				</ul>
-			</div>
+			</div> -->
 			<div class="6u clearfix">
 				<ul class="share clearfix">
 					<li>尋找食譜</li>
@@ -51,7 +39,6 @@
 	</div>
 
 	{% include "component_footer.html" %}
-	{% include "component_btn.html" %}
 </div>
 {% endblock %}
 
@@ -60,50 +47,37 @@
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <script type="text/javascript">
 
-	// jquery object
-	var $level = $('.level'),
-		$w = $(window),
+	var Temp = {{ js_template('george/template_item.html') }},
 
-		// fake data
-		fake_data = {
-			'肉類': [{
-					price: 1000,
-				},{
-					price: 1000,
-				},{
-					price: 1000,
-				}],
-			'蔬菜類': [{
-					price: 1000,
-				},{
-					price: 1000,
-				},{
-					price: 1000,
-				}],
-			'水果類': [{
-					price: 1000,
-				},{
-					price: 1000,
-				},{
-					price: 1000,
-				}]
-		},
+		// jquery object
+		$level = $('.level'),
+		$w = $(window);
 
-		// final data
-		Data = George.getData(function(res){
-			var real_data = {};
-			real_data = res;
-			return real_data
-		}) || fake_data;
-
-
-
-	// $level.html(George.render(Temp, Data));
-
+	George.event.resizeDisplay = function () {
+        George.chart();
+        George.event.detectDeviceScreen();
+	};
 
 	$w.on({
-	    ready: George.event.initDisplay,
-	    resize: George.event.resizeDisplay
+	    ready: function (){
+	    	var data = George.Utils.getURLParameters(),
+	    		$level = $('.item-box');
+
+	    	George.event.initDisplay();
+	    	George.getItem({
+	    		id: data.id
+	    	},function(res){
+	            var real_data = [];
+	            real_data = res;
+	            George.Data = real_data;
+	            $level.html(George.render(Temp, George.Data));
+	            George.event.detectDeviceScreen();
+	        });
+
+	    },
+	    resize: function () {
+	    	George.event.resizeDisplay();
+	    }
 	});
 
 	// Load the Visualization API and the piechart package.

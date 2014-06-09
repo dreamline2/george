@@ -11,23 +11,32 @@
 
 	{% include "component_footer.html" %}
 </div>
-{% include "component_btn.html" %}
 {% endblock %}
 
 
 {% block js %}
 <script type="text/javascript">
 
-	var Temp = {{ js_template('george/template_item.html') }},
+	var Temp = {{ js_template('george/template_item_list.html') }},
 
 		// jquery object
 		$level = $('.level'),
 		$w = $(window);
 
 	$w.on({
-	    ready: George.event.initDisplay,
-	    // resize: George.event.resizeDisplay
+	    ready: function (){
+	    	George.event.initDisplay();
+		    George.getItemList({},function(res){
+	            var real_data = [];
+	            real_data = res;
+	            George.Data = real_data;
+	            $level.html(George.render(Temp, George.Data));
+	            George.event.detectDeviceScreen();
+	        });
+	    },
+	    resize: George.event.resizeDisplay
 	});
+
 
 	$('#fb_login').on('click',function(){
 		FB.login(function(response) {

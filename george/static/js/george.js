@@ -37,65 +37,94 @@ var George = George || {};
 
 George = (function($){
 
-	var api = "/api/food/fish/list",
+    var api = "/api/food/",
 
-		__ajax = function(url, succss_callback, error_callback){
-	        $.ajax({
-        		type: "get",
-        		url: url,
-        		dataType: "json",
-        		success: succss_callback,
-        		error: error_callback
-	        });
-	    };
+        __ajax = function(url, succss_callback, error_callback){
+            $.ajax({
+                type: "get",
+                url: url,
+                dataType: "json",
+                success: succss_callback,
+                error: error_callback
+            });
+        };
 
-	// public method
-	return {
+    // public method
+    return {
 
-		env: {
-	        width: document.documentElement.clientWidth,
-	        height: document.documentElement.clientHeight
-		},
+        env: {
+            width: document.documentElement.clientWidth,
+            height: document.documentElement.clientHeight
+        },
 
-		render: function(temp, data){
-			var html = temp({
+        render: function(temp, data){
+            var html = temp({
                 "data" : data
             });
             return html;
-		},
+        },
 
-		getList: function(succss_callback,error_callback){
-			var url = api;
-			__ajax(url, succss_callback, error_callback);
-		}
+        getItemList: function(data, succss_callback,error_callback){
+            var url = api + 'fish/list';
+            __ajax(url, succss_callback, error_callback);
+        },
 
-	}
+        getItem: function(data, succss_callback,error_callback){
+            var url = api + data.id + '/';
+            __ajax(url, succss_callback, error_callback);
+        }
+
+    }
 
 })(jQuery)
 
-George.event = {
+George.Utils = {
 
-	initDisplay: function () {
-		var $img = $('#titleBar img'),
-			desktopWidth = 960;
+    getURLParameters: function () {
+        var para = document.location.search.split(/[?&#]/g),
+            data = {};
 
-		if (George.env.width > desktopWidth) {
-			$img.attr('width',30);
-        } else {
-        	$img.attr('width',15);
+        para.shift();
+
+        for(var i=0,l=para.length;i<l;i++) {
+            data[para[i].split('=')[0]] = para[i].split('=')[1];
         }
 
-        George.getList(function(res){
-            var real_data = [];
-            real_data = res;
-            George.Data = real_data;
-            $level.html(George.render(Temp, George.Data));
-        });
-	},
+        return data
+    }
+}
 
-	resizeDisplay: function () {
-        George.chart();
-	}
+George.event = {
+
+    searchIcookAPI: function  () {
+        var val  = '蔬菜';
+        return 'http://icook.tw/recipes/fulltext_search?query=' + val;
+    },
+
+    detectDeviceScreen: function () {
+        var $item = $('.level section');
+
+        if (skel.canUse('narrow')) {
+            $item.removeClass('4u').addClass('6u');
+        } else {
+            $item.removeClass('6u').addClass('4u');
+        }
+    },
+
+    initDisplay: function () {
+        var $img = $('#titleBar img'),
+            desktopWidth = 960;
+
+        if (George.env.width > desktopWidth) {
+            $img.attr('width',30);
+        } else {
+            $img.attr('width',15);
+        }
+    },
+
+    resizeDisplay: function () {
+        George.event.detectDeviceScreen();
+    }
 
 }
 
