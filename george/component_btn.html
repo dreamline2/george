@@ -1,3 +1,4 @@
+{% if mode == "detail" %}
 <!-- btn -->
 	<div class="prev btn">
 		<div class="prev_tri"></div>
@@ -7,3 +8,18 @@
 		<div class="next_tri"></div>
 		<p>下一個</p>
 	</div>
+{% endif %}
+
+{% if mode == "index" %}
+<!-- btn -->
+	<div class="prev btn">
+		<div class="prev_tri"></div>
+		<p>肉類</p>
+	</div>
+	<div class="next btn">
+		<div class="next_tri"></div>
+		<p>蔬果</p>
+		<p>{{mode}}</p>
+	</div>
+{% endif %}
+

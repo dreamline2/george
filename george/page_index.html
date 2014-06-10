@@ -2,19 +2,14 @@
 
 
 {% block content %}
-<div class="container">
-
-	{% include "component_header.html" %}
-	{% include "component_nav.html" %}
-
-	<div class="level"></div>
-
-	{% include "component_footer.html" %}
-</div>
+<div class="level"></div>
 {% endblock %}
 
 
 {% block js %}
+<script>
+	var George.category = {{type}};
+</script>
 <script type="text/javascript">
 
 	var Temp = {{ js_template('george/template_item_list.html') }},
@@ -26,7 +21,9 @@
 	$w.on({
 	    ready: function (){
 	    	George.event.initDisplay();
-		    George.getItemList({},function(res){
+		    George.getItemList({
+		    	id: George.category
+		    },function(res){
 	            var real_data = [];
 	            real_data = res;
 	            George.Data = real_data;
@@ -34,7 +31,7 @@
 	            George.event.detectDeviceScreen();
 	        });
 	    },
-	    resize: George.event.resizeDisplay
+	    resize: George.event.detectDeviceScreen
 	});
 
 

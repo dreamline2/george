@@ -6,45 +6,31 @@
 {% endblock%}
 
 {% block content %}
-<div class="container">
-
-	{% include "component_header.html" %}
-	{% include "component_nav.html" %}
-
+<div class="detail">
 	<div class="row">
 		<section class="5u">
-			<div id="nav">今天想要買什麼「蔬菜」「水產」 「蛋, 雞肉, 豬肉」 「蔬菜 水果」</div>
+			<div class="item-box"></div>
+		</section>
+		<section class="7u">
+			<div id="chart_div" class="chart"></div>
 		</section>
 	</div>
-
-	<div class="detail">
-		<div class="row">
-			<section class="5u">
-				<div class="item-box"></div>
-			</section>
-			<section class="7u">
-				<div id="chart_div" class="chart"></div>
-			</section>
-		</div>
-		<!-- <hr class="separation"> -->
-		<div id="chart_bottom" class="row">
+	<!-- <hr class="separation"> -->
+	<div id="chart_bottom" class="row">
 <!-- 			<div class="6u">
-				<ul class="other clearfix">
-					<li>觀看其他蔬菜</li>
-					<li>Top1</li>
-					<li>Top2</li>
-				</ul>
-			</div> -->
-			<div class="6u clearfix">
-				<ul class="share clearfix">
-					<li>尋找食譜</li>
-					<li>分享給朋友</li>
-				</ul>
-			</div>
+			<ul class="other clearfix">
+				<li>觀看其他蔬菜</li>
+				<li>Top1</li>
+				<li>Top2</li>
+			</ul>
+		</div> -->
+		<div class="6u clearfix">
+			<ul class="share clearfix">
+				<li>尋找食譜</li>
+				<li>分享給朋友</li>
+			</ul>
 		</div>
 	</div>
-
-	{% include "component_footer.html" %}
 </div>
 {% endblock %}
 
@@ -59,17 +45,13 @@
 		$level = $('.level'),
 		$w = $(window);
 
-	George.event.resizeDisplay = function () {
-        George.chart();
-        George.event.detectDeviceScreen();
-	};
-
 	$w.on({
 	    ready: function (){
 	    	var data = George.Utils.getURLParameters(),
 	    		$level = $('.item-box');
 
 	    	George.event.initDisplay();
+
 	    	George.getItem({
 	    		id: data.id
 	    	},function(res){
@@ -80,9 +62,17 @@
 	            George.event.detectDeviceScreen();
 	        });
 
+	    	George.getItemTrend({
+	    		id: data.id
+	    	},function(res){
+	    		for (var i=0; i < res.length; i++) {
+	    			George.chart.data.push([res[i].day, res[i].price, res[i].wholesaler_price, res[i].amount]);
+	    		};
+	        });
 	    },
 	    resize: function () {
-	    	George.event.resizeDisplay();
+	    	George.chart.draw();
+        	George.event.detectDeviceScreen();
 	    }
 	});
 
@@ -90,7 +80,7 @@
 	google.load('visualization', '1.0', {'packages':['corechart']});
 
 	// Set a callback to run when the Google Visualization API is loaded.
-	google.setOnLoadCallback(George.chart);
+	google.setOnLoadCallback(George.chart.draw);
 
 	$('#fb_login').on('click',function(){
 		FB.login(function(response) {

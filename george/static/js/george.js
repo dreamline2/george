@@ -65,12 +65,17 @@ George = (function($){
         },
 
         getItemList: function(data, succss_callback,error_callback){
-            var url = api + 'fish/list';
+            var url = api + data.id +'/list';
             __ajax(url, succss_callback, error_callback);
         },
 
         getItem: function(data, succss_callback,error_callback){
             var url = api + data.id + '/';
+            __ajax(url, succss_callback, error_callback);
+        },
+
+        getItemTrend: function(data, succss_callback,error_callback){
+            var url = api + data.id + '/trend';
             __ajax(url, succss_callback, error_callback);
         }
 
@@ -120,34 +125,32 @@ George.event = {
         } else {
             $img.attr('width',15);
         }
-    },
-
-    resizeDisplay: function () {
-        George.event.detectDeviceScreen();
     }
 
 }
 
-George.chart = function () {
-    var data = google.visualization.arrayToDataTable([
-        ['Year', '賣場價格', '盤商價格', '交易量'],
-        ['2014/02',  1000,   100,   400],
-        ['2014/03',  1170,   117,   460],
-        ['2014/04',  660,    66,    1120],
-        ['2014/05',  1030,   103,   540],
-        ['2014/06',  1000,   100,   400],
-        ['2014/07',  1170,   117,   460]
-    ]);
+George.chart = {
+    data: [['Year', '賣場價格', '盤商價格', '交易量']],
+            // ['2014/02',  1000,   100,   400],
+            // ['2014/03',  1170,   117,   460],
+            // ['2014/04',  660,    66,    1120],
+            // ['2014/05',  1030,   103,   540],
+            // ['2014/06',  1000,   100,   400],
+            // ['2014/07',  1170,   117,   460]
 
-    var options = {
-      title: '價格比較圖',
-      titleTextStyle: {fontSize: 20},
-      hAxis: {titleTextStyle: {color: '#333'}},
-      vAxis: {title: '',minValue: 0}
-    };
+    draw: function () {
+        var data = google.visualization.arrayToDataTable(George.chart.data);
 
-    var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
-    chart.draw(data, options);
+        var options = {
+          title: '價格比較圖',
+          titleTextStyle: {fontSize: 20},
+          hAxis: {titleTextStyle: {color: '#333'}},
+          vAxis: {title: '',minValue: 0}
+        };
+
+        var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+    }
 }
 
 

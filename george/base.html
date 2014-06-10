@@ -32,8 +32,13 @@
 		  fjs.parentNode.insertBefore(js, fjs);
 		}(document, 'script', 'facebook-jssdk'));</script>
 
-		{% block content %}
-		{% endblock %}
+
+		<div class="container">
+			{% include "component_header.html" %}
+			{% include "component_nav.html" %}
+			{% block content %}{% endblock %}
+			{% include "component_footer.html" %}
+		</div>
 
 		{% block js %}
 		{% endblock %}

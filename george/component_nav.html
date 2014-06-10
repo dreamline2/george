@@ -15,18 +15,27 @@
 			<section>
 				<p id="fb_logout" class="feature">Facebook 登出</p>
 			</section>
+
+			{% if mode == "index" %}
 			<section>
-				<p class="feature">查看豬肉價錢</p>
+				<a href="/george?category=meat"></a><p class="feature">查看蛋與肉價錢</p>
 			</section>
 			<section>
-				<p class="feature">查看水果價錢</p>
+				<a href="/george?category=vegetable"></a><p class="feature">查看蔬果價錢</p>
 			</section>
 			<section>
-				<p class="feature">上一個</p>
+				<a href="/george?category=fish"></a><p class="feature">查看魚類價錢</p>
+			</section>
+			{% endif %}
+
+			{% if mode == "detail" %}
+			<section>
+				<p class="feature">上一個食材</p>
 			</section>
 			<section>
-				<p class="feature">下一個</p>
+				<p class="feature">下一個食材</p>
 			</section>
+			{% endif %}
 
 		</section>
 </div>
