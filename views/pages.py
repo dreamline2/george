@@ -11,8 +11,8 @@ from template.handler import HtmlHandler
 
 class MainHandler(HtmlHandler):
     def get(self):
-    	self.HtmlResponse("page_index.html", {"mode": "auto"})
+    	self.HtmlResponse("page_index.html", {"mode": "index"})
 
 class DetailHandler(HtmlHandler):
     def get(self):
-    	self.HtmlResponse("page_detail.html", {"mode": "auto"})
+    	self.HtmlResponse("page_detail.html", {"mode": "detail"})

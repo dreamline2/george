@@ -46,14 +46,14 @@ window._skel_panels_config = {
 		// 			'<a href="http://twitter.com/n33co" class="icon-facebook"></a>'
 		// },
 		rightButton: {
-			breakpoints: 'wide,narrow,narrower,mobile',
+			breakpoints: 'wide,narrow',
 			position: 'middle-right',
 			width: 80,
 			height: 60,
 			html: '<div class="next btn"><div class="next_tri"></div><p>下一個</p></div>'
 		},
 		leftButton: {
-			breakpoints: 'wide,narrow,narrower,mobile',
+			breakpoints: 'wide,narrow',
 			position: 'middle-left',
 			width: 80,
 			height: 60,
