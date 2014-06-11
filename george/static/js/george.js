@@ -95,6 +95,11 @@ George = (function($){
             __ajax(url, succss_callback, error_callback);
         },
 
+        logoutUser: function(data, succss_callback,error_callback){
+            var url = userAPI + 'logout';
+            __ajax(url, succss_callback, error_callback);
+        },
+
     }
 
 })(jQuery)
