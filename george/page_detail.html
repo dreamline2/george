@@ -65,7 +65,7 @@
 	    	},function(res){
 	    		console.log(res)
 	            var real_data = [];
-	            real_data = res[0];
+	            real_data = res;
 	            George.Data = real_data;
 	            $level.html(George.render(Temp, George.Data));
 	            George.event.detectDeviceScreen();
