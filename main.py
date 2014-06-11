@@ -29,6 +29,7 @@ app = webapp2.WSGIApplication([
     (r'/api/food/([\w]+)/list', apis.ListApi),
     (r'/api/food/([\w]+)/trand', apis.TrendApi), 
     (r'/api/user/login', apis.UserLogin), 
+    (r'/api/user/logout', apis.UserLogout), 
     (r'/api/user/info', apis.UserInfo), 
 ], config=config, debug=True)
 
