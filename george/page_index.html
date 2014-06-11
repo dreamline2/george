@@ -13,12 +13,6 @@
 
 {% block js %}
 <script type="text/javascript">
-	George.env.init = {
-		category: "{{type}}",
-		group: ['']
-	};
-</script>
-<script type="text/javascript">
 
 	var Temp = {{ js_template('george/template_item_list.html') }},
 
@@ -37,28 +31,57 @@
 	            George.Data = real_data;
 	            $level.html(George.render(Temp, George.Data));
 	            George.event.detectDeviceScreen();
+
+	   //          var container = document.querySelector('.level');
+				// var msnry = new Masonry( container, {
+				//   // options
+				//   columnWidth: 200,
+				//   gutter: 10,
+				//   itemSelector: '.item'
+				// });
 	        });
 	    },
 	    resize: George.event.detectDeviceScreen
 	});
 
 
+
 	$('#fb_login').on('click',function(){
-		FB.login(function(response) {
-			FB.api('/me?fields=id,name', function(d) {
-                 $('#fb_user').text(d.name);
-                 $('#fb_login').hide();
-                 $('#fb_logout').show();
-            });
-		}, {scope: 'public_profile,email'});
+
+		if(George.env.loginStatus) {
+			    $('#fb_user').text(George.env.userName);
+                $('#fb_login').hide();
+                $('#fb_logout').show();
+		} else {
+			FB.login(function(response) {
+				George.loginUser({
+					token: response.authResponse.accessToken
+				},function(res){
+					George.env.loginStatus = true;
+				    $('#fb_user').text(res.name);
+	                $('#fb_login').hide();
+	                $('#fb_logout').show();
+				});
+			}, {scope: 'public_profile,email'});
+		}
+
 	});
 
 	$('#fb_logout').on('click',function(){
-	   	FB.logout(function(response) {
-	   		$('#fb_user').text('訪客');
-			$('#fb_login').show();
-			$('#fb_logout').hide();
-	    });
+		George.loginUser({
+			token: response.authResponse.accessToken
+		},function(res){
+			console.log(res)
+			// George.env.loginStatus = true;
+		 //    $('#fb_user').text(res.name);
+   //          $('#fb_login').hide();
+   //          $('#fb_logout').show();
+		});
+	  //  	FB.logout(function(response) {
+	  //  		$('#fb_user').text('訪客');
+			// $('#fb_login').show();
+			// $('#fb_logout').hide();
+	  //   });
 	});
 
 </script>

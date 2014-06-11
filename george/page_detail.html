@@ -13,24 +13,32 @@
 		</section>
 		<section class="7u">
 			<div id="chart_div" class="chart"></div>
+			<div id="chart_bottom" class="row">
+				<div class="6u clearfix">
+					<ul class="share clearfix">
+						<li><a id="cookbook" class="button1" target="_bank">尋找食譜</a></li>
+						<li><p id="FB_share" class="button1">分享給朋友</p></li>
+					</ul>
+				</div>
+			</div>
 		</section>
 	</div>
 	<!-- <hr class="separation"> -->
-	<div id="chart_bottom" class="row">
-<!-- 			<div class="6u">
+<!-- 	<div id="chart_bottom" class="row">
+			<div class="6u">
 			<ul class="other clearfix">
 				<li>觀看其他蔬菜</li>
 				<li>Top1</li>
 				<li>Top2</li>
 			</ul>
-		</div> -->
+		</div>
 		<div class="6u clearfix">
 			<ul class="share clearfix">
 				<li>尋找食譜</li>
 				<li>分享給朋友</li>
 			</ul>
 		</div>
-	</div>
+	</div> -->
 </div>
 {% endblock %}
 
@@ -55,11 +63,40 @@
 	    	George.getItem({
 	    		id: data.id
 	    	},function(res){
+	    		console.log(res)
 	            var real_data = [];
-	            real_data = res;
+	            real_data = res[0];
 	            George.Data = real_data;
 	            $level.html(George.render(Temp, George.Data));
 	            George.event.detectDeviceScreen();
+
+	            $('#FB_share').on('click',function(){
+					FB.ui({
+					  method: 'share_open_graph',
+					  action_type: 'og.likes',
+					  action_properties: JSON.stringify({
+					      object: document.location.href,
+					  })
+					}, function(response){});
+	            });
+
+	            $('#cookbook').attr('href',George.event.searchIcookAPI(George.Data.name));
+
+
+	            George.env.init.leftURL = document.location.pathname + '?id=' + George.Data.prev;
+	            George.env.init.rightURL = document.location.pathname + '?id=' + George.Data.next;
+
+	           	if(George.Data.prev) {
+	           		$('#leftButton a').attr('href',George.env.init.leftURL);
+	            } else {
+	            	$('#leftButton').remove();
+	            }
+	            if(George.Data.next) {
+	            	$('#rightButton a').attr('href',George.env.init.rightURL);
+	            } else {
+	            	$('#rightButton').remove();
+	            }
+
 	        });
 
 	    	George.getItemTrend({

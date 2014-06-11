@@ -104,7 +104,9 @@ class ListApi(ApiHandler):
                 {"name": "高麗菜", "price": 34 , "wholesaler_price": 34, "image":"http://ext.pimg.tw/moongenie/4a4ef8009fc44.jpg", "order":1},
                 {"name": "空心菜", "price": 45 , "wholesaler_price": 37, "image":"http://ext.pimg.tw/megusa1/1340294486-3417654905.jpg", "order":2},
                 {"name": "大白菜", "price": 65 , "wholesaler_price": 76, "image":"http://www.baicaolu.com/uploads/201206/1338654120GUlOHyNF.jpg", "order":3},
-                {"name": "花菜", "price": 67 , "wholesaler_price": 89, "image":"http://image.cn.made-in-china.com/2f0j01JtTaIsEKsQPO/%E4%BF%9D%E9%B2%9C%E7%99%BD%E8%8A%B1%E8%8F%9C.jpg", "order":4}
+                {"name": "花菜", "price": 67 , "wholesaler_price": 89, "image":"http://image.cn.made-in-china.com/2f0j01JtTaIsEKsQPO/%E4%BF%9D%E9%B2%9C%E7%99%BD%E8%8A%B1%E8%8F%9C.jpg", "order":4},
+                {"name": "大陸妹", "price": 65 , "wholesaler_price": 76, "image":"http://www.baicaolu.com/uploads/201206/1338654120GUlOHyNF.jpg", "order":5},
+                {"name": "星星菜", "price": 67 , "wholesaler_price": 89, "image":"http://ext.pimg.tw/megusa1/1340294486-3417654905.jpg", "order":6}
                 ]
         self.output(result)
 

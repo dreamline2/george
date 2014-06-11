@@ -50,14 +50,14 @@ window._skel_panels_config = {
 			position: 'middle-right',
 			width: 80,
 			height: 60,
-			html: '<div class="next btn"><div class="next_tri"></div><p>下一個</p></div>'
+			html: '<a href="'+ George.env.init.rightURL +'"><div class="next btn"><div class="next_tri"></div><p>'+ George.env.init.right +'</p></div></a>'
 		},
 		leftButton: {
 			breakpoints: 'wide,narrow',
 			position: 'middle-left',
 			width: 80,
 			height: 60,
-			html: '<div class="prev btn"><div class="prev_tri"></div><p>上一個</p></div>'
+			html: '<a href="'+ George.env.init.leftURL +'"><div class="prev btn"><div class="prev_tri"></div><p>'+ George.env.init.left +'</p></div></a>'
 		},
 		rightPanelButton: {
 			breakpoints: 'narrower,mobile',
