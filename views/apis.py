@@ -112,11 +112,11 @@ class InfoApi(ApiHandler):
     def get(self, _id):
         if _id == "高麗菜":
             result = {}
-            result = {"name": "高麗菜", "price": 50 , "wholesaler_price": 30, "image":"https://s.yimg.com/hg/pimg2/69/95/p053035437625-item-3812xf2x0600x0600-m.jpg", "order":1, "next":"大白菜", "description": "夏季水果盛產，momo電視購物即日起推出多款本土及進口水果下殺4.8折起，而販售的水果皆為產地直送。"},
+            result = {"name": "高麗菜", "price": 50 , "wholesaler_price": 30, "image":"https://s.yimg.com/hg/pimg2/69/95/p053035437625-item-3812xf2x0600x0600-m.jpg", "order":1, "next":"大白菜", "description": "夏季水果盛產，momo電視購物即日起推出多款本土及進口水果下殺4.8折起，而販售的水果皆為產地直送。"}
         elif _id == '空心菜':
-            result = {"name": "空心菜", "price": 50 , "wholesaler_price": 30, "image":"http://ext.pimg.tw/megusa1/1340294486-3417654905.jpg", "order":2, "next":"大白菜", "prev":"高麗菜", "description": "夏季水果盛產，momo電視購物即日起推出多款本土及進口水果下殺4.8折起，而販售的水果皆為產地直送。"},
+            result = {"name": "空心菜", "price": 50 , "wholesaler_price": 30, "image":"http://ext.pimg.tw/megusa1/1340294486-3417654905.jpg", "order":2, "next":"大白菜", "prev":"高麗菜", "description": "夏季水果盛產，momo電視購物即日起推出多款本土及進口水果下殺4.8折起，而販售的水果皆為產地直送。"}
         elif _id == '大白菜':
-            result = {"name": "大白菜", "price": 50 , "wholesaler_price": 30, "image":"http://www.baicaolu.com/uploads/201206/1338654120GUlOHyNF.jpg", "order":3, "next":"花菜", "prev":"空心菜", "description": "夏季水果盛產，momo電視購物即日起推出多款本土及進口水果下殺4.8折起，而販售的水果皆為產地直送。"},
+            result = {"name": "大白菜", "price": 50 , "wholesaler_price": 30, "image":"http://www.baicaolu.com/uploads/201206/1338654120GUlOHyNF.jpg", "order":3, "next":"花菜", "prev":"空心菜", "description": "夏季水果盛產，momo電視購物即日起推出多款本土及進口水果下殺4.8折起，而販售的水果皆為產地直送。"}
         elif _id == '花菜':
             result = {"name": "花菜", "price": 50 , "wholesaler_price": 30, "image":"http://image.cn.made-in-china.com/2f0j01JtTaIsEKsQPO/%E4%BF%9D%E9%B2%9C%E7%99%BD%E8%8A%B1%E8%8F%9C.jpg", "order":4, "prev":"大白菜", "description": "夏季水果盛產，momo電視購物即日起推出多款本土及進口水果下殺4.8折起，而販售的水果皆為產地直送。"}
 
