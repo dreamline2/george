@@ -37,7 +37,8 @@ var George = George || {};
 
 George = (function($){
 
-    var api = "/api/food/",
+    var foodAPI = "/api/food/",
+        userAPI = '/api/user/'
 
         __ajax = function(url, succss_callback, error_callback){
             $.ajax({
@@ -65,20 +66,34 @@ George = (function($){
             return html;
         },
 
+
+
         getItemList: function(data, succss_callback,error_callback){
-            var url = api + data.id +'/list';
+            var url = foodAPI + data.id +'/list';
             __ajax(url, succss_callback, error_callback);
         },
 
         getItem: function(data, succss_callback,error_callback){
-            var url = api + data.id + '/';
+            var url = foodAPI + data.id + '/';
             __ajax(url, succss_callback, error_callback);
         },
 
         getItemTrend: function(data, succss_callback,error_callback){
-            var url = api + data.id + '/trend';
+            var url = foodAPI + data.id + '/trend';
             __ajax(url, succss_callback, error_callback);
-        }
+        },
+
+
+
+        checkUserInfo: function(data, succss_callback,error_callback){
+            var url = userAPI + 'info';
+            __ajax(url, succss_callback, error_callback);
+        },
+
+        loginUser: function(data, succss_callback,error_callback){
+            var url = userAPI + 'login';
+            __ajax(url, succss_callback, error_callback);
+        },
 
     }
 
@@ -102,8 +117,7 @@ George.Utils = {
 
 George.event = {
 
-    searchIcookAPI: function  () {
-        var val  = '蔬菜';
+    searchIcookAPI: function  (val) {
         return 'http://icook.tw/recipes/fulltext_search?query=' + val;
     },
 

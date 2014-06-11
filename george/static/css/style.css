@@ -643,7 +643,28 @@ textarea {
   background: #F39F22;
 }
 
-/* line 366, ../sass/style.scss */
+/* line 364, ../sass/style.scss */
+.button1 {
+  border-radius: 0.1em;
+  border: 0;
+  border-bottom: 2px solid #E49E35;
+  border-right: 2px solid #E49E35;
+  color: #fff;
+  display: block;
+  text-decoration: none;
+  background: none;
+  cursor: pointer;
+  margin: .5em;
+  text-align: center;
+  font-size: 1em;
+  background: #f8b100;
+}
+/* line 381, ../sass/style.scss */
+.button1:hover {
+  background: #F39F22;
+}
+
+/* line 386, ../sass/style.scss */
 #list-dot-template section {
   float: left;
 }
