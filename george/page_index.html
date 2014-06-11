@@ -2,13 +2,21 @@
 
 
 {% block content %}
-<div class="level"></div>
+
+
+
+<div class="row level">{% include "component_loading.html" %}</div>
+
+
 {% endblock %}
 
 
 {% block js %}
-<script>
-	var George.category = {{type}};
+<script type="text/javascript">
+	George.env.init = {
+		category: "{{type}}",
+		group: ['']
+	};
 </script>
 <script type="text/javascript">
 

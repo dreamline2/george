@@ -1,3 +1,6 @@
+@import "var";
+@import "loading";
+
 body, input, select, textarea {
 	font-family: 'Source Sans Pro', sans-serif;
 	font-weight: 400;
@@ -7,6 +10,7 @@ body {
 	background: $body_bg_color url('../images/bg.jpg') fixed;
 	color: #b2b9bC;
 	line-height: 2em;
+
 }
 
 h1, h2, h3, h4, h5, h6, strong, b {
@@ -56,4 +60,8 @@ textarea {
 		display: block;
 		clear: both;
 	}
+}
+
+.block {
+	display: none !important;
 }

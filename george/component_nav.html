@@ -17,15 +17,15 @@
 			</section>
 
 			{% if mode == "index" %}
-			<section>
-				<a href="/george?category=meat"></a><p class="feature">查看蛋與肉價錢</p>
-			</section>
-			<section>
-				<a href="/george?category=vegetable"></a><p class="feature">查看蔬果價錢</p>
-			</section>
-			<section>
-				<a href="/george?category=fish"></a><p class="feature">查看魚類價錢</p>
-			</section>
+				<section>
+					<a class="feature {% if type == 'meat' %} block {% endif %}" href="/george?category=meat"><p>查看蛋與肉價錢</p></a>
+				</section>
+				<section>
+					<a class="feature {% if type == 'vegetable' %} block {% endif %}" href="/george?category=vegetable"><p>查看蔬果價錢</p></a>
+				</section>
+				<section>
+					<a class="feature {% if type == 'fish' %} block {% endif %}" href="/george?category=fish"><p>查看魚類價錢</p></a>
+				</section>
 			{% endif %}
 
 			{% if mode == "detail" %}

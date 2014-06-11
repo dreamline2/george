@@ -59,7 +59,8 @@ George = (function($){
 
         render: function(temp, data){
             var html = temp({
-                "data" : data
+                "data" : data,
+                "init": George.env.category
             });
             return html;
         },
@@ -107,7 +108,7 @@ George.event = {
     },
 
     detectDeviceScreen: function () {
-        var $item = $('.level section');
+        var $item = $('#list-dot-template section');
 
         if (skel.canUse('narrow')) {
             $item.removeClass('4u').addClass('6u');

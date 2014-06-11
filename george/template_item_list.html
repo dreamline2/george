@@ -1,10 +1,13 @@
 <div class="row">
 	<section class="12u">
-		<div class="list_title">今天想要買什麼「蔬菜」「水產」 「蛋, 雞肉, 豬肉」 「蔬菜 水果」</div>
+		<div class="list_title">今天想要買什麼「蔬菜與水果」</div>
+<!-- 		{{~it.init:v:i}}
+		<a href="/george?category={{=it.init}}"></a><p class="feature">{{=it.init}}</p>
+		{{~}} -->
 	</section>
 </div>
 
-<div class="row">
+<div id="list-dot-template" class="row">
 	{{~it.data:v:i}}
 	<section class="4u">
 		<div class="level-box">
@@ -31,4 +34,10 @@
 		</div>
 	</section>
 	{{~}}
+</div>
+
+<div class="row">
+	<section class="12u">
+		<div class="load_more">查詢更多{{=it.init}}</div>
+	</section>
 </div>
