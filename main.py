@@ -17,10 +17,16 @@
 import webapp2
 from views import pages, apis
 
+config = {}
+config['webapp2_extras.sessions'] = {
+    'secret_key': 'my-super-secret-key',
+}
 
 app = webapp2.WSGIApplication([
     (r'/george', pages.MainHandler), 
-    (r'/api/food/([\w]+)/', apis.InfoApi), 
+    (r'/api/food/([^/]+)/$', apis.InfoApi), 
     (r'/api/food/([\w]+)/list', apis.ListApi),
     (r'/api/food/([\w]+)/trand', apis.TrendApi), 
-], debug=True)
+    (r'/api/user/login', apis.UserLogin), 
+    (r'/api/user/info', apis.UserInfo), 
+], config=config, debug=True)
