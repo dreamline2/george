@@ -511,7 +511,7 @@ textarea {
   text-align: center;
   line-height: 1%;
 }
-/* line 236, ../sass/style.scss */
+/* line 237, ../sass/style.scss */
 .level-img h1 {
   position: absolute;
   bottom: 0px;
@@ -521,34 +521,39 @@ textarea {
   line-height: 40px;
   background: rgba(0, 0, 0, 0.7);
 }
+/* line 246, ../sass/style.scss */
+.level-img img {
+  max-height: 100%;
+  max-width: 100%;
+}
 
-/* line 249, ../sass/style.scss */
+/* line 254, ../sass/style.scss */
 .level-body {
   border: 1px solid #e5e4df;
   box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.2);
 }
 
-/* line 255, ../sass/style.scss */
+/* line 260, ../sass/style.scss */
 .level-desc {
   padding: 1em .5em;
 }
-/* line 257, ../sass/style.scss */
+/* line 262, ../sass/style.scss */
 .level-desc p {
   margin: .5em 1em;
   color: #616161;
 }
-/* line 261, ../sass/style.scss */
+/* line 266, ../sass/style.scss */
 .level-desc span {
   font-size: 2em;
   margin: .2em;
 }
 
-/* line 266, ../sass/style.scss */
+/* line 271, ../sass/style.scss */
 .level-hightlight {
   color: #ff0000;
 }
 
-/* line 269, ../sass/style.scss */
+/* line 274, ../sass/style.scss */
 .btn {
   position: absolute;
   top: 30%;
@@ -558,12 +563,12 @@ textarea {
   color: #ffffff;
   cursor: pointer;
 }
-/* line 277, ../sass/style.scss */
+/* line 282, ../sass/style.scss */
 .btn p {
   text-align: center;
 }
 
-/* line 281, ../sass/style.scss */
+/* line 286, ../sass/style.scss */
 .prev {
   left: 0;
   -webkit-border-top-right-radius: 5px;
@@ -574,7 +579,7 @@ textarea {
   border-bottom-right-radius: 5px;
 }
 
-/* line 292, ../sass/style.scss */
+/* line 297, ../sass/style.scss */
 .prev_tri {
   position: relative;
   left: 25px;
@@ -586,7 +591,7 @@ textarea {
   border-color: transparent #ffffff transparent transparent;
 }
 
-/* line 303, ../sass/style.scss */
+/* line 308, ../sass/style.scss */
 .next {
   right: 0;
   -webkit-border-top-left-radius: 5px;
@@ -597,7 +602,7 @@ textarea {
   border-bottom-left-radius: 5px;
 }
 
-/* line 313, ../sass/style.scss */
+/* line 318, ../sass/style.scss */
 .next_tri {
   position: relative;
   left: 25px;
@@ -609,7 +614,7 @@ textarea {
   border-color: transparent transparent transparent #ffffff;
 }
 
-/* line 327, ../sass/style.scss */
+/* line 332, ../sass/style.scss */
 .is-desktop {
   position: relative;
   top: -9px;
@@ -617,7 +622,7 @@ textarea {
   font-size: 1.5em;
 }
 
-/* line 338, ../sass/style.scss */
+/* line 343, ../sass/style.scss */
 .load_more {
   border-radius: 0.1em;
   border: 0;
@@ -633,7 +638,12 @@ textarea {
   font-size: 2em;
   background: #f8b100;
 }
-/* line 355, ../sass/style.scss */
+/* line 360, ../sass/style.scss */
 .load_more:hover {
   background: #F39F22;
+}
+
+/* line 366, ../sass/style.scss */
+#list-dot-template section {
+  float: left;
 }
