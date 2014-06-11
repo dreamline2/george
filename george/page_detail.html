@@ -89,12 +89,12 @@
 	           	if(George.Data.prev) {
 	           		$('#leftButton a').attr('href',George.env.init.leftURL);
 	            } else {
-	            	$('#leftButton').remove();
+	            	$('#leftButton').css('display','none');
 	            }
 	            if(George.Data.next) {
 	            	$('#rightButton a').attr('href',George.env.init.rightURL);
 	            } else {
-	            	$('#rightButton').remove();
+	            	$('#rightButton').css('display','none');
 	            }
 
 	        });

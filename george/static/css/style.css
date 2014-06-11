@@ -5,17 +5,11 @@ body {
 
 /* line 5, ../sass/_loading.scss */
 .mikepad-loading {
-  width: 150px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translateY(-50%) translateX(-50%);
-  -moz-transform: translateY(-50%) translateX(-50%);
-  -o-transform: translateY(-50%) translateX(-50%);
-  transform: translateY(-50%) translateX(-50%);
+  width: 100%;
+  margin: 14em 0;
 }
 
-/* line 16, ../sass/_loading.scss */
+/* line 17, ../sass/_loading.scss */
 .mikepad-loading .binding {
   content: '';
   width: 27px;
@@ -24,7 +18,7 @@ body {
   margin: 0 auto;
 }
 
-/* line 24, ../sass/_loading.scss */
+/* line 25, ../sass/_loading.scss */
 .mikepad-loading .pad {
   width: 27px;
   height: 30px;
@@ -34,7 +28,7 @@ body {
   margin: 0 auto;
 }
 
-/* line 40, ../sass/_loading.scss */
+/* line 41, ../sass/_loading.scss */
 .mikepad-loading .line {
   width: 15px;
   margin-top: 4px;
@@ -46,12 +40,12 @@ body {
   animation: writeline 3s infinite ease-in;
 }
 
-/* line 51, ../sass/_loading.scss */
+/* line 52, ../sass/_loading.scss */
 .mikepad-loading .line:first-child {
   margin-top: 0;
 }
 
-/* line 55, ../sass/_loading.scss */
+/* line 56, ../sass/_loading.scss */
 .mikepad-loading .line.line1 {
   -webkit-animation-delay: 0s;
   -moz-animation-delay: 0s;
@@ -59,7 +53,7 @@ body {
   animation-delay: 0s;
 }
 
-/* line 62, ../sass/_loading.scss */
+/* line 63, ../sass/_loading.scss */
 .mikepad-loading .line.line2 {
   -webkit-animation-delay: 0.5s;
   -moz-animation-delay: 0.5s;
@@ -67,7 +61,7 @@ body {
   animation-delay: 0.5s;
 }
 
-/* line 69, ../sass/_loading.scss */
+/* line 70, ../sass/_loading.scss */
 .mikepad-loading .line.line3 {
   -webkit-animation-delay: 1s;
   -moz-animation-delay: 1s;
@@ -75,7 +69,7 @@ body {
   animation-delay: 1s;
 }
 
-/* line 76, ../sass/_loading.scss */
+/* line 77, ../sass/_loading.scss */
 .mikepad-loading .text {
   text-align: center;
   margin-top: 10px;
@@ -84,96 +78,96 @@ body {
 }
 
 @-webkit-keyframes writeline {
-  /* line 84, ../sass/_loading.scss */
+  /* line 85, ../sass/_loading.scss */
   0% {
     width: 0px;
     opacity: 0;
   }
 
-  /* line 85, ../sass/_loading.scss */
+  /* line 86, ../sass/_loading.scss */
   33% {
     width: 15px;
     opacity: 1;
   }
 
-  /* line 86, ../sass/_loading.scss */
+  /* line 87, ../sass/_loading.scss */
   70% {
     opacity: 1;
   }
 
-  /* line 87, ../sass/_loading.scss */
+  /* line 88, ../sass/_loading.scss */
   100% {
     opacity: 0;
   }
 }
 
 @-moz-keyframes writeline {
-  /* line 91, ../sass/_loading.scss */
+  /* line 92, ../sass/_loading.scss */
   0% {
     width: 0px;
     opacity: 0;
   }
 
-  /* line 92, ../sass/_loading.scss */
+  /* line 93, ../sass/_loading.scss */
   33% {
     width: 15px;
     opacity: 1;
   }
 
-  /* line 93, ../sass/_loading.scss */
+  /* line 94, ../sass/_loading.scss */
   70% {
     opacity: 1;
   }
 
-  /* line 94, ../sass/_loading.scss */
+  /* line 95, ../sass/_loading.scss */
   100% {
     opacity: 0;
   }
 }
 
 @-o-keyframes writeline {
-  /* line 98, ../sass/_loading.scss */
+  /* line 99, ../sass/_loading.scss */
   0% {
     width: 0px;
     opacity: 0;
   }
 
-  /* line 99, ../sass/_loading.scss */
+  /* line 100, ../sass/_loading.scss */
   33% {
     width: 15px;
     opacity: 1;
   }
 
-  /* line 100, ../sass/_loading.scss */
+  /* line 101, ../sass/_loading.scss */
   70% {
     opacity: 1;
   }
 
-  /* line 101, ../sass/_loading.scss */
+  /* line 102, ../sass/_loading.scss */
   100% {
     opacity: 0;
   }
 }
 
 @keyframes writeline {
-  /* line 105, ../sass/_loading.scss */
+  /* line 106, ../sass/_loading.scss */
   0% {
     width: 0px;
     opacity: 0;
   }
 
-  /* line 106, ../sass/_loading.scss */
+  /* line 107, ../sass/_loading.scss */
   33% {
     width: 15px;
     opacity: 1;
   }
 
-  /* line 107, ../sass/_loading.scss */
+  /* line 108, ../sass/_loading.scss */
   70% {
     opacity: 1;
   }
 
-  /* line 108, ../sass/_loading.scss */
+  /* line 109, ../sass/_loading.scss */
   100% {
     opacity: 0;
   }
