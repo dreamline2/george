@@ -1,36 +1,46 @@
-/* line 1, ../sass/style-wide.scss */
+/* line 1, ../sass/_desktop.scss */
+.share {
+  float: right;
+}
+
+/* line 6, ../sass/_desktop.scss */
+.detail section {
+  margin: 1em 0;
+}
+
+/* line 3, ../sass/style-wide.scss */
 body, input, select, textarea {
   font-size: 15pt;
   letter-spacing: 0.035em;
   line-height: 1.75em;
 }
 
-/* line 7, ../sass/style-wide.scss */
+/* line 9, ../sass/style-wide.scss */
 h1 {
   font-size: 1.5em;
 }
 
-/* line 11, ../sass/style-wide.scss */
+/* line 13, ../sass/style-wide.scss */
 h2 {
   font-size: 1.25em;
   margin-bottom: 0.75em;
 }
 
-/* line 16, ../sass/style-wide.scss */
+/* line 18, ../sass/style-wide.scss */
 .button {
   font-size: 1.25em;
   padding: 0.65em 2.25em 0.65em 2.25em;
 }
 
 /* Header */
-/* line 23, ../sass/style-wide.scss */
+/* line 25, ../sass/style-wide.scss */
 #header {
   position: relative;
-  margin-top: 3em;
+  margin-top: 5em;
 }
 
 /* Nav */
-/* line 30, ../sass/style-wide.scss */
+/* line 32, ../sass/style-wide.scss */
 #nav {
   position: absolute;
   top: 0;
@@ -38,33 +48,49 @@ h2 {
   margin: 1em 0;
 }
 
-/* line 37, ../sass/style-wide.scss */
+/* line 39, ../sass/style-wide.scss */
 #nav a {
   margin-left: 2em;
 }
 
 /* Hero */
-/* line 43, ../sass/style-wide.scss */
+/* line 45, ../sass/style-wide.scss */
 #hero {
   border-radius: 0.5em;
   margin: 3em 0 3em 0;
   padding: 4em 0 4em 0;
 }
 
-/* line 49, ../sass/style-wide.scss */
+/* line 51, ../sass/style-wide.scss */
 #hero h2 {
   font-size: 2.5em;
   margin-bottom: 1em;
 }
 
-/* line 54, ../sass/style-wide.scss */
+/* line 56, ../sass/style-wide.scss */
 #hero p {
   font-size: 1.25em;
   margin-bottom: 1.75em;
 }
 
 /* Footer */
-/* line 61, ../sass/style-wide.scss */
+/* line 63, ../sass/style-wide.scss */
 #footer {
   margin: 3em 0 1em 0;
+}
+
+/* line 68, ../sass/style-wide.scss */
+#titleBar {
+  height: 80px !important;
+}
+/* line 71, ../sass/style-wide.scss */
+#titleBar img {
+  width: 30px;
+}
+/* line 75, ../sass/style-wide.scss */
+#titleBar a {
+  position: relative;
+  top: -9px;
+  left: 10px;
+  font-size: 1.5em;
 }

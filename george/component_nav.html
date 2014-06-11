@@ -1,0 +1,41 @@
+<div class="row">
+	<!-- Content -->
+		<section class="6u" id="content">
+
+		</section>
+	<!-- Right Sidebar -->
+		<section class="3u not-narrow not-wide" id="right-sidebar">
+			<section>
+				<h1>你好,<span id="fb_user">訪客</span></h1>
+				<p class="slogan">歡迎來到阿哲心中的一把尺，透過這把尺，阿哲我將會推薦給你當季最合適而且便宜採購的食材，保證讓你吃得安心、買的開心、買菜更聰明。</p>
+			</section>
+			<section>
+				<p id="fb_login" class="feature">Facebook 登入</p>
+			</section>
+			<section>
+				<p id="fb_logout" class="feature">Facebook 登出</p>
+			</section>
+
+			{% if mode == "index" %}
+			<section>
+				<a href="/george?category=meat"></a><p class="feature">查看蛋與肉價錢</p>
+			</section>
+			<section>
+				<a href="/george?category=vegetable"></a><p class="feature">查看蔬果價錢</p>
+			</section>
+			<section>
+				<a href="/george?category=fish"></a><p class="feature">查看魚類價錢</p>
+			</section>
+			{% endif %}
+
+			{% if mode == "detail" %}
+			<section>
+				<p class="feature">上一個食材</p>
+			</section>
+			<section>
+				<p class="feature">下一個食材</p>
+			</section>
+			{% endif %}
+
+		</section>
+</div>

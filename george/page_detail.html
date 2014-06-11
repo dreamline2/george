@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+
+{% block facebook_graph_meta %}
+<meta property="og:image" content="http://davidwalsh.name/wp-content/themes/klass/img/facebooklogo.png"/>
+<meta property="og:description" content="由阿哲來推薦婆婆媽媽買菜的小幫手!!"/>
+{% endblock%}
+
+{% block content %}
+<div class="detail">
+	<div class="row">
+		<section class="5u">
+			<div class="item-box"></div>
+		</section>
+		<section class="7u">
+			<div id="chart_div" class="chart"></div>
+		</section>
+	</div>
+	<!-- <hr class="separation"> -->
+	<div id="chart_bottom" class="row">
+<!-- 			<div class="6u">
+			<ul class="other clearfix">
+				<li>觀看其他蔬菜</li>
+				<li>Top1</li>
+				<li>Top2</li>
+			</ul>
+		</div> -->
+		<div class="6u clearfix">
+			<ul class="share clearfix">
+				<li>尋找食譜</li>
+				<li>分享給朋友</li>
+			</ul>
+		</div>
+	</div>
+</div>
+{% endblock %}
+
+
+{% block js %}
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
+
+	var Temp = {{ js_template('george/template_item.html') }},
+
+		// jquery object
+		$level = $('.level'),
+		$w = $(window);
+
+	$w.on({
+	    ready: function (){
+	    	var data = George.Utils.getURLParameters(),
+	    		$level = $('.item-box');
+
+	    	George.event.initDisplay();
+
+	    	George.getItem({
+	    		id: data.id
+	    	},function(res){
+	            var real_data = [];
+	            real_data = res;
+	            George.Data = real_data;
+	            $level.html(George.render(Temp, George.Data));
+	            George.event.detectDeviceScreen();
+	        });
+
+	    	George.getItemTrend({
+	    		id: data.id
+	    	},function(res){
+	    		for (var i=0; i < res.length; i++) {
+	    			George.chart.data.push([res[i].day, res[i].price, res[i].wholesaler_price, res[i].amount]);
+	    		};
+	        });
+	    },
+	    resize: function () {
+	    	George.chart.draw();
+        	George.event.detectDeviceScreen();
+	    }
+	});
+
+	// Load the Visualization API and the piechart package.
+	google.load('visualization', '1.0', {'packages':['corechart']});
+
+	// Set a callback to run when the Google Visualization API is loaded.
+	google.setOnLoadCallback(George.chart.draw);
+
+	$('#fb_login').on('click',function(){
+		FB.login(function(response) {
+			FB.api('/me?fields=id,name', function(d) {
+
+                 $('#fb_user').text(d.name);
+                 $('#fb_login').hide();
+                 $('#fb_logout').show();
+
+            });
+		}, {scope: 'public_profile,email'});
+	});
+
+	$('#fb_logout').on('click',function(){
+	   	FB.logout(function(response) {
+	   		$('#fb_user').text('訪客');
+			$('#fb_login').show();
+			$('#fb_logout').hide();
+	    });
+	});
+
+
+
+
+</script>
+{% endblock %}

@@ -3,6 +3,14 @@
 	<head>
 		<title>阿哲心中的一把尺</title>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta property="og:title" content="阿哲心中一把尺"/>
+		<meta property="og:site_name" content="阿哲心中一把尺"/>
+
+		{% block facebook_graph_meta %}
+		<meta property="og:image" content="http://davidwalsh.name/wp-content/themes/klass/img/facebooklogo.png"/>
+		<meta property="og:description" content="由阿哲來推薦婆婆媽媽買菜的小幫手!!"/>
+		{% endblock %}
+
 		<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,600|Source+Code+Pro" rel="stylesheet" />
 		<link href="http://www.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet" />
 		<!-- html5shiv 解決 ie 不支援 html5 -->
@@ -14,7 +22,25 @@
 		<script src="/static/js/george.js"></script>
 	</head>
 	<body>
-		{% block content %}
+
+		<div id="fb-root"></div>
+		<script>(function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0];
+		  if (d.getElementById(id)) return;
+		  js = d.createElement(s); js.id = id;
+		  js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&appId=1427059277558859&version=v2.0";
+		  fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));</script>
+
+
+		<div class="container">
+			{% include "component_header.html" %}
+			{% include "component_nav.html" %}
+			{% block content %}{% endblock %}
+			{% include "component_footer.html" %}
+		</div>
+
+		{% block js %}
 		{% endblock %}
 	</body>
 </html>

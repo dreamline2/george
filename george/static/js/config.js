@@ -5,7 +5,7 @@ window._skel_config = {
 	boxModel: 'border',
 	grid: { gutters: 30 },
 	breakpoints: {
-		wide: { range: '1200-', containers: '90%', grid: { gutters: 0 } },
+		wide: { range: '1200-', containers: 1200, grid: { gutters: 0 } },
 		narrow: { range: '961-1199', containers: 960 },
 		narrower: { range: '481-960', containers: 'fluid', lockViewport: true, grid: { collapse: true, gutters: 0 }},
 		mobile: { range: '-480', containers: 'fluid', lockViewport: true, grid: { collapse: true, gutters: 0 } }
@@ -45,6 +45,20 @@ window._skel_panels_config = {
 		// 			'<a href="#" class="toggle icon-envelope" data-action="togglePanel" data-args="bottomPanel"></a>' +
 		// 			'<a href="http://twitter.com/n33co" class="icon-facebook"></a>'
 		// },
+		rightButton: {
+			breakpoints: 'wide,narrow',
+			position: 'middle-right',
+			width: 80,
+			height: 60,
+			html: '<div class="next btn"><div class="next_tri"></div><p>下一個</p></div>'
+		},
+		leftButton: {
+			breakpoints: 'wide,narrow',
+			position: 'middle-left',
+			width: 80,
+			height: 60,
+			html: '<div class="prev btn"><div class="prev_tri"></div><p>上一個</p></div>'
+		},
 		rightPanelButton: {
 			breakpoints: 'narrower,mobile',
 			position: 'top-right',
