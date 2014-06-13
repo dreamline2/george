@@ -2,12 +2,11 @@
 
 
 {% block content %}
-
-
-
-<div class="row level">{% include "component_loading.html" %}</div>
-
-
+<div class="row">
+	<div class="level">
+		{% include "component_loading.html" %}
+	</div>
+</div>
 {% endblock %}
 
 
@@ -30,18 +29,22 @@
 	            real_data = res;
 	            George.Data = real_data;
 	            $level.html(George.render(Temp, George.Data));
-	            George.event.detectDeviceScreen();
+	            // George.event.detectDeviceScreen();
 
-	   //          var container = document.querySelector('.level');
-				// var msnry = new Masonry( container, {
-				//   // options
-				//   columnWidth: 200,
-				//   gutter: 10,
-				//   itemSelector: '.item'
-				// });
+	            var container = document.querySelector('#list-dot-template');
+				var msnry;
+				// initialize Masonry after all images have loaded
+				imagesLoaded( container, function() {
+				  msnry = new Masonry( container, {
+					  // options
+					  columnWidth: 200,
+					  // gutter: 10,
+					  itemSelector: '.item'
+				  });
+				});
 	        });
-	    },
-	    resize: George.event.detectDeviceScreen
+	    }
+	    // resize: George.event.detectDeviceScreen
 	});
 
 
