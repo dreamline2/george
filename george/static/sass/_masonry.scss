@@ -1,0 +1,23 @@
+@media screen and (max-width: 480px) {
+    .item {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 481px) and (max-width: 960px) {
+    .item {
+        width: 50%;
+    }
+}
+
+@media screen and (min-width: 961px) and (max-width: 1199px) {
+    .item {
+        width: 50%;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .item {
+        width: 33.3333333333%;
+    }
+}

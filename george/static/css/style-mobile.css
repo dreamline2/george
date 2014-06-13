@@ -30,7 +30,7 @@ h2 {
 /* Header */
 /* line 29, ../sass/style-mobile.scss */
 #header {
-  margin-top: 4.5em;
+  margin-top: 2em;
   text-align: center;
 }
 
@@ -98,4 +98,9 @@ h2 {
 /* line 91, ../sass/style-mobile.scss */
 .level {
   padding: .1em;
+}
+
+/* line 94, ../sass/style-mobile.scss */
+.list_title {
+  font-size: 1em;
 }

@@ -1,6 +1,7 @@
 // @import "var";
 @import "base";
 @import "detail";
+@import "masonry";
 
 .button {
 	border-radius: 0.1em;
@@ -152,7 +153,7 @@
 		}
 	}
 	#header {
-		margin: 6em 0 3em 0;
+		// margin: 6em 0 3em 0;
 		height: 2em;
 	}
 
@@ -188,14 +189,16 @@
 			text-decoration: none;
 		}
 	}
-	.container {
-		padding: 0 2em 0 2em;
-	}
+	// .container {
+	// 	padding: 0 2em 0 2em;
+	// }
 
 	.level {
+		border-top: 1px solid #ffffff;
 		background: #ffffff;
 		border-radius: 10px;
 		padding: 1em;
+		width: 100%;
 
 		// section{
 		// 	margin: 1em 0 ;
@@ -254,6 +257,7 @@
 			.level-body{
 				border: 1px solid #e5e4df;
 				box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.2);
+				background-color: #ffffff;
 				// width: 300px;
 				// height: 300px;
 			}
@@ -383,7 +387,31 @@
 	}
 }
 #list-dot-template {
+	width: 100%;
+	padding: 0;
 	section {
 		float: left;
 	}
+}
+
+#infscr-loading {
+	text-align: center;
+	z-index: 100;
+	position: fixed;
+	margin-left: 40%;
+	bottom: 40px;
+	width: 200px;
+	padding: 10px;
+	background: #000;
+	opacity: 0.8;
+	color: #FFF;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+}
+
+.list_title {
+	padding: 2em 0 1em 0;
+	font-size: 2em;
+	text-align: center;
 }

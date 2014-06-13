@@ -1,0 +1,26 @@
+{{~it.data:v:i}}
+<section class="item">
+    <div class="level-box">
+        <div class="level-head">
+            <p>Top {{=i+1}}</p>
+        </div>
+        <div class="level-body">
+            <div class="level-name"></div>
+            <div class="level-img">
+                <img src="{{=it.data[i].image}}" alt="">
+                <h1>{{=it.data[i].name}}</h1>
+            </div>
+            <div class="level-desc">
+                {{?it.data[i].wholesaler_price < it.data[i].price}}
+                    <p>賣場高於盤商價<span class="level-hightlight">{{=it.data[i].price - it.data[i].wholesaler_price}}</span>元</p>
+                {{??}}
+                    <p>賣場低於盤商價<span class="level-hightlight">{{=it.data[i].wholesaler_price - it.data[i].price}}</span>元</p>
+                {{?}}
+                <p>今日賣場價<span>{{=it.data[i].price}}</span>元/斤</p>
+                <p>今日盤商價<span>{{=it.data[i].wholesaler_price}}</span>元/斤</p>
+                <a href="/detail?id={{=it.data[i].name}}" class="button">近期走勢</a>
+            </div>
+        </div>
+    </div>
+</section>
+{{~}}

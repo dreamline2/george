@@ -10,7 +10,7 @@
 <div class="row">
 	<div id="list-dot-template">
 		{{~it.data:v:i}}
-		<section class="item 4u">
+		<section class="item">
 			<div class="level-box">
 				<div class="level-head">
 					<p>Top {{=i+1}}</p>
@@ -36,10 +36,13 @@
 		</section>
 		{{~}}
 	</div>
+	<div class="row">
+		<div id="loading" class="12u"><a href="/api/food/fish/list?size=6&page=1"></a></div>
+	</div>
 </div>
-
+<!--
 <div class="row">
 	<section class="12u">
 		<div class="load_more">查詢更多{{=it.init}}</div>
 	</section>
-</div>
+</div> -->

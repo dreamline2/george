@@ -9,6 +9,9 @@ handlers:
   static_files: favicon.ico
   upload: favicon\.ico
 
+- url: /libs
+  static_dir: bower_components
+
 - url: /static
   static_dir: george/static
 

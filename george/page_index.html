@@ -14,6 +14,7 @@
 <script type="text/javascript">
 
 	var Temp = {{ js_template('george/template_item_list.html') }},
+		Temp_apend = {{ js_template('george/template_item_append.html') }}
 
 		// jquery object
 		$level = $('.level'),
@@ -25,28 +26,50 @@
 		    George.getItemList({
 		    	id: George.category
 		    },function(res){
-	            var real_data = [];
-	            real_data = res;
-	            George.Data = real_data;
-	            $level.html(George.render(Temp, George.Data));
-	            // George.event.detectDeviceScreen();
+	            George.Data = res;
 
-	            var container = document.querySelector('#list-dot-template');
-				var msnry;
-				// initialize Masonry after all images have loaded
-				imagesLoaded( container, function() {
-				  msnry = new Masonry( container, {
-					  // options
-					  columnWidth: 200,
-					  // gutter: 10,
-					  itemSelector: '.item'
-				  });
-				});
+	            setTimeout( function () {
+
+		            $level.html(George.render(Temp, George.Data));
+		            // George.event.detectDeviceScreen();
+
+		            var container = document.querySelector('#list-dot-template');
+					var msnry;
+					// initialize Masonry after all images have loaded
+					imagesLoaded( container, function() {
+					  msnry = new Masonry( container, {
+						  // options
+						  columnWidth: 0,
+						  gutter: 0,
+						  itemSelector: '.item'
+					  });
+					});
+
+					$('#list-dot-template').infinitescroll({
+						navSelector  : "#loading",
+					    nextSelector : "#loading a",
+					    itemSelector : "#list-dot-template .item",
+						dataType: 'json',
+					    appendCallback: false
+					}, function(json, opts) {
+						// Get current page
+						var page = opts.state.currPage;
+						console.log(page)
+						$('#list-dot-template').append(George.render(Temp_apend, json));
+						imagesLoaded( container, function() {
+						  msnry = new Masonry( container, {
+							  // options
+							  columnWidth: 0,
+							  gutter: 0,
+							  itemSelector: '.item'
+						  });
+						});
+					});
+
+	            }, 1000 );
 	        });
 	    }
-	    // resize: George.event.detectDeviceScreen
 	});
-
 
 
 	$('#fb_login').on('click',function(){

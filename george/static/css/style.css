@@ -6,7 +6,7 @@ body {
 /* line 5, ../sass/_loading.scss */
 .mikepad-loading {
   width: 100%;
-  margin: 14em 0;
+  padding: 14em 0;
 }
 
 /* line 17, ../sass/_loading.scss */
@@ -269,7 +269,31 @@ textarea {
   margin: 1em;
 }
 
-/* line 5, ../sass/style.scss */
+@media screen and (max-width: 480px) {
+  /* line 2, ../sass/_masonry.scss */
+  .item {
+    width: 100%;
+  }
+}
+@media screen and (min-width: 481px) and (max-width: 960px) {
+  /* line 8, ../sass/_masonry.scss */
+  .item {
+    width: 50%;
+  }
+}
+@media screen and (min-width: 961px) and (max-width: 1199px) {
+  /* line 14, ../sass/_masonry.scss */
+  .item {
+    width: 50%;
+  }
+}
+@media screen and (min-width: 1200px) {
+  /* line 20, ../sass/_masonry.scss */
+  .item {
+    width: 33.3333333333%;
+  }
+}
+/* line 6, ../sass/style.scss */
 .button {
   border-radius: 0.1em;
   border: 0;
@@ -285,20 +309,20 @@ textarea {
   font-size: 2em;
   background: #f8b100;
 }
-/* line 22, ../sass/style.scss */
+/* line 23, ../sass/style.scss */
 .button:hover {
   background: #F39F22;
 }
 
 /* Nav */
-/* line 29, ../sass/style.scss */
+/* line 30, ../sass/style.scss */
 #nav a {
   color: #fff;
   font-style: italic;
   text-decoration: none;
 }
 
-/* line 34, ../sass/style.scss */
+/* line 35, ../sass/style.scss */
 .feature {
   color: #b2b9bC;
   text-decoration: none;
@@ -311,20 +335,20 @@ textarea {
   font-size: 1.5em;
   cursor: pointer;
 }
-/* line 46, ../sass/style.scss */
+/* line 47, ../sass/style.scss */
 .feature:hover {
   background-color: #CA4949;
   color: #ffffff;
 }
 
-/* line 52, ../sass/style.scss */
+/* line 53, ../sass/style.scss */
 .slogan {
   margin-bottom: 10em !important;
   color: #7A7979;
 }
 
 /* Hero */
-/* line 59, ../sass/style.scss */
+/* line 60, ../sass/style.scss */
 #hero {
   background: #369ab8;
   color: #fff;
@@ -332,14 +356,14 @@ textarea {
 }
 
 /* Footer */
-/* line 67, ../sass/style.scss */
+/* line 68, ../sass/style.scss */
 #footer {
   color: #ffffff;
   text-align: center;
 }
 
 /* Overlays */
-/* line 74, ../sass/style.scss */
+/* line 75, ../sass/style.scss */
 #contactBar {
   border-radius: 0.5em 0.5em 0 0;
   background: rgba(71, 86, 91, 0.9);
@@ -348,14 +372,14 @@ textarea {
   font-size: 1.25em;
 }
 
-/* line 82, ../sass/style.scss */
+/* line 83, ../sass/style.scss */
 #contactBar a {
   display: inline-block;
   margin: 0 0.85em 0 0.85em;
   color: #fff;
 }
 
-/* line 88, ../sass/style.scss */
+/* line 89, ../sass/style.scss */
 #titleBar {
   background: #ffffff;
   text-align: center;
@@ -364,7 +388,7 @@ textarea {
 }
 
 /* Panels */
-/* line 99, ../sass/style.scss */
+/* line 100, ../sass/style.scss */
 #leftPanel,
 #rightPanel,
 #bottomPanel {
@@ -372,7 +396,7 @@ textarea {
   padding: 1.25em;
 }
 
-/* line 104, ../sass/style.scss */
+/* line 105, ../sass/style.scss */
 #rightPanel {
   -moz-box-shadow: rgba(51, 51, 102, 0.49804) 2px 0px 0px inset;
   -webkit-box-shadow: rgba(51, 51, 102, 0.49804) 2px 0px 0px inset;
@@ -380,7 +404,7 @@ textarea {
   background: url(http://subtlepatterns.com/patterns/sativa.png);
 }
 
-/* line 124, ../sass/style.scss */
+/* line 125, ../sass/style.scss */
 #bottomPanel form {
   width: 100%;
   max-width: 640px;
@@ -389,40 +413,39 @@ textarea {
 }
 
 /* */
-/* line 132, ../sass/style.scss */
+/* line 133, ../sass/style.scss */
 #fb_logout {
   display: none;
 }
 
-/* line 136, ../sass/style.scss */
+/* line 137, ../sass/style.scss */
 #rightPanel span {
   margin: 0 .5em;
 }
-/* line 139, ../sass/style.scss */
+/* line 140, ../sass/style.scss */
 #rightPanel h1 {
   margin: 1em 0;
   font-size: 1.5em;
   line-height: 2em;
   color: #5C5C5C;
 }
-/* line 145, ../sass/style.scss */
+/* line 146, ../sass/style.scss */
 #rightPanel p {
   line-height: 2em;
   margin: 1em 0;
 }
 
-/* line 154, ../sass/style.scss */
+/* line 155, ../sass/style.scss */
 #header {
-  margin: 6em 0 3em 0;
   height: 2em;
 }
 
-/* line 159, ../sass/style.scss */
+/* line 160, ../sass/style.scss */
 #footer {
   margin: 2em 0;
 }
 
-/* line 163, ../sass/style.scss */
+/* line 164, ../sass/style.scss */
 #nav {
   top: 1em;
   margin: 3em 0;
@@ -433,52 +456,49 @@ textarea {
   line-height: 3em;
 }
 
-/* line 174, ../sass/style.scss */
+/* line 175, ../sass/style.scss */
 #title {
   display: none;
 }
 
-/* line 178, ../sass/style.scss */
+/* line 179, ../sass/style.scss */
 #titleBar {
   border-bottom: 2px solid #e5e4df;
 }
-/* line 180, ../sass/style.scss */
+/* line 181, ../sass/style.scss */
 #titleBar img {
   position: relative;
   top: 6px;
   margin-right: 10px;
 }
-/* line 186, ../sass/style.scss */
+/* line 187, ../sass/style.scss */
 #titleBar a {
   color: #66371a;
   text-decoration: none;
 }
 
-/* line 191, ../sass/style.scss */
-.container {
-  padding: 0 2em 0 2em;
-}
-
-/* line 195, ../sass/style.scss */
+/* line 196, ../sass/style.scss */
 .level {
+  border-top: 1px solid #ffffff;
   background: #ffffff;
   border-radius: 10px;
   padding: 1em;
+  width: 100%;
 }
 
-/* line 204, ../sass/style.scss */
+/* line 207, ../sass/style.scss */
 .level-box {
   margin: 1em;
   position: relative;
 }
 
-/* line 208, ../sass/style.scss */
+/* line 211, ../sass/style.scss */
 .item-box {
   margin: 1em;
   position: relative;
 }
 
-/* line 213, ../sass/style.scss */
+/* line 216, ../sass/style.scss */
 .level-head {
   text-align: center;
   position: absolute;
@@ -487,7 +507,7 @@ textarea {
   top: 10px;
   left: 10px;
 }
-/* line 220, ../sass/style.scss */
+/* line 223, ../sass/style.scss */
 .level-head p {
   display: inline-block;
   width: 100px;
@@ -497,7 +517,7 @@ textarea {
   color: #3F3F3F;
 }
 
-/* line 230, ../sass/style.scss */
+/* line 233, ../sass/style.scss */
 .level-img {
   position: relative;
   overflow: hidden;
@@ -505,7 +525,7 @@ textarea {
   text-align: center;
   line-height: 1%;
 }
-/* line 237, ../sass/style.scss */
+/* line 240, ../sass/style.scss */
 .level-img h1 {
   position: absolute;
   bottom: 0px;
@@ -515,39 +535,40 @@ textarea {
   line-height: 40px;
   background: rgba(0, 0, 0, 0.7);
 }
-/* line 246, ../sass/style.scss */
+/* line 249, ../sass/style.scss */
 .level-img img {
   max-height: 100%;
   max-width: 100%;
 }
 
-/* line 254, ../sass/style.scss */
+/* line 257, ../sass/style.scss */
 .level-body {
   border: 1px solid #e5e4df;
   box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.2);
+  background-color: #ffffff;
 }
 
-/* line 260, ../sass/style.scss */
+/* line 264, ../sass/style.scss */
 .level-desc {
   padding: 1em .5em;
 }
-/* line 262, ../sass/style.scss */
+/* line 266, ../sass/style.scss */
 .level-desc p {
   margin: .5em 1em;
   color: #616161;
 }
-/* line 266, ../sass/style.scss */
+/* line 270, ../sass/style.scss */
 .level-desc span {
   font-size: 2em;
   margin: .2em;
 }
 
-/* line 271, ../sass/style.scss */
+/* line 275, ../sass/style.scss */
 .level-hightlight {
   color: #ff0000;
 }
 
-/* line 274, ../sass/style.scss */
+/* line 278, ../sass/style.scss */
 .btn {
   position: absolute;
   top: 30%;
@@ -557,12 +578,12 @@ textarea {
   color: #ffffff;
   cursor: pointer;
 }
-/* line 282, ../sass/style.scss */
+/* line 286, ../sass/style.scss */
 .btn p {
   text-align: center;
 }
 
-/* line 286, ../sass/style.scss */
+/* line 290, ../sass/style.scss */
 .prev {
   left: 0;
   -webkit-border-top-right-radius: 5px;
@@ -573,7 +594,7 @@ textarea {
   border-bottom-right-radius: 5px;
 }
 
-/* line 297, ../sass/style.scss */
+/* line 301, ../sass/style.scss */
 .prev_tri {
   position: relative;
   left: 25px;
@@ -585,7 +606,7 @@ textarea {
   border-color: transparent #ffffff transparent transparent;
 }
 
-/* line 308, ../sass/style.scss */
+/* line 312, ../sass/style.scss */
 .next {
   right: 0;
   -webkit-border-top-left-radius: 5px;
@@ -596,7 +617,7 @@ textarea {
   border-bottom-left-radius: 5px;
 }
 
-/* line 318, ../sass/style.scss */
+/* line 322, ../sass/style.scss */
 .next_tri {
   position: relative;
   left: 25px;
@@ -608,7 +629,7 @@ textarea {
   border-color: transparent transparent transparent #ffffff;
 }
 
-/* line 332, ../sass/style.scss */
+/* line 336, ../sass/style.scss */
 .is-desktop {
   position: relative;
   top: -9px;
@@ -616,7 +637,7 @@ textarea {
   font-size: 1.5em;
 }
 
-/* line 343, ../sass/style.scss */
+/* line 347, ../sass/style.scss */
 .load_more {
   border-radius: 0.1em;
   border: 0;
@@ -632,12 +653,12 @@ textarea {
   font-size: 2em;
   background: #f8b100;
 }
-/* line 360, ../sass/style.scss */
+/* line 364, ../sass/style.scss */
 .load_more:hover {
   background: #F39F22;
 }
 
-/* line 364, ../sass/style.scss */
+/* line 368, ../sass/style.scss */
 .button1 {
   border-radius: 0.1em;
   border: 0;
@@ -653,12 +674,41 @@ textarea {
   font-size: 1em;
   background: #f8b100;
 }
-/* line 381, ../sass/style.scss */
+/* line 385, ../sass/style.scss */
 .button1:hover {
   background: #F39F22;
 }
 
-/* line 386, ../sass/style.scss */
+/* line 389, ../sass/style.scss */
+#list-dot-template {
+  width: 100%;
+  padding: 0;
+}
+/* line 392, ../sass/style.scss */
 #list-dot-template section {
   float: left;
+}
+
+/* line 397, ../sass/style.scss */
+#infscr-loading {
+  text-align: center;
+  z-index: 100;
+  position: fixed;
+  margin-left: 40%;
+  bottom: 40px;
+  width: 200px;
+  padding: 10px;
+  background: #000;
+  opacity: 0.8;
+  color: #FFF;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+
+/* line 413, ../sass/style.scss */
+.list_title {
+  padding: 2em 0 1em 0;
+  font-size: 2em;
+  text-align: center;
 }

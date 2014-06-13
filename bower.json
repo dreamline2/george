@@ -1,0 +1,28 @@
+{
+  "name": "george",
+  "version": "0.0.0",
+  "homepage": "https://github.com/dreamline2/george",
+  "authors": [
+    "wilson <wilson20120311@gmail.com>"
+  ],
+  "description": "幫婆婆媽媽選好菜",
+  "main": "d",
+  "keywords": [
+    "阿哲",
+    "挑菜",
+    "小幫手"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "imagesloaded": "~3.1.5",
+    "masonry": "~3.1.5",
+    "jquery": "~2.1.1"
+  }
+}
