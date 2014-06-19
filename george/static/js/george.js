@@ -61,7 +61,7 @@ George = (function($){
         render: function(temp, data){
             var html = temp({
                 "data" : data,
-                "init": George.env.category
+                "init": George.env.init
             });
             return html;
         },

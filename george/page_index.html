@@ -46,15 +46,33 @@
 					});
 
 					$('#list-dot-template').infinitescroll({
-						navSelector  : "#loading",
 					    nextSelector : "#loading a",
+						navSelector  : "#loading",
 					    itemSelector : "#list-dot-template .item",
 						dataType: 'json',
-					    appendCallback: false
+					    appendCallback: false,
+					    errorCallback: function(errorType) {
+							if (errorType == "done") { // Do something here
+								console.log('have done!')
+							}
+						},
+						loading: {
+							img: '',
+					        finished: undefined,
+					        finishedMsg: "<em>沒有了噢</em>",
+					        msg: null,
+					        msgText: '<span class="loader loader-quart"></span>',
+					        selector: null,
+					        speed: 'fast',
+					        start: undefined
+					    }
 					}, function(json, opts) {
+
+						setTimeout( function () {
 						// Get current page
 						var page = opts.state.currPage;
 						console.log(page)
+						// $('#infscr-loading img').remove();
 						$('#list-dot-template').append(George.render(Temp_apend, json));
 						imagesLoaded( container, function() {
 						  msnry = new Masonry( container, {
@@ -64,6 +82,8 @@
 							  itemSelector: '.item'
 						  });
 						});
+
+						}, 1000 );
 					});
 
 	            }, 1000 );

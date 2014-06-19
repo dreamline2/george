@@ -27,19 +27,24 @@ class MainHandler(HtmlHandler):
             left = u'蔬果'
             rightURL = baseURL + 'fish'
             leftURL = baseURL + 'vegetable'
+            text = u'蛋和肉'
         elif _type == 'vegetable':
             right = u'蛋與肉'
             left = u'魚類'
             rightURL = baseURL + 'meat'
             leftURL = baseURL + 'fish'
+            text = u'蔬菜與水果'
         elif _type == 'fish':
             right = u'蔬果'
             left = u'蛋與肉'
             rightURL = baseURL + 'vegetable'
             leftURL = baseURL + 'meat'
+            text = u'魚類'
+
+        className = _type
 
 
-        self.HtmlResponse("page_index.html", {"mode": "index", "type": _type, "name": types[_type], "right": right, "left": left, "rightURL": rightURL, "leftURL": leftURL })
+        self.HtmlResponse("page_index.html", {"mode": "index", "type": _type, "name": types[_type], "right": right, "left": left, "rightURL": rightURL, "leftURL": leftURL, "text": text , "className": className })
 
 class DetailHandler(HtmlHandler):
     def get(self):

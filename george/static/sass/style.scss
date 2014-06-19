@@ -199,6 +199,7 @@
 		border-radius: 10px;
 		padding: 1em;
 		width: 100%;
+		margin-bottom: 10em;
 
 		// section{
 		// 	margin: 1em 0 ;
@@ -389,6 +390,7 @@
 #list-dot-template {
 	width: 100%;
 	padding: 0;
+	margin-bottom: 20em;
 	section {
 		float: left;
 	}
@@ -398,20 +400,39 @@
 	text-align: center;
 	z-index: 100;
 	position: fixed;
-	margin-left: 40%;
-	bottom: 40px;
-	width: 200px;
-	padding: 10px;
-	background: #000;
-	opacity: 0.8;
-	color: #FFF;
-	-webkit-border-radius: 10px;
-	-moz-border-radius: 10px;
-	border-radius: 10px;
+	left: 50%;
+	margin-left: -2em;
+	bottom: 6em;
+	padding: 20px;
+	color: #000;
+	div{
+		padding: 1em 0 1em 0;
+		font-size: 2em;
+		text-align: center;
+		color: #DA4848;
+	}
+
 }
 
 .list_title {
 	padding: 2em 0 1em 0;
 	font-size: 2em;
 	text-align: center;
+}
+
+.vegetable {
+	width: 100px;
+	height: 100px;
+	background: $bg;
+	background-position: 0 0;
+}
+
+.fish {
+	background: $bg;
+	background-position: 0 0;
+}
+
+.meat {
+	background: $bg;
+	background-position: 0 0;
 }
