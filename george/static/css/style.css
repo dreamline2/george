@@ -643,14 +643,14 @@ textarea {
 }
 /* line 19, ../sass/_detail.scss */
 #chart_bottom li {
-  float: left;
-  margin: 0em 1em;
+  float: right;
+  margin: 0em 0em;
 }
 
 /* line 30, ../sass/_detail.scss */
 .separation {
   border: 2px dashed #BEBEBE;
-  margin: 1em;
+  margin: 0em;
 }
 
 @media screen and (max-width: 480px) {
@@ -660,19 +660,19 @@ textarea {
   }
 }
 @media screen and (min-width: 481px) and (max-width: 960px) {
-  /* line 8, ../sass/_masonry.scss */
+  /* line 9, ../sass/_masonry.scss */
   .item {
     width: 50%;
   }
 }
 @media screen and (min-width: 961px) and (max-width: 1199px) {
-  /* line 14, ../sass/_masonry.scss */
+  /* line 16, ../sass/_masonry.scss */
   .item {
     width: 50%;
   }
 }
 @media screen and (min-width: 1200px) {
-  /* line 20, ../sass/_masonry.scss */
+  /* line 22, ../sass/_masonry.scss */
   .item {
     width: 33.3333333333%;
   }
@@ -1047,35 +1047,37 @@ textarea {
 .button1 {
   border-radius: 0.1em;
   border: 0;
-  border-bottom: 2px solid #E49E35;
-  border-right: 2px solid #E49E35;
+  border-bottom: 2px solid #373794;
+  border-right: 2px solid #373794;
   color: #fff;
   display: block;
   text-decoration: none;
   background: none;
   cursor: pointer;
-  margin: .5em;
+  margin: 1em 1.5em;
   text-align: center;
   font-size: 1em;
-  background: #f8b100;
+  background: #3b5998;
+  height: 3em;
+  line-height: 3em;
 }
-/* line 386, ../sass/style.scss */
+/* line 388, ../sass/style.scss */
 .button1:hover {
-  background: #F39F22;
+  background: #2B4374;
 }
 
-/* line 390, ../sass/style.scss */
+/* line 392, ../sass/style.scss */
 #list-dot-template {
   width: 100%;
   padding: 0;
   margin-bottom: 20em;
 }
-/* line 394, ../sass/style.scss */
+/* line 396, ../sass/style.scss */
 #list-dot-template section {
   float: left;
 }
 
-/* line 399, ../sass/style.scss */
+/* line 401, ../sass/style.scss */
 #infscr-loading {
   text-align: center;
   z-index: 100;
@@ -1086,7 +1088,7 @@ textarea {
   padding: 20px;
   color: #000;
 }
-/* line 408, ../sass/style.scss */
+/* line 410, ../sass/style.scss */
 #infscr-loading div {
   padding: 1em 0 1em 0;
   font-size: 2em;
@@ -1094,14 +1096,14 @@ textarea {
   color: #DA4848;
 }
 
-/* line 417, ../sass/style.scss */
+/* line 419, ../sass/style.scss */
 .list_title {
   padding: 2em 0 1em 0;
   font-size: 2em;
   text-align: center;
 }
 
-/* line 423, ../sass/style.scss */
+/* line 425, ../sass/style.scss */
 .vegetable {
   width: 100px;
   height: 100px;
@@ -1109,14 +1111,20 @@ textarea {
   background-position: 0 0;
 }
 
-/* line 430, ../sass/style.scss */
+/* line 432, ../sass/style.scss */
 .fish {
   background: url("http://lh6.ggpht.com/Q7tGWLULHp1vgM-MVsCNeOfrPSy_MJ9z7b-ZVDhd9VohBQh_lTdbgqIW-7QK9sQ36HhZH4CJgg2A50MjPPn4Aik");
   background-position: 0 0;
 }
 
-/* line 435, ../sass/style.scss */
+/* line 437, ../sass/style.scss */
 .meat {
   background: url("http://lh6.ggpht.com/Q7tGWLULHp1vgM-MVsCNeOfrPSy_MJ9z7b-ZVDhd9VohBQh_lTdbgqIW-7QK9sQ36HhZH4CJgg2A50MjPPn4Aik");
   background-position: 0 0;
+}
+
+/* line 441, ../sass/style.scss */
+.chart {
+  border: 5px solid #999999;
+  margin: 1em;
 }
