@@ -14,10 +14,11 @@
 <script type="text/javascript">
 
 	var Temp = {{ js_template('george/template_item_list.html') }},
-		Temp_apend = {{ js_template('george/template_item_append.html') }}
+		Temp_apend = {{ js_template('george/template_item_append.html') }},
 
 		// jquery object
 		$level = $('.level'),
+
 		$w = $(window);
 
 	$w.on({
@@ -32,6 +33,9 @@
 
 		            $level.html(George.render(Temp, George.Data));
 		            // George.event.detectDeviceScreen();
+
+		            // 登入機制
+		            George.event.loginMechanism();
 
 		            var container = document.querySelector('#list-dot-template');
 					var msnry;
@@ -92,43 +96,7 @@
 	});
 
 
-	$('#fb_login').on('click',function(){
 
-		if(George.env.loginStatus) {
-			    $('#fb_user').text(George.env.userName);
-                $('#fb_login').hide();
-                $('#fb_logout').show();
-		} else {
-			FB.login(function(response) {
-				George.loginUser({
-					token: response.authResponse.accessToken
-				},function(res){
-					George.env.loginStatus = true;
-				    $('#fb_user').text(res.name);
-	                $('#fb_login').hide();
-	                $('#fb_logout').show();
-				});
-			}, {scope: 'public_profile,email'});
-		}
-
-	});
-
-	$('#fb_logout').on('click',function(){
-		George.loginUser({
-			token: response.authResponse.accessToken
-		},function(res){
-			console.log(res)
-			// George.env.loginStatus = true;
-		 //    $('#fb_user').text(res.name);
-   //          $('#fb_login').hide();
-   //          $('#fb_logout').show();
-		});
-	  //  	FB.logout(function(response) {
-	  //  		$('#fb_user').text('訪客');
-			// $('#fb_login').show();
-			// $('#fb_logout').hide();
-	  //   });
-	});
 
 </script>
 {% endblock %}

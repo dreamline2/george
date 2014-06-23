@@ -104,3 +104,11 @@ h2 {
 .list_title {
   font-size: 1em;
 }
+
+/* line 97, ../sass/style-mobile.scss */
+.pre-icon {
+  height: 50px;
+  bottom: -15px;
+  left: -15px;
+  position: relative;
+}

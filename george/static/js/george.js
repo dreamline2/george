@@ -138,13 +138,62 @@ George.event = {
 
     initDisplay: function () {
         var $img = $('#titleBar img'),
+            $preIcon = $('.pre-icon'),
             desktopWidth = 960;
 
         if (George.env.width > desktopWidth) {
-            $img.attr('width',30);
+            // $img.attr('width',30);
+            // $preIcon.attr('height',100);
         } else {
-            $img.attr('width',15);
+            // $img.attr('width',15);
+            // $preIcon.attr('height',50);
         }
+
+        // check user login status
+        George.checkUserInfo({},function(res){
+            George.env.loginStatus = res.status;
+
+            if (George.env.loginStatus) {
+                $('#fb_user').text(George.env.userName);
+                $('#fb_login,.login_button').hide();
+                $('#fb_logout,.logout_button').show();
+            }
+        });
+    },
+
+    loginMechanism: function () {
+        $('#fb_login,.login_button').on('click',function(){
+            FB.login(function(response) {
+                // console.log(response)
+                var key = response.authResponse.accessToken;
+                George.Cookie.setItem('accessToken',key);
+
+                George.loginUser({
+                    token: key
+                },function(res){
+                    George.env.loginStatus = true;
+                    $('#fb_user').text(res.name);
+                    $('#fb_login,.login_button').hide();
+                    $('#fb_logout,.logout_button').show();
+                });
+
+            }, {scope: 'public_profile,email'});
+        });
+
+        $('#fb_logout,.logout_button').on('click',function(){
+            George.logoutUser({},function(res){
+                console.log(res)
+                // George.env.loginStatus = true;
+             //    $('#fb_user').text(res.name);
+       //          $('#fb_login').hide();
+       //          $('#fb_logout').show();
+            });
+          //    FB.logout(function(response) {
+          //        $('#fb_user').text('訪客');
+                // $('#fb_login').show();
+                // $('#fb_logout').hide();
+          //   });
+        });
     }
 
 }

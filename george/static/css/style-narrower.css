@@ -56,3 +56,11 @@
 .container {
   padding: 0 1em 0 1em;
 }
+
+/* line 55, ../sass/style-narrower.scss */
+.pre-icon {
+  bottom: -10px;
+  left: -15px;
+  position: relative;
+  height: 50px;
+}

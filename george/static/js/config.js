@@ -3,7 +3,7 @@ window._skel_config = {
 	preloadStyleSheets: true,
 	resetCSS: true,
 	boxModel: 'border',
-	grid: { gutters: 30 },
+	grid: { gutters: 0 },
 	breakpoints: {
 		wide: { range: '1200-', containers: 1200, grid: { gutters: 0 } },
 		narrow: { range: '961-1199', containers: 960 },

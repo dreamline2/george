@@ -146,5 +146,5 @@ class UserInfo(ApiHandler):
         if is_login:
             result = {"name":"test"}
         else:
-            result = {"status": False}
+            result = {"status": True}
         self.output(result)

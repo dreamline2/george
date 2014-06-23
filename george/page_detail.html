@@ -17,9 +17,9 @@
 		<section class="3u">
 			<div id="chart_bottom" class="row">
 				<ul class="share clearfix">
-					<li class="12u"><a id="" class="button1">查看周線</a></li>
-					<li class="12u"><a id="" class="button1">查看月線</a></li>
-					<li class="12u"><a id="" class="button1">查看季線</a></li>
+					<li class="12u"><a id="checkWeek" class="button1">查看周線</a></li>
+					<li class="12u"><a id="checkMonth" class="button1">查看月線</a></li>
+					<li class="12u"><a id="check" class="button1">查看季線</a></li>
 					<li class="12u"><a id="cookbook" class="button1" target="_bank">尋找食譜</a></li>
 					<li class="12u"><p id="FB_share" class="button1">分享給朋友</p></li>
 				</ul>
@@ -66,11 +66,11 @@
 	    	George.getItem({
 	    		id: data.id
 	    	},function(res){
-	    		console.log(res)
-	            var real_data = [];
-	            real_data = res;
-	            George.Data = real_data;
+	            George.Data = res;
+
 	            $level.html(George.render(Temp, George.Data));
+
+	            George.event.loginMechanism();
 	            George.event.detectDeviceScreen();
 
 	            $('#FB_share').on('click',function(){
@@ -83,6 +83,10 @@
 					}, function(response){});
 	            });
 
+	            $('#checkWeek').on('click', George.chart.draw);
+	            $('#checkMonth').on('click', George.chart.draw);
+	            $('#checkSeason').on('click', George.chart.draw);
+
 	            $('#cookbook').attr('href',George.event.searchIcookAPI(George.Data.name));
 
 
@@ -90,14 +94,14 @@
 	            George.env.init.rightURL = document.location.pathname + '?id=' + George.Data.next;
 
 	           	if(George.Data.prev) {
-	           		$('#leftButton a').attr('href',George.env.init.leftURL);
+	           		$('#leftButton a,#leftfood').attr('href',George.env.init.leftURL);
 	            } else {
-	            	$('#leftButton').css('display','none');
+	            	$('#leftButton,#leftfood').css('display','none');
 	            }
 	            if(George.Data.next) {
-	            	$('#rightButton a').attr('href',George.env.init.rightURL);
+	            	$('#rightButton a,#rightfood').attr('href',George.env.init.rightURL);
 	            } else {
-	            	$('#rightButton').css('display','none');
+	            	$('#rightButton,#rightfood').css('display','none');
 	            }
 
 	        });
@@ -122,25 +126,25 @@
 	// Set a callback to run when the Google Visualization API is loaded.
 	google.setOnLoadCallback(George.chart.draw);
 
-	$('#fb_login').on('click',function(){
-		FB.login(function(response) {
-			FB.api('/me?fields=id,name', function(d) {
+	// $('#fb_login').on('click',function(){
+	// 	FB.login(function(response) {
+	// 		FB.api('/me?fields=id,name', function(d) {
 
-                 $('#fb_user').text(d.name);
-                 $('#fb_login').hide();
-                 $('#fb_logout').show();
+ //                 $('#fb_user').text(d.name);
+ //                 $('#fb_login').hide();
+ //                 $('#fb_logout').show();
 
-            });
-		}, {scope: 'public_profile,email'});
-	});
+ //            });
+	// 	}, {scope: 'public_profile,email'});
+	// });
 
-	$('#fb_logout').on('click',function(){
-	   	FB.logout(function(response) {
-	   		$('#fb_user').text('訪客');
-			$('#fb_login').show();
-			$('#fb_logout').hide();
-	    });
-	});
+	// $('#fb_logout').on('click',function(){
+	//    	FB.logout(function(response) {
+	//    		$('#fb_user').text('訪客');
+	// 		$('#fb_login').show();
+	// 		$('#fb_logout').hide();
+	//     });
+	// });
 
 
 

@@ -28,23 +28,26 @@ class MainHandler(HtmlHandler):
             rightURL = baseURL + 'fish'
             leftURL = baseURL + 'vegetable'
             text = u'蛋和肉'
+            img = 'http://lh6.ggpht.com/v6fWaUdR0Lop64ug2zBScQ8u4k4L1UZsQJorOlk_Qfidj-pbPPNHglXZflS0FxElxaaKcPFdxTWc2wV-GlYG_g=w200'
         elif _type == 'vegetable':
             right = u'蛋與肉'
             left = u'魚類'
             rightURL = baseURL + 'meat'
             leftURL = baseURL + 'fish'
             text = u'蔬菜與水果'
+            img = 'http://lh5.ggpht.com/MOSYap9u2Da62aUJpIXQEOaBaLPzS69T9k4iIGHCJvx9uHYHBqWknG3Z5llAIVPQQn3M3-Za1HkPLsYGfyY2Kcs=w200'
         elif _type == 'fish':
             right = u'蔬果'
             left = u'蛋與肉'
             rightURL = baseURL + 'vegetable'
             leftURL = baseURL + 'meat'
             text = u'魚類'
+            img = 'http://lh3.ggpht.com/YmVrZbSRnlruPOjVcWBzNAVd-g8ReXFZ20LjKaHiqA9aPQJDNb0KHfIztWxG81Pe7ddR9Je0UhUDNeHU92VUgBk=w200'
 
         className = _type
 
 
-        self.HtmlResponse("page_index.html", {"mode": "index", "type": _type, "name": types[_type], "right": right, "left": left, "rightURL": rightURL, "leftURL": leftURL, "text": text , "className": className })
+        self.HtmlResponse("page_index.html", {"mode": "index", "type": _type, "name": types[_type], "right": right, "left": left, "rightURL": rightURL, "leftURL": leftURL, "text": text , "className": className, "img": img })
 
 class DetailHandler(HtmlHandler):
     def get(self):

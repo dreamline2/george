@@ -94,3 +94,8 @@ h2 {
   left: 10px;
   font-size: 1.5em;
 }
+
+/* line 80, ../sass/style-narrow.scss */
+.list_title {
+  padding: 0em 0 1em 0;
+}
