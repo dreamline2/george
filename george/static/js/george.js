@@ -151,13 +151,19 @@ George.event = {
 
         // check user login status
         George.checkUserInfo({},function(res){
-            George.env.loginStatus = res.status;
+            if (res.name) {
+                George.env.loginStatus = true;
+            }
 
             if (George.env.loginStatus) {
+                $('.people_nav,.people').attr('src','https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xfa1/t1.0-1/p160x160/10314011_10202684084237605_1762184246269689844_n.jpg');
                 $('#fb_user').text(George.env.userName);
                 $('#fb_login,.login_button').hide();
                 $('#fb_logout,.logout_button').show();
+            }else {
+                $('.people_nav,.people').attr('src','http://ext.pimg.tw/pest6210/52848fb3f2df5b69b44d00a599042512.jpg');
             }
+
         });
     },
 
@@ -173,6 +179,7 @@ George.event = {
                 },function(res){
                     George.env.loginStatus = true;
                     $('#fb_user').text(res.name);
+                    $('.people_nav,.people').attr('src','https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xfa1/t1.0-1/p160x160/10314011_10202684084237605_1762184246269689844_n.jpg');
                     $('#fb_login,.login_button').hide();
                     $('#fb_logout,.logout_button').show();
                 });
@@ -182,17 +189,34 @@ George.event = {
 
         $('#fb_logout,.logout_button').on('click',function(){
             George.logoutUser({},function(res){
-                console.log(res)
+                if(res.status){
+                    George.env.loginStatus = false;
+                    $('#fb_user').text("訪客");
+                    $('#fb_login,.login_button').show();
+                    $('#fb_logout,.logout_button').hide();
+                    $('.people_nav,.people').attr('src','http://ext.pimg.tw/pest6210/52848fb3f2df5b69b44d00a599042512.jpg');
+                }
                 // George.env.loginStatus = true;
-             //    $('#fb_user').text(res.name);
-       //          $('#fb_login').hide();
-       //          $('#fb_logout').show();
+
             });
           //    FB.logout(function(response) {
           //        $('#fb_user').text('訪客');
                 // $('#fb_login').show();
                 // $('#fb_logout').hide();
           //   });
+        });
+    },
+
+    imagesLoaded: function (container, msnry) {
+
+        // initialize Masonry after all images have loaded
+        imagesLoaded( container, function() {
+          msnry = new Masonry( container, {
+              // options
+              columnWidth: 0,
+              gutter: 0,
+              itemSelector: '.item'
+          });
         });
     }
 

@@ -130,7 +130,7 @@ class UserLogin(ApiHandler):
     def get(self):
         token = self.request.get('token')
         self.session['is_login'] = True
-        result = {"name":"test"}
+        result = {"name":"Wei Chen"}
         self.output(result)
 
 class UserLogout(ApiHandler):
@@ -144,7 +144,7 @@ class UserInfo(ApiHandler):
     def get(self):
         is_login = self.session.get('is_login')
         if is_login:
-            result = {"name":"test"}
+            result = {"name":"Wei Chen"}
         else:
-            result = {"status": True}
+            result = {"status": False}
         self.output(result)
