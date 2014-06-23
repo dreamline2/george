@@ -5,7 +5,6 @@ import json
 from itertools import groupby
 from datetime import datetime
 
-
 def urlget(url):
     try:
         from google.appengine.api import urlfetch
@@ -15,14 +14,14 @@ def urlget(url):
         import urllib2
         return urllib2.urlopen(url).read()
 
-api = 'http://m.coa.gov.tw/OpenData/FarmTransData.aspx'
+api = 'http://m.coa.gov.tw/OpenData/AquaticTransData.aspx'
 def get(date):
-    item = {}
-    url = api + "?StartDate={0}{1}&EndDate={0}{1}".format(date.year-1911, date.strftime(".%m.%d")) 
+    url = api + "?TransDate={}{}".format(date.year-1911, date.strftime("%m%d")) 
     content = urlget(url)
-    items = sorted(json.loads(content), key=lambda x:x[u'作物名稱'])
+    items = sorted(json.loads(content)['items'], key=lambda x:x[u'魚貨名稱'])
     data = dict()
-    for product in groupby(items, lambda x:x[u'作物名稱'].strip()):
+    for product in groupby(items, lambda x:x[u'魚貨名稱']):
+        item = {}
         title, values = product
         total_price = 0
         total_amount = 0
@@ -32,13 +31,11 @@ def get(date):
             total_amount += float(value[u'交易量'])
             total_count += 1
 
-        if not title:
-            continue
         item['name'] = title
         item['wholesale_price'] = round(total_price/total_count)
         item['amount'] = total_amount
         item['date'] = date
-        item['type'] = "vegetable"
+        item['type'] = 'fish'
         yield item
 
 
@@ -46,6 +43,5 @@ def get(date):
 
 
 
-if __name__ == '__main__':
-    for i in get(datetime(2014,6,1)):
-        print i
+
+

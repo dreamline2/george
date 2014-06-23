@@ -35,3 +35,8 @@ class Api_test(unittest.TestCase):
         resp = self.testapp.get('/api/food/1/')
         resp = self.testapp.get('/api/food/1/trand')
         resp = self.testapp.get('/api/food/mean/list')
+
+    def test_insert(self):
+        from insert import download
+
+        download(datetime(2014,06,01))
