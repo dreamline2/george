@@ -45,8 +45,8 @@ class DetailHandler(HtmlHandler):
     def get(self):
 
         baseURL = '/detail?id='
-        right = u'上一個'
-        left = u'下一個'
+        right = u'下一個'
+        left = u'上一個'
         rightURL = baseURL + 'vegetable'
         leftURL = baseURL + 'meat'
 

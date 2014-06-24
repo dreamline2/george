@@ -3,14 +3,15 @@ body {
 }
 
 .mikepad-loading {
-  width : 150px;
-  position: absolute;
-  top: 50%;
-  left : 50%;
-  -webkit-transform: translateY(-50%) translateX(-50%);
-  -moz-transform: translateY(-50%) translateX(-50%);
-  -o-transform: translateY(-50%) translateX(-50%);
-  transform: translateY(-50%) translateX(-50%);
+  width : 100%;
+  margin: 14em 0;
+  // position: absolute;
+  // top: 50%;
+  // left : 50%;
+  // -webkit-transform: translateY(-50%) translateX(-50%);
+  // -moz-transform: translateY(-50%) translateX(-50%);
+  // -o-transform: translateY(-50%) translateX(-50%);
+  // transform: translateY(-50%) translateX(-50%);
 }
 
 .mikepad-loading .binding {
