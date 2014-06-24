@@ -15,7 +15,8 @@
 # limitations under the License.
 #
 import webapp2
-from views import pages, apis
+from views import pages
+from views import apis_true as apis
 
 config = {}
 config['webapp2_extras.sessions'] = {
