@@ -26,6 +26,7 @@ config['webapp2_extras.sessions'] = {
 app = webapp2.WSGIApplication([
     (r'/george', pages.MainHandler),
     (r'/detail', pages.DetailHandler),
+    (r'/img', pages.UpdateImage),
     (r'/api/food/([^/]+)/$', apis.InfoApi),
     (r'/api/food/([\w]+)/list', apis.ListApi),
     (r'/api/food/([^/]+)/trend$', apis.TrendApi),

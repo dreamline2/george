@@ -51,3 +51,36 @@ class DetailHandler(HtmlHandler):
         leftURL = baseURL + 'meat'
 
         self.HtmlResponse("page_detail.html", {"mode": "detail" ,"right": right, "left": left, "rightURL": rightURL, "leftURL": leftURL})
+
+
+
+import webapp2
+from models import Food
+class UpdateImage(webapp2.RequestHandler):
+    def get(self):
+        foods = Food.query().fetch(1000)
+        template = u"<label><img src='{1}'>{2}<input name='data' value='{0}@{1}'></label>"
+        foods_template = "<br/>".join([template.format(food.name, food.image, food.type) for food in foods])
+
+        html = u'''
+            <form method='post'>
+                {}
+                <input type='submit'>
+            </form>
+
+        '''.format(foods_template)
+
+        self.response.write(html)
+    def post(self):
+        items = self.request.POST.items()
+        food_pool = []
+        for item in items:
+            key, url = item[1].encode('utf-8').split('@', 1)
+            print key
+            food = Food.get_by_id(key)
+            if food.image == url:
+                continue
+            else:
+                food.image = url
+                food_pool.append(food)
+        print food_pool
