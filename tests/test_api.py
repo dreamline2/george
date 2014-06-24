@@ -19,6 +19,8 @@ from collections import defaultdict
 from faker import Factory
 from datetime import datetime
 import urllib
+from models import Food
+from models import FoodDailyInfo
 
 class Api_test(unittest.TestCase):
     def setUp(self):
@@ -37,6 +39,8 @@ class Api_test(unittest.TestCase):
         resp = self.testapp.get('/api/food/mean/list')
 
     def test_insert(self):
-        from insert import download
+        from insert import run
 
-        download(datetime(2014,06,01))
+        run()
+        import pdb;pdb.set_trace()
+

@@ -4,6 +4,7 @@ import json
 #from models import Food, FoodDailyInfo
 from itertools import groupby
 from datetime import datetime
+import re
 
 def urlget(url):
     try:
@@ -23,6 +24,10 @@ def get(date):
     for product in groupby(items, lambda x:x[u'魚貨名稱']):
         item = {}
         title, values = product
+
+        if re.search("|".join([u'其他', u'待定']), title):
+            print title
+            continue
         total_price = 0
         total_amount = 0
         total_count = 0
@@ -44,4 +49,5 @@ def get(date):
 
 
 
-
+for item in  get(datetime(2014,6,8)):
+    pass

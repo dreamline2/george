@@ -42,11 +42,14 @@ def parse_width(width):
 
 
 def get(date):
-    content = urlget('http://shopping.my-fresh.com/%E8%B1%AC%E8%82%89%E9%A1%9E')
-    body = BeautifulSoup(content)
-    products = body.select('.product-item')
-    
-    wholesale_price, amount = get_base(date)
+    try:
+        content = urlget('http://shopping.my-fresh.com/%E8%B1%AC%E8%82%89%E9%A1%9E')
+        body = BeautifulSoup(content)
+        products = body.select('.product-item')
+        
+        wholesale_price, amount = get_base(date)
+    except:
+        return
     for product in products:
         item = {}
         title = product.select('.product-title')[0].text.replace(u'【買新鮮】', '').strip()

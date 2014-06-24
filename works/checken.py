@@ -36,9 +36,10 @@ def get(date):
     content = urlget('http://shopping.my-fresh.com/%E5%AE%B6%E7%A6%BD%E9%A1%9E')
     body = BeautifulSoup(content)
     products = body.select('.product-item')
-
-    wholesale_price, wholesale_egg_price = get_base(date)
-
+    try:
+        wholesale_price, wholesale_egg_price = get_base(date)
+    except Exception as e:
+        return
 
     item = {}
     item['name'] = u'雞蛋'

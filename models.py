@@ -17,7 +17,7 @@ class Food(ndb.Model):
     next_one = ndb.StringProperty(indexed=False)
     prev = ndb.StringProperty(indexed=False)
     point = ndb.FloatProperty()
-    infos = ndb.StructuredProperty(FoodDailyInfo, repeated=True)
+    infos = ndb.LocalStructuredProperty(FoodDailyInfo, repeated=True)
     image = ndb.StringProperty(indexed=False)
     name = ndb.StringProperty()
     type = ndb.StringProperty(choices=['meat', 'fish', 'vegetable'])
@@ -41,7 +41,7 @@ class Food(ndb.Model):
 
     def get_point(self):
         point = 0
-        if self.updated <= datetime.now().date():
+        if self.updated < datetime.now().date():
             point = -100
         else:
             ## 市價記分
@@ -56,6 +56,8 @@ class Food(ndb.Model):
             ## 產季記分
             point += self.rich * 10 
 
+
+        self.point = point
         return point
 
     def get_recommand(self):
@@ -64,12 +66,12 @@ class Food(ndb.Model):
         if self.avg_price:
             point = round(1-self.price / self.avg_price, 1) * 10
             if point > 0:
-                result.append("市價低於平均價 {}% !!".format(point))
+                result.append("市價低於過往平均 {}% !!".format(point*10))
         ## 批發價記分
         if self.avg_wholesale_price:
-            point += round(1-self.wholesale_price / self.avg_wholesale_price, 1) * 10
+            point = round(1-self.wholesale_price / self.avg_wholesale_price, 1) * 10
             if point > 0:
-                result.append("批發價低於平均價 {}% !!".format(point))
+                result.append("批發價低於過往平均 {}% !!".format(point*10))
         ## 交易量記分
         if self.avg_amount:
             point = round(self.amount / self.avg_amount - 1, 1) * 10
@@ -86,16 +88,30 @@ class Food(ndb.Model):
 
     def aggregate(self):
         count = 0
-        total_wholesale_price = 0
-        total_amount = 0
-        total_price = 0
+        total_wholesale_price = []
+        total_amount = []
+        total_price = []
         for info in self.infos:
             count+=1
-            total_wholesale_price += info.wholesale_price or 0
-            total_price += info.price or 0
-            total_amount += info.amount or 0
+            if info.wholesale_price:
+                total_wholesale_price.append(info.wholesale_price)
+                
+            if info.price:
+                total_price.append(info.price)
 
-        return total_wholesale_price, total_price, total_amount, count
+            if info.amount:
+                total_amount.append(info.amount)
+
+
+        avg_wholesale_price = total_wholesale_price and round(sum(total_wholesale_price) / float(len(total_wholesale_price)), 1) or None
+        avg_price = total_price and round(sum(total_price) / float(len(total_price)), 1) or None
+        avg_amount = total_amount and round(sum(total_amount) / float(len(total_amount)), 1) or None
+
+        self.avg_wholesale_price = avg_wholesale_price
+        self.avg_price = avg_price
+        self.avg_amount = avg_amount
+
+        return avg_wholesale_price, avg_price, avg_amount
 
     def push_info(self, date):
         info = FoodDailyInfo(date=date, wholesale_price=self.wholesale_price, price=self.price, amount=self.amount)
