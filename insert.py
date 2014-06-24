@@ -103,3 +103,21 @@ def sort():
     result.extend(meats)
     ndb.put_multi(result)
 
+
+def set_image():
+    import google_search_image
+    foods = Food.query().fetch(1000)
+    import pdb;pdb.set_trace()
+    for food in foods:
+        try:
+            print food.name, food.image
+            assert not food.image, 'had image'
+            key = u'{}'.format(food.name)
+            print key
+            img = google_search_image.search(key.encode('utf-8')).next()
+            food.image = img.get('url')
+            print food.name, food.image
+            food.put()
+        except Exception as e:
+            print e
+
