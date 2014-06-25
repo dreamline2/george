@@ -27,7 +27,7 @@ app = webapp2.WSGIApplication([
     (r'/george', pages.MainHandler),
     (r'/detail', pages.DetailHandler),
     (r'/img', pages.UpdateImage),
-    (r'/api/food/([^/]+)/$', apis.InfoApi),
+    (r'/api/food/([^\/]+)/$', apis.InfoApi),
     (r'/api/food/([\w]+)/list', apis.ListApi),
     (r'/api/food/([^/]+)/trend$', apis.TrendApi),
     (r'/api/user/login', apis.UserLogin),

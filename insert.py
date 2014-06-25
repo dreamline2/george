@@ -83,7 +83,7 @@ def sort():
         if c:
             meat.prev = meats[c-1].name
         if c < len(meats) - 1:
-            meat.next = meats[c+1].name
+            meat.next_one = meats[c+1].name
         c += 1
 
 
@@ -94,7 +94,7 @@ def sort():
         if c:
             fish.prev = fishs[c-1].name
         if c < len(fishs) - 1:
-            fish.next = fishs[c+1].name
+            fish.next_one = fishs[c+1].name
         c += 1
 
     result = []

@@ -82,5 +82,4 @@ class UpdateImage(webapp2.RequestHandler):
                 continue
             else:
                 food.image = url
-                food_pool.append(food)
-        print food_pool
+                food.put()

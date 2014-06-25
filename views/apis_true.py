@@ -94,6 +94,7 @@ class InfoApi(ApiHandler):
             "next": food.next_one,
             "prev": food.prev,
             "description": food.get_recommand(),
+            "image": food.image
         }
 
         self.output(result)
