@@ -24,13 +24,17 @@
 	    ready: function (){
 	    	George.event.initDisplay();
 		    George.getItemList({
-		    	id: George.category
+		    	id: George.env.init.category
 		    },function(res){
-	            George.Data = res;
+
+
+
+	            George.Data = res.slice(0,9);
 
 	            setTimeout( function () {
 
 		            $level.html(George.render(Temp, George.Data));
+		            $('#loading a').attr('href','/api/food/'+ George.env.init.category +'/list?size=9&page=1');
 		            // George.event.detectDeviceScreen();
 
 		            // 登入機制
@@ -40,6 +44,7 @@
 					var msnry;
 					// initialize Masonry after all images have loaded
 					imagesLoaded( container, function() {
+						console.log('已載入')
 					  msnry = new Masonry( container, {
 						  // options
 						  columnWidth: 0,

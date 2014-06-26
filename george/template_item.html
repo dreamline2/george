@@ -8,7 +8,15 @@
 		<h1>{{=it.data.name}}</h1>
 	</div>
 	<div class="level-desc">
-		<p>今日價格<span class="level-hightlight">{{=it.data.price}}</span>元</p>
+        {{?it.data[i].price}}
+            {{?it.data[i].wholesale_price < it.data[i].price}}
+                <p>賣場高於盤商價<span class="level-hightlight">{{=it.data[i].price - it.data[i].wholesale_price}}</span>元</p>
+            {{??}}
+                <p>賣場低於盤商價<span class="level-hightlight">{{=it.data[i].wholesale_price - it.data[i].price}}</span>元</p>
+            {{?}}
+            <p>今日賣場價<span>{{=it.data[i].price}}</span>元/斤</p>
+        {{?}}
+        <p>今日盤商價<span>{{=it.data[i].wholesale_price}}</span>元/斤</p>
 		<p>{{=it.data.description}}</p>
 	</div>
 </div>

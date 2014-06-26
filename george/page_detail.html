@@ -17,9 +17,9 @@
 		<section class="3u">
 			<div id="chart_bottom" class="row">
 				<ul class="share clearfix">
-					<li class="12u"><a id="checkWeek" class="button1">查看周線</a></li>
+<!-- 					<li class="12u"><a id="checkWeek" class="button1">查看周線</a></li>
 					<li class="12u"><a id="checkMonth" class="button1">查看月線</a></li>
-					<li class="12u"><a id="check" class="button1">查看季線</a></li>
+					<li class="12u"><a id="check" class="button1">查看季線</a></li> -->
 					<li class="12u"><a id="cookbook" class="button1" target="_bank">尋找食譜</a></li>
 					<li class="12u"><p id="FB_share" class="button1">分享給朋友</p></li>
 				</ul>
@@ -83,9 +83,9 @@
 					}, function(response){});
 	            });
 
-	            $('#checkWeek').on('click', George.chart.draw);
-	            $('#checkMonth').on('click', George.chart.draw);
-	            $('#checkSeason').on('click', George.chart.draw);
+	            // $('#checkWeek').on('click', George.chart.draw);
+	            // $('#checkMonth').on('click', George.chart.draw);
+	            // $('#checkSeason').on('click', George.chart.draw);
 
 	            $('#cookbook').attr('href',George.event.searchIcookAPI(George.Data.name));
 
@@ -110,7 +110,11 @@
 	    		id: data.id
 	    	},function(res){
 	    		for (var i=0; i < res.length; i++) {
-	    			George.chart.data.push([res[i].day, res[i].price, res[i].wholesaler_price, res[i].amount]);
+	    			if(!res[i].price) {
+	    				res[i].price = 0;
+	    				res[i].amount = 0;
+	    			}
+	    			George.chart.data.push([res[i].date, res[i].price, res[i].wholesale_price, res[i].amount]);
 	    		};
 	        });
 	    },

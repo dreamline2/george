@@ -55,7 +55,8 @@ George = (function($){
 
         env: {
             width: document.documentElement.clientWidth,
-            height: document.documentElement.clientHeight
+            height: document.documentElement.clientHeight,
+            defaultUserImage: 'http://lh6.ggpht.com/S4G9Ssf-eCCGxsRqJqKEQzZSfmC4K09j0J-W7oPxePxpALU-Abgk0kOfNJowfFd54plPJYl8bRXLheMUR3t3xA'
         },
 
         render: function(temp, data){
@@ -161,7 +162,7 @@ George.event = {
                 $('#fb_login,.login_button').hide();
                 $('#fb_logout,.logout_button').show();
             }else {
-                $('.people_nav,.people').attr('src','http://ext.pimg.tw/pest6210/52848fb3f2df5b69b44d00a599042512.jpg');
+                $('.people_nav,.people').attr('src',George.env.defaultUserImage);
             }
 
         });
@@ -194,7 +195,7 @@ George.event = {
                     $('#fb_user').text("訪客");
                     $('#fb_login,.login_button').show();
                     $('#fb_logout,.logout_button').hide();
-                    $('.people_nav,.people').attr('src','http://ext.pimg.tw/pest6210/52848fb3f2df5b69b44d00a599042512.jpg');
+                    $('.people_nav,.people').attr('src',George.env.defaultUserImage);
                 }
                 // George.env.loginStatus = true;
 

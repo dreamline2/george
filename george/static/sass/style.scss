@@ -138,7 +138,7 @@
 	}
 	#rightPanel {
 		span {
-			margin: 0 .5em;
+			// margin: 0 .5em;
 		}
 		h1 {
 			margin:1em 0;
@@ -494,14 +494,24 @@
 
 }
 .people_nav {
-	width: 200px;
-	// border-bottom: 3px solid #808080;
-// border-right: 3px solid #808080;
--webkit-border-radius: 10px;
--moz-border-radius: 10px;
-border-radius: 10px;
+	width: 45px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	position: relative;
+	// top: 11px;
+	left: 0px;
+	margin-right: 10px;
 }
 
 #rightfood,#leftfood {
 	text-decoration: none;
+}
+
+.name_wapper {
+	display: inline-block;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	width: 150px;
 }
