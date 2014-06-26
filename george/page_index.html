@@ -3,8 +3,23 @@
 
 {% block content %}
 <div class="row">
-	<div class="level">
+	<div class="level top-panel">
 		{% include "component_loading.html" %}
+	</div>
+	<div class="level bottom-panel">
+		<div class="row">
+			<section class="12u">
+				<div class="list_title"><img class="pre-icon" height="100" src="{{img}}" alt="">今天想要買什麼「{{text}}」<span class="vegetable"></span></div>
+			</section>
+		</div>
+
+		<div class="row">
+			<div id="list-dot-template"></div>
+		</div>
+
+		<div class="row">
+			<div id="loading" class="12u"><a href=""></a></div>
+		</div>
 	</div>
 </div>
 {% endblock %}
@@ -13,11 +28,11 @@
 {% block js %}
 <script type="text/javascript">
 
-	var Temp = {{ js_template('george/template_item_list.html') }},
-		Temp_apend = {{ js_template('george/template_item_append.html') }},
+	// var Temp = {{ js_template('george/template_item_list.html') }},
+	var	Temp_apend = {{ js_template('george/template_item_append.html') }},
 
 		// jquery object
-		$level = $('.level'),
+		$level = $('#list-dot-template'),
 		$w = $(window);
 
 	$w.on({
@@ -28,13 +43,13 @@
 		    	size: 9
 		    },function(res){
 
-
-
 	            George.Data = res.slice(0,9);
 
 	            setTimeout( function () {
+	            	$('.top-panel').hide();
+		    		$('.bottom-panel').show();
 
-		            $level.html(George.render(Temp, George.Data));
+		            $level.html(George.render(Temp_apend, George.Data));
 		            $('#loading a').attr('href','/api/food/'+ George.env.init.category +'/list?size=9&page=1');
 		            // George.event.detectDeviceScreen();
 

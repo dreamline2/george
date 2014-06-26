@@ -1206,3 +1206,8 @@ textarea {
   white-space: nowrap;
   width: 145px;
 }
+
+/* line 519, ../sass/style.scss */
+.bottom-panel {
+  display: none;
+}
