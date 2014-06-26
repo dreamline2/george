@@ -76,10 +76,10 @@ class TrendApi(ApiHandler):
 class ListApi(ApiHandler):
     def get(self, _type):
         size = int(self.request.get('size', 6))
-        page = int(self.request.get('page', 0))
+        page = int(self.request.get('page', 1))
 
         foods = Food.query(Food.type==_type).fetch(1000)
-        foods = sorted(foods, key= lambda x:x.rank)[size*page : size*page+size]
+        foods = sorted(foods, key= lambda x:x.rank)[size*page - size : size*page]
         result = [{"name":v.name, "price": v.price, "wholesale_price": v.wholesale_price, "image":v.image, "order": v.rank} for v in foods]
         self.output(result)
 
