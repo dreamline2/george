@@ -40,9 +40,10 @@ George = (function($){
     var foodAPI = "/api/food/",
         userAPI = '/api/user/'
 
-        __ajax = function(url, succss_callback, error_callback){
+        __ajax = function(d, url, succss_callback, error_callback){
             $.ajax({
                 type: "get",
+                data: d,
                 url: url,
                 dataType: "json",
                 success: succss_callback,
@@ -71,34 +72,34 @@ George = (function($){
 
         getItemList: function(data, succss_callback,error_callback){
             var url = foodAPI + data.id +'/list';
-            __ajax(url, succss_callback, error_callback);
+            __ajax({size:data.size}, url, succss_callback, error_callback);
         },
 
         getItem: function(data, succss_callback,error_callback){
             var url = foodAPI + data.id + '/';
-            __ajax(url, succss_callback, error_callback);
+            __ajax({}, url, succss_callback, error_callback);
         },
 
         getItemTrend: function(data, succss_callback,error_callback){
             var url = foodAPI + data.id + '/trend';
-            __ajax(url, succss_callback, error_callback);
+            __ajax({}, url, succss_callback, error_callback);
         },
 
 
 
         checkUserInfo: function(data, succss_callback,error_callback){
             var url = userAPI + 'info';
-            __ajax(url, succss_callback, error_callback);
+            __ajax({}, url, succss_callback, error_callback);
         },
 
         loginUser: function(data, succss_callback,error_callback){
             var url = userAPI + 'login';
-            __ajax(url, succss_callback, error_callback);
+            __ajax({}, url, succss_callback, error_callback);
         },
 
         logoutUser: function(data, succss_callback,error_callback){
             var url = userAPI + 'logout';
-            __ajax(url, succss_callback, error_callback);
+            __ajax({}, url, succss_callback, error_callback);
         },
 
     }

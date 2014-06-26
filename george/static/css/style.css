@@ -875,7 +875,6 @@ textarea {
   border-radius: 10px;
   padding: 1em;
   width: 100%;
-  margin-bottom: 10em;
 }
 
 /* line 217, ../sass/style.scss */
@@ -1205,5 +1204,5 @@ textarea {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  width: 150px;
+  width: 145px;
 }

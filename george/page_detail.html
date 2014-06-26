@@ -11,20 +11,20 @@
 		<section class="4u">
 			<div class="item-box"></div>
 		</section>
-		<section class="5u">
+		<section class="8u">
 			<div id="chart_div" class="chart"></div>
 		</section>
-		<section class="3u">
+<!-- 		<section class="3u">
 			<div id="chart_bottom" class="row">
 				<ul class="share clearfix">
-<!-- 					<li class="12u"><a id="checkWeek" class="button1">查看周線</a></li>
+					<li class="12u"><a id="checkWeek" class="button1">查看周線</a></li>
 					<li class="12u"><a id="checkMonth" class="button1">查看月線</a></li>
-					<li class="12u"><a id="check" class="button1">查看季線</a></li> -->
+					<li class="12u"><a id="check" class="button1">查看季線</a></li>
 					<li class="12u"><a id="cookbook" class="button1" target="_bank">尋找食譜</a></li>
 					<li class="12u"><p id="FB_share" class="button1">分享給朋友</p></li>
 				</ul>
 			</div>
-		</section>
+		</section> -->
 	</div>
 	<!-- <hr class="separation"> -->
 <!-- 	<div id="chart_bottom" class="row">
@@ -110,10 +110,8 @@
 	    		id: data.id
 	    	},function(res){
 	    		for (var i=0; i < res.length; i++) {
-	    			if(!res[i].price) {
-	    				res[i].price = 0;
-	    				res[i].amount = 0;
-	    			}
+	    			if(!res[i].price) res[i].price = 0;
+	    			if(!res[i].amount) res[i].amount = 0;
 	    			George.chart.data.push([res[i].date, res[i].price, res[i].wholesale_price, res[i].amount]);
 	    		};
 	        });

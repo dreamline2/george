@@ -20,7 +20,7 @@ class MainHandler(HtmlHandler):
             'meat': u'蛋與肉'
         }
         if _type not in types:
-            _type = 'fish'
+            _type = 'meat'
 
         if _type == 'meat':
             right = u'魚類'
