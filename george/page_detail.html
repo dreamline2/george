@@ -49,6 +49,8 @@
 {% block js %}
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <script type="text/javascript">
+	// Load the Visualization API and the piechart package.
+	google.load('visualization', '1.0', {'packages':['corechart']});
 
 	var Temp = {{ js_template('george/template_item.html') }},
 
@@ -114,8 +116,6 @@
 	    			if(!res[i].amount) res[i].amount = 0;
 	    			George.chart.data.push([res[i].date, res[i].price, res[i].wholesale_price, res[i].amount]);
 	    		};
-	    		// Load the Visualization API and the piechart package.
-				google.load('visualization', '1.0', {'packages':['corechart']});
 
 				// Set a callback to run when the Google Visualization API is loaded.
 				google.setOnLoadCallback(George.chart.draw);
@@ -126,6 +126,7 @@
         	George.event.detectDeviceScreen();
 	    }
 	});
+
 
 </script>
 {% endblock %}
