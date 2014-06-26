@@ -18,6 +18,10 @@ handlers:
 - url: /static
   static_dir: george/static
 
+
+- url: /sandbox
+  script: sandbox.app
+
 - url: /.*
   script: main.app
 

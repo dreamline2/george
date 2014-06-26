@@ -25,7 +25,7 @@ def get(date):
         item = {}
         title, values = product
 
-        if re.search("|".join([u'其他', u'待定']), title):
+        if re.search("|".join([u'其他', u'待定', u'智仔', u'烏殼']), title):
             print title
             continue
         total_price = 0

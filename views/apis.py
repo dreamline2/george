@@ -44,6 +44,9 @@ class ApiHandler(webapp2.RequestHandler):
         else:
             content_type = 'application/json'
 
+        self.response.headers['Cache-Control'] = 'public, max-age=%d' % 120
+        self.response.headers['Pragma'] = 'Public'
+
         self.response.content_type = content_type
         self.response.write(result)
 
