@@ -14,34 +14,7 @@
 		<section class="8u">
 			<div id="chart_div" class="chart"></div>
 		</section>
-<!-- 		<section class="3u">
-			<div id="chart_bottom" class="row">
-				<ul class="share clearfix">
-					<li class="12u"><a id="checkWeek" class="button1">查看周線</a></li>
-					<li class="12u"><a id="checkMonth" class="button1">查看月線</a></li>
-					<li class="12u"><a id="check" class="button1">查看季線</a></li>
-					<li class="12u"><a id="cookbook" class="button1" target="_bank">尋找食譜</a></li>
-					<li class="12u"><p id="FB_share" class="button1">分享給朋友</p></li>
-				</ul>
-			</div>
-		</section> -->
 	</div>
-	<!-- <hr class="separation"> -->
-<!-- 	<div id="chart_bottom" class="row">
-			<div class="6u">
-			<ul class="other clearfix">
-				<li>觀看其他蔬菜</li>
-				<li>Top1</li>
-				<li>Top2</li>
-			</ul>
-		</div>
-		<div class="6u clearfix">
-			<ul class="share clearfix">
-				<li>尋找食譜</li>
-				<li>分享給朋友</li>
-			</ul>
-		</div>
-	</div> -->
 </div>
 {% endblock %}
 
@@ -84,10 +57,6 @@
 					  })
 					}, function(response){});
 	            });
-
-	            // $('#checkWeek').on('click', George.chart.draw);
-	            // $('#checkMonth').on('click', George.chart.draw);
-	            // $('#checkSeason').on('click', George.chart.draw);
 
 	            $('#cookbook').attr('href',George.event.searchIcookAPI(George.Data.name));
 

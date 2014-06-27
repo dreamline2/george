@@ -375,7 +375,7 @@
 		background: #F39F22;
 	}
 }
-.button1 {
+.level-desc .button1 {
 	border-radius: 0.1em;
 	border: 0;
 	// box-shadow: inset 0 0 0 2px rgba(255,255,255,0.5);
@@ -386,7 +386,7 @@
 	text-decoration: none;
 	background: none;
 	cursor: pointer;
-	margin: 1em 1.5em;
+	margin: 1em .5em;
 	text-align: center;
 	font-size: 1em;
 	background: #3b5998;
@@ -401,7 +401,7 @@
 #list-dot-template {
 	width: 100%;
 	padding: 0;
-	margin-bottom: 20em;
+	margin-bottom: 10em;
 	section {
 		float: left;
 	}

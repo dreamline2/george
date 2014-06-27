@@ -1050,7 +1050,7 @@ textarea {
 }
 
 /* line 378, ../sass/style.scss */
-.button1 {
+.level-desc .button1 {
   border-radius: 0.1em;
   border: 0;
   border-bottom: 2px solid #373794;
@@ -1060,7 +1060,7 @@ textarea {
   text-decoration: none;
   background: none;
   cursor: pointer;
-  margin: 1em 1.5em;
+  margin: 1em .5em;
   text-align: center;
   font-size: 1em;
   background: #3b5998;
@@ -1068,7 +1068,7 @@ textarea {
   line-height: 3em;
 }
 /* line 397, ../sass/style.scss */
-.button1:hover {
+.level-desc .button1:hover {
   background: #2B4374;
 }
 
@@ -1076,7 +1076,7 @@ textarea {
 #list-dot-template {
   width: 100%;
   padding: 0;
-  margin-bottom: 20em;
+  margin-bottom: 10em;
 }
 /* line 405, ../sass/style.scss */
 #list-dot-template section {

@@ -112,3 +112,8 @@ h2 {
   left: -15px;
   position: relative;
 }
+
+/* line 103, ../sass/style-mobile.scss */
+#list-dot-template {
+  margin-bottom: 15em;
+}

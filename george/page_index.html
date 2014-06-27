@@ -18,7 +18,7 @@
 		</div>
 
 		<div class="row">
-			<div id="loading" class="12u"><a href=""></a></div>
+			<div id="loading" class="12u"><a href="/api/food/{{type}}/list?size=9&page=1"></a></div>
 		</div>
 	</div>
 </div>
@@ -43,14 +43,13 @@
 		    	size: 9
 		    },function(res){
 
-	            George.Data = res.slice(0,9);
+	            George.Data = res;
 
 	            setTimeout( function () {
 	            	$('.top-panel').hide();
 		    		$('.bottom-panel').show();
 
 		            $level.html(George.render(Temp_apend, George.Data));
-		            $('#loading a').attr('href','/api/food/'+ George.env.init.category +'/list?size=9&page=1');
 		            // George.event.detectDeviceScreen();
 
 		            // 登入機制
@@ -92,6 +91,7 @@
 					    }
 					}, function(json, opts) {
 
+						console.log(json)
 						setTimeout( function () {
 						// Get current page
 						var page = opts.state.currPage;

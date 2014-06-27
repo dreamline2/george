@@ -64,3 +64,8 @@
   position: relative;
   height: 50px;
 }
+
+/* line 62, ../sass/style-narrower.scss */
+#list-dot-template {
+  margin-bottom: 15em;
+}
