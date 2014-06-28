@@ -237,10 +237,18 @@ George.chart = {
         var data = google.visualization.arrayToDataTable(George.chart.data);
 
         var options = {
-          title: '價格比較圖',
-          titleTextStyle: {fontSize: 20},
-          hAxis: {titleTextStyle: {color: '#333'}},
-          vAxis: {title: '',minValue: 0}
+            title: '價格比較圖',
+            titleTextStyle: {fontSize: 20},
+            hAxis: {titleTextStyle: {color: '#333'}},
+            vAxis: {
+                0: {title: '價格',minValue: 0},
+                1: {title: '交易量', minValue:0}
+            },
+            series: {
+                0: {targetAxisIndex:0},
+                1: {targetAxisIndex:0},
+                2: {targetAxisIndex:1}
+            }
         };
 
         var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
