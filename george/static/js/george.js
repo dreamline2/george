@@ -125,7 +125,7 @@ George.Utils = {
 George.event = {
 
     searchIcookAPI: function  (val) {
-        val = val.replace(/【切塊】/, '').replace('省產溫體', '').replace('當日現宰溫體', '')
+        val = val.replace(/【切塊】/, '').replace('省產溫體', '').replace('當日現宰溫體', '').replace(/-.*/,'')
         return 'http://icook.tw/recipes/fulltext_search?query=' + val;
     },
 
