@@ -16,6 +16,8 @@ from webapp2_extras import sessions
 from models import Food
 import json
 import datetime
+import facebook
+from google.appengine.api import urlfetch
 
 def parserDate(obj):
     if isinstance(obj, datetime.date):
@@ -104,9 +106,25 @@ class InfoApi(ApiHandler):
 
 class UserLogin(ApiHandler):
     def get(self):
-        token = self.request.get('token')
-        self.session['is_login'] = True
-        result = {"name":"test"}
+        if self.session.get('is_login'):
+            profile = self.session.get('profile')
+        else:
+            token = self.request.cookies.get('accessToken')
+            api = "https://graph.facebook.com/me?fields=id,name,picture,email&access_token={}"
+            
+            resp = urlfetch.fetch(api.format(token))
+            profile = json.loads(resp.content)
+
+            self.session['is_login'] = True
+            self.session['token'] = token
+            self.session['profile'] = profile
+
+        result = {
+            "name" : profile.get('name'),
+            "email": profile.get('email'),
+            "image": profile.get('picture').get('url'),
+            "id": profile.get('id')
+        }
         self.output(result)
 
 class UserLogout(ApiHandler):
@@ -120,7 +138,14 @@ class UserInfo(ApiHandler):
     def get(self):
         is_login = self.session.get('is_login')
         if is_login:
-            result = {"name":"test"}
+            profile = self.session.get('profile')
+
+            result = {
+                "name" : profile.get('name'),
+                "email": profile.get('email'),
+                "image": profile.get('picture').get('url'),
+                "id": profile.get('id')
+            }
         else:
             result = {"status": False}
         self.output(result)
