@@ -16,7 +16,6 @@ from webapp2_extras import sessions
 from models import Food
 import json
 import datetime
-import facebook
 from google.appengine.api import urlfetch
 
 def parserDate(obj):
