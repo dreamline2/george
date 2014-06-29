@@ -58,7 +58,10 @@ class DetailHandler(HtmlHandler):
         rightURL = baseURL + 'vegetable'
         leftURL = baseURL + 'meat'
 
-        self.HtmlResponse("page_detail.html", {"mode": "detail" ,"right": right, "left": left, "rightURL": rightURL, "leftURL": leftURL})
+        name = self.request.get('id')
+        food = Food.get_by_id(name)
+
+        self.HtmlResponse("page_detail.html", {"mode": "detail" ,"right": right, "left": left, "rightURL": rightURL, "leftURL": leftURL, "name": name, "img": food.image})
 
 
 
