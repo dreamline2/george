@@ -105,26 +105,30 @@ class InfoApi(ApiHandler):
 
 class UserLogin(ApiHandler):
     def get(self):
-        if self.session.get('is_login'):
-            profile = self.session.get('profile')
-        else:
-            token = self.request.cookies.get('accessToken')
-            api = "https://graph.facebook.com/me?fields=id,name,picture,email&access_token={}"
-            
-            resp = urlfetch.fetch(api.format(token))
-            profile = json.loads(resp.content)
+        try:
+            if self.session.get('is_login'):
+                profile = self.session.get('profile')
+            else:
+                token = self.request.cookies.get('accessToken')
+                api = "https://graph.facebook.com/me?fields=id,name,picture,email&access_token={}"
+                
+                resp = urlfetch.fetch(api.format(token))
+                profile = json.loads(resp.content)
 
-            self.session['is_login'] = True
-            self.session['token'] = token
-            self.session['profile'] = profile
+                self.session['is_login'] = True
+                self.session['token'] = token
+                self.session['profile'] = profile
 
-        result = {
-            "name" : profile.get('name'),
-            "email": profile.get('email'),
-            "image": profile.get('picture').get('url'),
-            "id": profile.get('id')
-        }
-        self.output(result)
+            result = {
+                "name" : profile.get('name'),
+                "email": profile.get('email'),
+                "image": profile.get('picture').get('url'),
+                "id": profile.get('id')
+            }
+            self.output(result)
+        except:
+            self.session['is_login'] = False
+            self.output({"status": False})
 
 class UserLogout(ApiHandler):
     def get(self):
@@ -135,16 +139,20 @@ class UserLogout(ApiHandler):
 
 class UserInfo(ApiHandler):
     def get(self):
-        is_login = self.session.get('is_login')
-        if is_login:
-            profile = self.session.get('profile')
+        try:
+            is_login = self.session.get('is_login')
+            if is_login:
+                profile = self.session.get('profile')
 
-            result = {
-                "name" : profile.get('name'),
-                "email": profile.get('email'),
-                "image": profile.get('picture').get('url'),
-                "id": profile.get('id')
-            }
-        else:
-            result = {"status": False}
-        self.output(result)
+                result = {
+                    "name" : profile.get('name'),
+                    "email": profile.get('email'),
+                    "image": profile.get('picture').get('url'),
+                    "id": profile.get('id')
+                }
+            else:
+                result = {"status": False}
+            self.output(result)
+        except:
+            self.session['is_login'] = False
+            self.output({"status": False})
