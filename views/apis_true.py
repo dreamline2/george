@@ -122,11 +122,12 @@ class UserLogin(ApiHandler):
             result = {
                 "name" : profile.get('name'),
                 "email": profile.get('email'),
-                "image": profile.get('picture').get('url'),
+                "image": profile.get('picture').get('data').get('url'),
                 "id": profile.get('id')
             }
             self.output(result)
-        except:
+        except Exception as e:
+            logging.info(e)
             self.session['is_login'] = False
             self.output({"status": False})
 
@@ -147,12 +148,13 @@ class UserInfo(ApiHandler):
                 result = {
                     "name" : profile.get('name'),
                     "email": profile.get('email'),
-                    "image": profile.get('picture').get('url'),
+                    "image": profile.get('picture').get('data').get('url'),
                     "id": profile.get('id')
                 }
             else:
                 result = {"status": False}
             self.output(result)
-        except:
+        except Exception as e:
+            logging.info(e)
             self.session['is_login'] = False
             self.output({"status": False})
