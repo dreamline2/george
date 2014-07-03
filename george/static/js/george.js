@@ -38,7 +38,9 @@ var George = George || {};
 George = (function($){
 
     var foodAPI = "/api/food/",
-        userAPI = '/api/user/'
+        userAPI = '/api/user/',
+
+        FBuserAPI = 'https://www.facebook.com/dialog/oauth?client_id=1427059277558859&redirect_uri=',
 
         __ajax = function(d, url, succss_callback, error_callback){
             $.ajax({
@@ -61,7 +63,7 @@ George = (function($){
 
         user: {
             name: '訪客',
-            UserImage: 'http://lh6.ggpht.com/kP63eK2sQBB7GyAF-fFDwNLxfSllkqAohY8K_6EuSJr9flesnRhCNi94niQm8kC3xlOZ3_7Nj_wTK-_DudGPDOw'
+            UserImage: 'http://lh3.ggpht.com/MAeCBVeDefb4oXaw8XqQ_FYjZZfrV2YiIT15x_ksMr_d8qsJaEj1JXLnPcLLK69XCBMYjw8-DtzjUtQfT2uUiw'
         },
 
         render: function(temp, data){
@@ -97,8 +99,15 @@ George = (function($){
         },
 
         loginUser: function(data, succss_callback,error_callback){
-            var url = userAPI + 'login';
-            __ajax({}, url, succss_callback, error_callback);
+            var url = FBuserAPI + document.location.href;
+
+            $.ajax({
+                type: "jsonp",
+                url: url,
+                data: data,
+                dataType: "jsonp",
+                jsonpCallback: succss_callback
+            });
         },
 
         logoutUser: function(data, succss_callback,error_callback){
@@ -161,11 +170,11 @@ George.event = {
             if (res.name) {
                 George.env.loginStatus = true;
                 George.user.name = res.name;
-                George.user.image = res.image;
+                George.user.userImage = res.image;
             }
 
             if (George.env.loginStatus) {
-                $('.people_nav,.people').attr('src',George.user.image);
+                $('.people_nav,.people').attr('src',George.user.userImage);
                 $('#fb_user').text(George.user.name);
                 $('#fb_login,.login_button').hide();
                 $('#fb_logout,.logout_button').show();
@@ -188,10 +197,10 @@ George.event = {
                 },function(res){
                     George.env.loginStatus = true;
                     George.user.name = res.name;
-                    George.user.image = res.image;
+                    George.user.userImage = res.image;
 
                     $('#fb_user').text(George.user.name);
-                    $('.people_nav,.people').attr('src',George.user.image);
+                    $('.people_nav,.people').attr('src',George.user.userImage);
                     $('#fb_login,.login_button').hide();
                     $('#fb_logout,.logout_button').show();
                 });
@@ -203,10 +212,11 @@ George.event = {
             George.logoutUser({},function(res){
                 if(res.status){
                     George.env.loginStatus = false;
-                    $('#fb_user').text(George.user.name);
+
+                    $('#fb_user').text('訪客');
                     $('#fb_login,.login_button').show();
                     $('#fb_logout,.logout_button').hide();
-                    $('.people_nav,.people').attr('src',George.user.image);
+                    $('.people_nav,.people').attr('src',George.user.UserImage);
                 }
                 // George.env.loginStatus = true;
 
