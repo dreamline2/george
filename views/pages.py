@@ -15,7 +15,7 @@ class MainHandler(HtmlHandler):
         baseURL = '/george?category='
         _type = self.request.GET.get('category')
         types = {
-            'fish': u'魚類',
+            'fish': u'海鮮',
             'vegetable': u'蔬菜',
             'meat': u'蛋與肉'
         }
@@ -23,7 +23,7 @@ class MainHandler(HtmlHandler):
             _type = 'meat'
 
         if _type == 'meat':
-            right = u'魚類'
+            right = u'海鮮'
             left = u'蔬果'
             rightURL = baseURL + 'fish'
             leftURL = baseURL + 'vegetable'
@@ -31,7 +31,7 @@ class MainHandler(HtmlHandler):
             img = 'http://lh6.ggpht.com/v6fWaUdR0Lop64ug2zBScQ8u4k4L1UZsQJorOlk_Qfidj-pbPPNHglXZflS0FxElxaaKcPFdxTWc2wV-GlYG_g=w200'
         elif _type == 'vegetable':
             right = u'蛋與肉'
-            left = u'魚類'
+            left = u'海鮮'
             rightURL = baseURL + 'meat'
             leftURL = baseURL + 'fish'
             text = u'蔬菜與水果'
@@ -41,7 +41,7 @@ class MainHandler(HtmlHandler):
             left = u'蛋與肉'
             rightURL = baseURL + 'vegetable'
             leftURL = baseURL + 'meat'
-            text = u'魚類'
+            text = u'海鮮'
             img = 'http://lh3.ggpht.com/YmVrZbSRnlruPOjVcWBzNAVd-g8ReXFZ20LjKaHiqA9aPQJDNb0KHfIztWxG81Pe7ddR9Je0UhUDNeHU92VUgBk=w200'
 
         className = _type
