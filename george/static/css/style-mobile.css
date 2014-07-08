@@ -117,3 +117,8 @@ h2 {
 #list-dot-template {
   margin-bottom: 15em;
 }
+
+/* line 106, ../sass/style-mobile.scss */
+#tagtoo {
+  display: none;
+}

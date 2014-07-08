@@ -1211,3 +1211,12 @@ textarea {
 .bottom-panel {
   display: none;
 }
+
+/* line 523, ../sass/style.scss */
+#tagtoo {
+  text-align: left;
+  position: absolute !important;
+  width: 131px !important;
+  left: 93px;
+  top: 21px !important;
+}
