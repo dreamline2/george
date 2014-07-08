@@ -1028,7 +1028,7 @@ textarea {
   font-size: 1.5em;
 }
 
-/* line 357, ../sass/style.scss */
+/* line 354, ../sass/style.scss */
 .load_more {
   border-radius: 0.1em;
   border: 0;
@@ -1044,12 +1044,12 @@ textarea {
   font-size: 2em;
   background: #f8b100;
 }
-/* line 374, ../sass/style.scss */
+/* line 371, ../sass/style.scss */
 .load_more:hover {
   background: #F39F22;
 }
 
-/* line 378, ../sass/style.scss */
+/* line 375, ../sass/style.scss */
 .level-desc .button1 {
   border-radius: 0.1em;
   border: 0;
@@ -1067,23 +1067,23 @@ textarea {
   height: 3em;
   line-height: 3em;
 }
-/* line 397, ../sass/style.scss */
+/* line 394, ../sass/style.scss */
 .level-desc .button1:hover {
   background: #2B4374;
 }
 
-/* line 401, ../sass/style.scss */
+/* line 398, ../sass/style.scss */
 #list-dot-template {
   width: 100%;
   padding: 0;
   margin-bottom: 10em;
 }
-/* line 405, ../sass/style.scss */
+/* line 402, ../sass/style.scss */
 #list-dot-template section {
   float: left;
 }
 
-/* line 410, ../sass/style.scss */
+/* line 407, ../sass/style.scss */
 #infscr-loading {
   text-align: center;
   z-index: 100;
@@ -1094,7 +1094,7 @@ textarea {
   padding: 20px;
   color: #000;
 }
-/* line 419, ../sass/style.scss */
+/* line 416, ../sass/style.scss */
 #infscr-loading div {
   padding: 1em 0 1em 0;
   font-size: 2em;
@@ -1102,14 +1102,14 @@ textarea {
   color: #DA4848;
 }
 
-/* line 428, ../sass/style.scss */
+/* line 425, ../sass/style.scss */
 .list_title {
   padding: 2em 0 1em 0;
   font-size: 2em;
   text-align: center;
 }
 
-/* line 434, ../sass/style.scss */
+/* line 431, ../sass/style.scss */
 .vegetable {
   width: 100px;
   height: 100px;
@@ -1117,32 +1117,32 @@ textarea {
   background-position: 0 0;
 }
 
-/* line 441, ../sass/style.scss */
+/* line 438, ../sass/style.scss */
 .fish {
   background: url("http://lh6.ggpht.com/Q7tGWLULHp1vgM-MVsCNeOfrPSy_MJ9z7b-ZVDhd9VohBQh_lTdbgqIW-7QK9sQ36HhZH4CJgg2A50MjPPn4Aik");
   background-position: 0 0;
 }
 
-/* line 446, ../sass/style.scss */
+/* line 443, ../sass/style.scss */
 .meat {
   background: url("http://lh6.ggpht.com/Q7tGWLULHp1vgM-MVsCNeOfrPSy_MJ9z7b-ZVDhd9VohBQh_lTdbgqIW-7QK9sQ36HhZH4CJgg2A50MjPPn4Aik");
   background-position: 0 0;
 }
 
-/* line 450, ../sass/style.scss */
+/* line 447, ../sass/style.scss */
 .chart {
   border: 5px solid #999999;
   margin: 1em;
 }
 
-/* line 455, ../sass/style.scss */
+/* line 452, ../sass/style.scss */
 .pre-icon {
-  bottom: -30px;
+  bottom: -12px;
   left: -34px;
   position: relative;
 }
 
-/* line 461, ../sass/style.scss */
+/* line 458, ../sass/style.scss */
 .login_button {
   position: absolute;
   right: 100px;
@@ -1156,12 +1156,12 @@ textarea {
   cursor: pointer;
   line-height: 50px;
 }
-/* line 473, ../sass/style.scss */
+/* line 470, ../sass/style.scss */
 .login_button:hover {
   background: #2B4374;
 }
 
-/* line 477, ../sass/style.scss */
+/* line 474, ../sass/style.scss */
 .logout_button {
   display: none;
   position: absolute;
@@ -1177,12 +1177,12 @@ textarea {
   line-height: 50px;
   padding-right: 10px;
 }
-/* line 491, ../sass/style.scss */
+/* line 488, ../sass/style.scss */
 .logout_button:hover {
   background: #2B4374;
 }
 
-/* line 496, ../sass/style.scss */
+/* line 493, ../sass/style.scss */
 .people_nav {
   width: 45px;
   -webkit-border-radius: 4px;
@@ -1193,12 +1193,12 @@ textarea {
   margin-right: 10px;
 }
 
-/* line 507, ../sass/style.scss */
+/* line 504, ../sass/style.scss */
 #rightfood, #leftfood {
   text-decoration: none;
 }
 
-/* line 511, ../sass/style.scss */
+/* line 508, ../sass/style.scss */
 .name_wapper {
   display: inline-block;
   overflow: hidden;
@@ -1207,12 +1207,12 @@ textarea {
   width: 145px;
 }
 
-/* line 519, ../sass/style.scss */
+/* line 516, ../sass/style.scss */
 .bottom-panel {
   display: none;
 }
 
-/* line 523, ../sass/style.scss */
+/* line 520, ../sass/style.scss */
 #tagtoo {
   text-align: left;
   position: absolute !important;
