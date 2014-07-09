@@ -6,6 +6,7 @@
 # Distributed under terms of the MIT license.
 from google.appengine.ext import ndb, db
 from datetime import datetime
+import random
 
 class FoodDailyInfo(ndb.Model):
     date = ndb.DateProperty()
@@ -57,7 +58,7 @@ class Food(ndb.Model):
             point += self.rich * 10 
 
 
-        self.point = point
+        self.point = point + random.random()
         return point
 
     def get_recommand(self):
