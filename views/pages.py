@@ -9,6 +9,11 @@
 import webapp2
 from template.handler import HtmlHandler
 
+
+class GoogleUser(HtmlHandler):
+    def get(self):
+        self.HtmlResponse("google7626d4c2a7531a07.html", {"mode": "index"})
+
 class MainHandler(HtmlHandler):
     def get(self):
         types = ['fish', 'vegetable', 'meat']

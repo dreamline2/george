@@ -25,6 +25,7 @@ config['webapp2_extras.sessions'] = {
 
 app = webapp2.WSGIApplication([
     (r'/george', pages.MainHandler),
+    (r'/george/google7626d4c2a7531a07.html', pages.GoogleUser),
     (r'/detail', pages.DetailHandler),
     (r'/img', pages.UpdateImage),
     (r'/api/food/([^\/]+)/$', apis.InfoApi),
@@ -33,6 +34,7 @@ app = webapp2.WSGIApplication([
     (r'/api/user/login', apis.UserLogin),
     (r'/api/user/logout', apis.UserLogout),
     (r'/api/user/info', apis.UserInfo),
+
 
 ], config=config, debug=True)
 
