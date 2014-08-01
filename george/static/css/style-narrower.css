@@ -69,3 +69,12 @@
 #list-dot-template {
   margin-bottom: 15em;
 }
+
+/* line 66, ../sass/style-narrower.scss */
+#tagtoo {
+  text-align: left;
+  position: absolute !important;
+  width: 100px !important;
+  left: 11px;
+  top: 8px !important;
+}

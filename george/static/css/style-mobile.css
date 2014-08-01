@@ -107,13 +107,18 @@ h2 {
 
 /* line 97, ../sass/style-mobile.scss */
 .pre-icon {
-  height: 50px;
-  bottom: -15px;
-  left: -15px;
+  height: 30px;
+  bottom: -8px;
+  left: -17px;
   position: relative;
 }
 
 /* line 103, ../sass/style-mobile.scss */
 #list-dot-template {
   margin-bottom: 15em;
+}
+
+/* line 106, ../sass/style-mobile.scss */
+#tagtoo {
+  display: none;
 }
