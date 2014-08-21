@@ -1,0 +1,136 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<div class="row">
+    <div class="level top-panel">
+        {% include "component_loading.html" %}
+    </div>
+    <div id="search" class="level bottom-panel">
+        <div class="row">
+            <section class="12u">
+                <div class="list_title">
+                    <img class="pre-icon" height="50" src="{{img}}" alt="">
+                    搜尋「{{text}}」食品安全產品
+                    <span class="vegetable"></span>
+                </div>
+            </section>
+            <section class="9u">
+                <div class="list_title input-search">
+                    <input type="text" placeholder="請輸入你想查詢的食品...">
+                </div>
+            </section>
+            <section class="3u">
+                <div class="list_title">
+                    <div class="button-search">查詢</div>
+                </div>
+            </section>
+        </div>
+
+        <div class="row">
+            <div id="list-dot-template"></div>
+        </div>
+
+        <div class="row">
+            <div id="loading" class="12u"><a href="/api/food/{{type}}/list?size=9&page=1"></a></div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+{% block js %}
+<script type="text/javascript">
+
+    // var Temp = {{ js_template('george/template_item_list.html') }},
+    var Temp_apend = {{ js_template('george/template_search_item_list.html') }},
+
+        // jquery object
+        $level = $('#list-dot-template'),
+        $w = $(window);
+
+    $w.on({
+        ready: function (){
+            George.event.initDisplay();
+            George.getItemList({
+                id: George.env.init.category,
+                size: 9
+            },function(res){
+
+
+                var fake_data = [{"wholesale_price": 83.0, "price": 198.0, "name": "\u91cc\u808c\u8089\u8089\u7d72", "image": "http://shopping.my-fresh.com/content/images/thumbs/0002751_237_300.jpeg", "order": 0}, {"wholesale_price": 83.0, "price": 198.0, "name": "\u91cc\u808c\u8089\u5207\u7247", "image": "http://shopping.my-fresh.com/content/images/thumbs/0002757_241_300.jpeg", "order": 1}, {"wholesale_price": 83.0, "price": 180.0, "name": "\u7d5e\u8089", "image": "http://shopping.my-fresh.com/content/images/thumbs/0002515_239_300.jpeg", "order": 2}, {"wholesale_price": 83.0, "price": 210.0, "name": "\u7576\u65e5\u73fe\u5bb0\u6eab\u9ad4\u6885\u82b1\u8089\u5207\u7247", "image": "http://shopping.my-fresh.com/content/images/thumbs/0005734_336_300.jpeg", "order": 3}, {"wholesale_price": 83.0, "price": 160.0, "name": "\u7576\u65e5\u73fe\u5bb0\u6eab\u9ad4\u5e36\u76ae\u524d\u817f\u8089", "image": "http://shopping.my-fresh.com/content/images/thumbs/0002518_383_300.jpeg", "order": 4}, {"wholesale_price": 83.0, "price": 212.5, "name": "\u6885\u82b1\u8c6c\u8089\u7247", "image": "http://shopping.my-fresh.com/content/images/thumbs/0002750_1546250g10_300.jpeg", "order": 5}, {"wholesale_price": 83.0, "price": 178.0, "name": "\u6885\u82b1\u8089\u6392\u9aa8", "image": "http://shopping.my-fresh.com/content/images/thumbs/0002754_337_300.jpeg", "order": 6}, {"wholesale_price": 83.0, "price": 160.0, "name": "\u5e36\u76ae\u524d\u817f\u8089 \u3010\u5207\u584a\u3011", "image": "http://shopping.my-fresh.com/content/images/thumbs/0002517_587-_300.jpeg", "order": 7}, {"wholesale_price": 83.0, "price": 160.0, "name": "\u524d\u817f\u8089\u3010\u5207\u584a\u3011", "image": "http://shopping.my-fresh.com/content/images/thumbs/0002516_585_300.jpeg", "order": 8}];
+
+                George.Data = res.length?res:fake_data;
+
+                setTimeout( function () {
+                    $('.top-panel').hide();
+                    $('.bottom-panel').show();
+
+                    $level.html(George.render(Temp_apend, George.Data));
+                    // George.event.detectDeviceScreen();
+
+                    // 登入機制
+                    George.event.loginMechanism();
+
+                    var container = document.querySelector('#list-dot-template');
+                    var msnry;
+                    // initialize Masonry after all images have loaded
+                    imagesLoaded( container, function() {
+                        console.log('已載入')
+                      msnry = new Masonry( container, {
+                          // options
+                          columnWidth: 0,
+                          gutter: 0,
+                          itemSelector: '.item'
+                      });
+                    });
+
+                    $('#list-dot-template').infinitescroll({
+                        nextSelector : "#loading a",
+                        navSelector  : "#loading",
+                        itemSelector : "#list-dot-template .item",
+                        dataType: 'json',
+                        appendCallback: false,
+                        errorCallback: function(errorType) {
+                            if (errorType == "done") { // Do something here
+                                console.log('have done!')
+                            }
+                        },
+                        loading: {
+                            img: '',
+                            finished: undefined,
+                            finishedMsg: "<em>沒有了噢</em>",
+                            msg: null,
+                            msgText: '<span class="loader loader-quart"></span>',
+                            selector: null,
+                            speed: 'fast',
+                            start: undefined
+                        }
+                    }, function(json, opts) {
+
+                        console.log(json)
+                        setTimeout( function () {
+                        // Get current page
+                        var page = opts.state.currPage;
+                        console.log(page)
+                        // $('#infscr-loading img').remove();
+                        $('#list-dot-template').append(George.render(Temp_apend, json));
+                        imagesLoaded( container, function() {
+                          msnry = new Masonry( container, {
+                              // options
+                              columnWidth: 0,
+                              gutter: 0,
+                              itemSelector: '.item'
+                          });
+                        });
+
+                        }, 1000 );
+                    });
+
+                }, 1000 );
+            });
+        }
+    });
+
+</script>
+{% endblock %}

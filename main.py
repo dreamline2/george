@@ -24,10 +24,15 @@ config['webapp2_extras.sessions'] = {
 }
 
 app = webapp2.WSGIApplication([
+
+    # pages
     (r'/george', pages.MainHandler),
     (r'/george/google7626d4c2a7531a07.html', pages.GoogleUser),
     (r'/detail', pages.DetailHandler),
+    (r'/search', pages.SearchHandler),
     (r'/img', pages.UpdateImage),
+
+    # api
     (r'/api/food/([^\/]+)/$', apis.InfoApi),
     (r'/api/food/([\w]+)/list', apis.ListApi),
     (r'/api/food/([^/]+)/trend$', apis.TrendApi),
