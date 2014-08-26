@@ -3,6 +3,17 @@
         width: 100%;
     }
 
+    .button-search {
+        width: 90%;
+    }
+
+    #search {
+        .input-search {
+            input{
+                width: 90%;
+            }
+        }
+    }
 }
 
 @media screen and (min-width: 481px) and (max-width: 960px) {
@@ -10,16 +21,39 @@
         width: 50%;
     }
 
+    .button-search {
+        width: 90%;
+    }
+
+    #search {
+        .input-search {
+            input{
+                width: 90%;
+            }
+        }
+    }
 }
 
 @media screen and (min-width: 961px) and (max-width: 1199px) {
     .item {
         width: 50%;
     }
+
+    #search {
+        .level-img, .level-desc {
+            float: left;
+        }
+    }
 }
 
 @media screen and (min-width: 1200px) {
     .item {
         width: 33.3333333333%;
+    }
+
+    #search {
+        .level-img, .level-desc {
+            float: left;
+        }
     }
 }
