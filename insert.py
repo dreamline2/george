@@ -17,7 +17,6 @@ def process_item(item):
 
     food.push_info(item['date'])
     food.aggregate()
-    food.get_point()
     food.get_recommand()
     return food
 
@@ -60,16 +59,26 @@ def run():
         download(time)
         time += timedelta(1)
 
+def fix_date(food):
+    pass
 
 def sort():
-    vegetables = Food.query(Food.type=="vegetable").order(Food.point).fetch(1000)
-    meats = Food.query(Food.type=="meat").order(Food.point).fetch(1000)
-    fishs = Food.query(Food.type=="fish").order(Food.point).fetch(1000)
+
+    vegetables = Food.query(Food.type=="vegetable").fetch(1000)
+    vegetables.sort(key=lambda x:x.get_point())
+    vegetables.reverse()
+    meats = Food.query(Food.type=="meat").fetch(1000)
+    meats.sort(key=lambda x:x.get_point())
+    meats.reverse()
+    fishs = Food.query(Food.type=="fish").fetch(1000)
+    fishs.sort(key=lambda x:x.get_point())
+    fishs.reverse()
 
     c = 0
     for vegetable in vegetables:
         print 'vegetable', c, vegetable.name
         vegetable.rank = c
+        print vegetable.point
         if c:
             vegetable.prev = vegetables[c-1].name
         if c < len(vegetables) - 1:
@@ -79,6 +88,7 @@ def sort():
     c=0
     for meat in meats:
         print 'meat', c, meat.name
+        print meat.point
         meat.rank = c
         if c:
             meat.prev = meats[c-1].name
@@ -90,6 +100,7 @@ def sort():
     c=0
     for fish in fishs:
         print 'fish', c, fish.name
+        print fish.point
         fish.rank = c
         if c:
             fish.prev = fishs[c-1].name
@@ -107,7 +118,6 @@ def sort():
 def set_image():
     import google_search_image
     foods = Food.query().fetch(1000)
-    import pdb;pdb.set_trace()
     for food in foods:
         try:
             print food.name, food.image

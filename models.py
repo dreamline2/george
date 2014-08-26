@@ -5,7 +5,7 @@
 #
 # Distributed under terms of the MIT license.
 from google.appengine.ext import ndb, db
-from datetime import datetime
+from datetime import datetime, timedelta
 import random
 
 class FoodDailyInfo(ndb.Model):
@@ -56,6 +56,17 @@ class Food(ndb.Model):
                 point += round(self.amount / self.avg_amount -1 , 1) * 10
             ## 產季記分
             point += self.rich * 10 
+        if u"進口" in self.name:
+            point -= 30
+
+        today = datetime.today().date()
+        last_day = max([info.date for info in self.infos])
+        delta_days = (today - last_day).days
+        print delta_days
+        if delta_days < 2:
+            point += 10
+        elif delta_days > 10:
+            point -= 1000
 
 
         self.point = point + random.random()
@@ -118,6 +129,8 @@ class Food(ndb.Model):
         info = FoodDailyInfo(date=date, wholesale_price=self.wholesale_price, price=self.price, amount=self.amount)
         self.infos.append(info)
 
+        
+        
 
         
    
