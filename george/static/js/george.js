@@ -39,6 +39,7 @@ George = (function($){
 
     var foodAPI = "/api/food/",
         userAPI = '/api/user/',
+        searchAPI = "/api/foodprocessfactor",
 
         FBuserAPI = 'https://www.facebook.com/dialog/oauth?client_id=1427059277558859&redirect_uri=',
 
@@ -75,6 +76,10 @@ George = (function($){
         },
 
 
+        getSearchList: function(data, succss_callback,error_callback){
+            var url = searchAPI;
+            __ajax(data, url, succss_callback, error_callback);
+        },
 
         getItemList: function(data, succss_callback,error_callback){
             var url = foodAPI + data.id +'/list';
@@ -140,6 +145,11 @@ George.event = {
     searchIcookAPI: function  (val) {
         val = val.replace(/【切塊】/, '').replace('省產溫體', '').replace('當日現宰溫體', '').replace(/-.*/,'')
         return 'http://icook.tw/recipes/fulltext_search?query=' + val;
+    },
+
+    searchSafeAPI: function  (category, val) {
+        val = val.replace(/【切塊】/, '').replace('省產溫體', '').replace('當日現宰溫體', '').replace(/-.*/,'')
+        return '/search?category='+ category +'&id=' + val;
     },
 
     detectDeviceScreen: function () {

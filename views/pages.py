@@ -65,15 +65,16 @@ class DetailHandler(HtmlHandler):
 
         name = self.request.get('id')
         food = Food.get_by_id(name)
+        _type = self.request.get('category')
 
-        self.HtmlResponse("page_detail.html", {"mode": "detail" ,"right": right, "left": left, "rightURL": rightURL, "leftURL": leftURL, "name": name, "img": food.image})
+        self.HtmlResponse("page_detail.html", {"mode": "detail" ,"right": right, "left": left, "rightURL": rightURL, "leftURL": leftURL, "name": name, "img": food.image, "type": _type})
 
 
 
 class SearchHandler(HtmlHandler):
     def get(self):
         types = ['fish', 'vegetable', 'meat']
-        baseURL = '/george?category='
+        baseURL = '/search?category='
         _type = self.request.GET.get('category')
         types = {
             'fish': u'海鮮',

@@ -60,7 +60,7 @@
 	            });
 
 	            $('#cookbook').attr('href',George.event.searchIcookAPI(George.Data.name));
-
+	            $('#foodSecure').attr('href',George.event.searchSafeAPI(George.env.init.category, George.Data.name));
 
 	            George.env.init.leftURL = document.location.pathname + '?id=' + George.Data.prev;
 	            George.env.init.rightURL = document.location.pathname + '?id=' + George.Data.next;

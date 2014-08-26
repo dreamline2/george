@@ -705,6 +705,7 @@ textarea {
   /* line 55, ../sass/_masonry.scss */
   #search .level-img, #search .level-desc {
     float: left;
+    max-width: 300px;
   }
 }
 /* line 1, ../sass/_search.scss */

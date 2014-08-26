@@ -122,3 +122,8 @@ h2 {
 #tagtoo {
   display: none;
 }
+
+/* line 110, ../sass/style-mobile.scss */
+#search .submit {
+  padding: 0em 0 1em 0;
+}

@@ -20,7 +20,7 @@
                     <p>今日賣場價<span>{{=it.data[i].price}}</span>元/斤</p>
                 {{?}}
                 <p>今日盤商價<span>{{=it.data[i].wholesale_price}}</span>元/斤</p>
-                <a href="/detail?id={{=it.data[i].name}}" class="button">近期走勢</a>
+                <a href="/detail?category={{=it.init.category}}&id={{=it.data[i].name}}" class="button">近期走勢</a>
             </div>
         </div>
     </div>

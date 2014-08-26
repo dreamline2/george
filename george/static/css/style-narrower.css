@@ -78,3 +78,8 @@
   left: 11px;
   top: 8px !important;
 }
+
+/* line 73, ../sass/style-narrower.scss */
+#search .submit {
+  padding: 0em 0 1em 0;
+}
