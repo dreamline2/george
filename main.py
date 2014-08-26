@@ -35,6 +35,7 @@ app = webapp2.WSGIApplication([
     (r'/api/user/logout', apis.UserLogout),
     (r'/api/user/info', apis.UserInfo),
 
+    (r'/api/foodprocessfactor', apis.FoodProcessFactor),
 
 ], config=config, debug=True)
 
