@@ -252,7 +252,7 @@ class FoodProcessFactor(ApiHandler):
         tmp = []
         for row in rows:
             city, name, address, title, date = row.split()[:5]
-            tmp.append({'name': name, 'title':title, 'city':city})
+            tmp.append({'icon': 'http://momkitchen.com/images/logo.png','name': name, 'title':title, 'city':city, 'address': address, 'date': date})
 
         self.output(tmp)
 
