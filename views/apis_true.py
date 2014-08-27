@@ -111,7 +111,7 @@ class InfoApi(ApiHandler):
 
         food = Food.get_by_id(_id)
 
-        composition = [{"維生素B群  & C 菸鹼素": 5.2000, 'unit': "mg"}, {"維生素E α-生育醇": 1.2400, "unit": "mg"}, {"維生素E   維生素E總量": 3.0200, "unit": "mg"}, {"礦物質   鈣": 33.0000, "unit": "mg"}]
+        composition = [{"name": "維生素B群  & C 菸鹼素", "amount": 5.2000, 'unit': "mg"}, {"name":"維生素E α-生育醇", "amount": 1.2400, "unit": "mg"}, {"name":"維生素E   維生素E總量", "amount": 3.0200, "unit": "mg"}, {"name":"礦物質   鈣", "amount": 33.0000, "unit": "mg"}]
 
         result = {
             "name": food.name,
@@ -122,7 +122,8 @@ class InfoApi(ApiHandler):
             "prev": food.prev,
             "description": food.get_recommand(),
             "image": food.image,
-            "composition": composition
+            "composition": composition,
+            "type": "豬肉",
         }
 
         self.output(result)
