@@ -11,28 +11,24 @@
             <section class="12u">
                 <div class="list_title">
                     <img class="pre-icon" height="50" src="{{img}}" alt="">
-                    搜尋「{{text}}」食品安全產品
+                    搜尋「{{text}}」食品安心廠商
                     <span class="vegetable"></span>
                 </div>
             </section>
             <section class="9u">
                 <div class="list_title input-search">
-                    <input type="text" placeholder="請輸入你想查詢的食品...">
+                    <input id="search-text" type="text" placeholder="請輸入你想查詢的食品...">
                 </div>
             </section>
             <section class="3u">
                 <div class="list_title submit">
-                    <div class="button-search">查詢</div>
+                    <div id="button-search" class="button-search">查詢</div>
                 </div>
             </section>
         </div>
 
         <div class="row">
             <div id="list-dot-template"></div>
-        </div>
-
-        <div class="row">
-            <div id="loading" class="12u"><a href="/api/food/{{type}}/list?size=9&page=1"></a></div>
         </div>
     </div>
 </div>
@@ -47,14 +43,64 @@
 
         // jquery object
         $level = $('#list-dot-template'),
-        $w = $(window);
+        $w = $(window),
+        $search = $('#button-search');
 
     $w.on({
         ready: function (){
             George.event.initDisplay();
-            George.getItemList({
-                id: George.env.init.category,
-                size: 9
+            if(George.Utils.getURLParameters().id) $('#search-text').attr('value', decodeURIComponent(George.Utils.getURLParameters().id));
+
+            $search.on('click', function(){
+
+                var $searchFrame = $('#search-text'),
+                    text = $searchFrame.val();
+
+                if(text) {
+                    $.blockUI({ css: {
+                        border: 'none',
+                        padding: '15px',
+                        backgroundColor: '#000',
+                        '-webkit-border-radius': '10px',
+                        '-moz-border-radius': '10px',
+                        opacity: .5,
+                        color: '#fff'
+                    } });
+
+                    George.getSearchList({
+                        keyword: text
+                    },function(res){
+
+                        $searchFrame.attr('value', text);
+
+                        George.Data = res;
+                        $level.html(George.render(Temp_apend, George.Data));
+
+                        var container = document.querySelector('#list-dot-template');
+                        var msnry;
+                        // initialize Masonry after all images have loaded
+                        imagesLoaded( container, function() {
+                            console.log('已載入')
+                          msnry = new Masonry( container, {
+                              // options
+                              columnWidth: 0,
+                              gutter: 0,
+                              itemSelector: '.item'
+                          });
+                        });
+
+                        setTimeout(function(){
+                            $.unblockUI();
+                        },1000);
+                    });
+                } else {
+                    alert('請輸入想要搜尋的廠商!')
+                }
+
+            });
+
+            George.getSearchList({
+                keyword: George.Utils.getURLParameters().type
             },function(res){
 
 
@@ -83,48 +129,6 @@
                           gutter: 0,
                           itemSelector: '.item'
                       });
-                    });
-
-                    $('#list-dot-template').infinitescroll({
-                        nextSelector : "#loading a",
-                        navSelector  : "#loading",
-                        itemSelector : "#list-dot-template .item",
-                        dataType: 'json',
-                        appendCallback: false,
-                        errorCallback: function(errorType) {
-                            if (errorType == "done") { // Do something here
-                                console.log('have done!')
-                            }
-                        },
-                        loading: {
-                            img: '',
-                            finished: undefined,
-                            finishedMsg: "<em>沒有了噢</em>",
-                            msg: null,
-                            msgText: '<span class="loader loader-quart"></span>',
-                            selector: null,
-                            speed: 'fast',
-                            start: undefined
-                        }
-                    }, function(json, opts) {
-
-                        console.log(json)
-                        setTimeout( function () {
-                        // Get current page
-                        var page = opts.state.currPage;
-                        console.log(page)
-                        // $('#infscr-loading img').remove();
-                        $('#list-dot-template').append(George.render(Temp_apend, json));
-                        imagesLoaded( container, function() {
-                          msnry = new Masonry( container, {
-                              // options
-                              columnWidth: 0,
-                              gutter: 0,
-                              itemSelector: '.item'
-                          });
-                        });
-
-                        }, 1000 );
                     });
 
                 }, 1000 );

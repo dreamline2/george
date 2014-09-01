@@ -83,3 +83,8 @@
 #search .submit {
   padding: 0em 0 1em 0;
 }
+
+/* line 78, ../sass/style-narrower.scss */
+.tabs {
+  width: 95.3%;
+}
