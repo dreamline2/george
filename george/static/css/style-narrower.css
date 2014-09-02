@@ -88,3 +88,8 @@
 .tabs {
   width: 95.3%;
 }
+
+/* line 83, ../sass/style-narrower.scss */
+#titleBar img {
+  width: 30px;
+}
