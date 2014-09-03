@@ -195,7 +195,7 @@ data = open('food.csv').read().strip()
 
 class FoodProcessFactor(ApiHandler):
     def get(self):
-        keyword = self.request.get('key').encode('utf-8')
+        keyword = self.request.get('keyword').encode('utf-8')
 
         rows = data.split('\n')
         tmp = []
