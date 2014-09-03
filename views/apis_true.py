@@ -188,22 +188,24 @@ class UserInfo(ApiHandler):
 
 
 
-data = open('food.csv').read().strip().split()
-data = data.strip()
+data = open('food.csv').read().strip()
 
 
 
 
 class FoodProcessFactor(ApiHandler):
     def get(self):
-        keyword = self.request.get('key')
+        keyword = self.request.get('key').encode('utf-8')
 
         rows = data.split('\n')
         tmp = []
         for row in rows:
             if keyword in row:
-                city, name, address, title, date = row.split()[:5]
-                tmp.append({'icon': 'http://momkitchen.com/images/logo.png','name': name, 'title':title, 'city':city, 'address': address, 'date': date})
+                try:
+                    city, name, address, title, date = row.split()[:5]
+                    tmp.append({'icon': 'http://momkitchen.com/images/logo.png','name': name, 'title':title, 'city':city, 'address': address, 'date': date})
+                except Exception as e:
+                    print e
 
         self.output(tmp)
 
