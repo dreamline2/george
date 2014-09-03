@@ -1398,3 +1398,10 @@ li.active a, li.active a:hover {
 .tab.active {
   display: block;
 }
+
+/* line 598, ../sass/style.scss */
+.searchNone {
+  text-align: center;
+  font-size: 40px;
+  margin-top: 45px;
+}

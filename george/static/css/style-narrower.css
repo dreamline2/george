@@ -93,3 +93,8 @@
 #titleBar img {
   width: 30px;
 }
+
+/* line 88, ../sass/style-narrower.scss */
+.searchNone {
+  display: none;
+}

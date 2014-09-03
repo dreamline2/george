@@ -137,3 +137,8 @@ h2 {
 #titleBar img {
   width: 30px;
 }
+
+/* line 125, ../sass/style-mobile.scss */
+.searchNone {
+  display: none;
+}

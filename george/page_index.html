@@ -49,7 +49,7 @@
 	            	$('.top-panel').hide();
 		    		$('.bottom-panel').show();
 
-		            $level.html(George.render(Temp_apend, George.Data));
+		            $level.html(George.render(Temp_apend, George.Data) || '<p class="searchNone">- 搜尋不到安心廠商 -</p>');
 		            // George.event.detectDeviceScreen();
 
 		            // 登入機制

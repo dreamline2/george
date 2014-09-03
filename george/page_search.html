@@ -50,57 +50,17 @@
         ready: function (){
             George.event.initDisplay();
             if(George.Utils.getURLParameters().id) $('#search-text').attr('value', decodeURIComponent(George.Utils.getURLParameters().id));
-
-            $search.on('click', function(){
-
-                var $searchFrame = $('#search-text'),
-                    text = $searchFrame.val();
-
-                if(text) {
-                    $.blockUI({ css: {
-                        border: 'none',
-                        padding: '15px',
-                        backgroundColor: '#000',
-                        '-webkit-border-radius': '10px',
-                        '-moz-border-radius': '10px',
-                        opacity: .5,
-                        color: '#fff'
-                    } });
-
-                    George.getSearchList({
-                        keyword: text
-                    },function(res){
-
-                        $searchFrame.attr('value', text);
-
-                        George.Data = res;
-                        $level.html(George.render(Temp_apend, George.Data));
-
-                        var container = document.querySelector('#list-dot-template');
-                        var msnry;
-                        // initialize Masonry after all images have loaded
-                        imagesLoaded( container, function() {
-                            console.log('已載入')
-                          msnry = new Masonry( container, {
-                              // options
-                              columnWidth: 0,
-                              gutter: 0,
-                              itemSelector: '.item'
-                          });
-                        });
-
-                        setTimeout(function(){
-                            $.unblockUI();
-                        },1000);
-                    });
-                } else {
-                    alert('請輸入想要搜尋的廠商!')
+            $(window).on('keypress',function(e){
+                if(e.which == 13) {
+                    George.event.searchFlow();
                 }
-
+            });
+            $search.on('click', function(e){
+                George.event.searchFlow();
             });
 
             George.getSearchList({
-                keyword: George.Utils.getURLParameters().type
+                keyword: decodeURIComponent(George.Utils.getURLParameters().type || '')
             },function(res){
 
 
@@ -112,7 +72,7 @@
                     $('.top-panel').hide();
                     $('.bottom-panel').show();
 
-                    $level.html(George.render(Temp_apend, George.Data));
+                    $level.html(George.render(Temp_apend, George.Data) || '<p class="searchNone">- 搜尋不到安心廠商 -</p>');
                     // George.event.detectDeviceScreen();
 
                     // 登入機制
