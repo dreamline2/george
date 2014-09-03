@@ -1,8 +1,3 @@
-.item-full {
-    width: 100%;
-}
-
-
 .button-search {
     position: relative;
     display: inline-block;
@@ -32,6 +27,18 @@
 
 
 #search {
+
+    h2 {
+        color: #E95757;
+        font-size: 1em;
+        padding: 1em 1em 0em 1em;
+    }
+
+    .level-title {
+        color: #000000;
+        font-size: 1em;
+    }
+
     .input-search {
         input {
             margin: 0 1em;
@@ -46,6 +53,16 @@
             display: block;
             clear: both;
         }
+    }
+
+    .level-name {
+        background-color: #5F5F5F;
+        background: url('http://subtlepatterns.com/patterns/strange_bullseyes.png');
+        height: 35px;
+    }
+
+    .level-desc {
+        max-width: 100%;
     }
 
 }

@@ -147,9 +147,9 @@ George.event = {
         return 'http://icook.tw/recipes/fulltext_search?query=' + val;
     },
 
-    searchSafeAPI: function  (category, val) {
+    searchSafeAPI: function  (category, val, type) {
         val = val.replace(/【切塊】/, '').replace('省產溫體', '').replace('當日現宰溫體', '').replace(/-.*/,'')
-        return '/search?category='+ category +'&id=' + val;
+        return '/search?category='+ category +'&id=' + val + '&type=' + type;
     },
 
     detectDeviceScreen: function () {
@@ -193,6 +193,19 @@ George.event = {
             }
 
         });
+
+        $('.tabs .tab-links a').on('click', function(e)  {
+            var currentAttrValue = jQuery(this).attr('href');
+
+            // Show/Hide Tabs
+            jQuery('.tabs ' + currentAttrValue).show().siblings().hide();
+
+            // Change/remove current tab to active
+            jQuery(this).parent('li').addClass('active').siblings().removeClass('active');
+            George.chart.draw();
+            George.chart.draw(true);
+            e.preventDefault();
+        });
     },
 
     loginMechanism: function () {
@@ -205,6 +218,7 @@ George.event = {
                 George.loginUser({
                     token: val
                 },function(res){
+                    console.log(res)
                     George.env.loginStatus = true;
                     George.user.name = res.name;
                     George.user.userImage = res.image;
@@ -262,26 +276,41 @@ George.chart = {
             // ['2014/05',  1030,   103,   540],
             // ['2014/06',  1000,   100,   400],
             // ['2014/07',  1170,   117,   460]
+    pieData: [['營養成分名稱', '營養成分含量(mg)']],
 
-    draw: function () {
-        var data = google.visualization.arrayToDataTable(George.chart.data);
+    draw: function (pie) {
 
-        var options = {
-            title: '價格比較圖',
-            titleTextStyle: {fontSize: 20},
-            hAxis: {titleTextStyle: {color: '#333'}},
-            vAxis: {
-                0: {title: '價格',minValue: 0},
-                1: {title: '交易量', minValue:0}
-            },
-            series: {
-                0: {targetAxisIndex:0},
-                1: {targetAxisIndex:0},
-                2: {targetAxisIndex:1}
-            }
-        };
+        if(pie){
 
-        var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+            var options = {
+                // title: '營養分佈圖',
+                titleTextStyle: {fontSize: 20},
+                is3D: true
+            };
+            var data = google.visualization.arrayToDataTable(George.chart.pieData);
+
+        } else {
+
+            var data = google.visualization.arrayToDataTable(George.chart.data);
+            var options = {
+                // title: '價格比較圖',
+                titleTextStyle: {fontSize: 20},
+                hAxis: {titleTextStyle: {color: '#333'}},
+                vAxis: {
+                    0: {title: '價格',minValue: 0},
+                    1: {title: '交易量', minValue:0}
+                },
+                series: {
+                    0: {targetAxisIndex:0},
+                    1: {targetAxisIndex:0},
+                    2: {targetAxisIndex:1}
+                }
+            };
+            var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+
+        }
+
         chart.draw(data, options);
     }
 }

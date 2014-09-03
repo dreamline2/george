@@ -104,3 +104,8 @@ h2 {
 .list_title {
   padding: 2em 0 1em 0;
 }
+
+/* line 91, ../sass/style-wide.scss */
+.tabs {
+  width: 93%;
+}

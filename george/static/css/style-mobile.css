@@ -127,3 +127,8 @@ h2 {
 #search .submit {
   padding: 0em 0 1em 0;
 }
+
+/* line 115, ../sass/style-mobile.scss */
+.tabs {
+  width: 95.3%;
+}
