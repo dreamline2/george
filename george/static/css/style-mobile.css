@@ -132,3 +132,13 @@ h2 {
 .tabs {
   width: 95.3%;
 }
+
+/* line 120, ../sass/style-mobile.scss */
+#titleBar img {
+  width: 30px;
+}
+
+/* line 125, ../sass/style-mobile.scss */
+.searchNone {
+  display: none;
+}

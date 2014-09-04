@@ -83,10 +83,6 @@ h2 {
 #titleBar {
   height: 80px !important;
 }
-/* line 69, ../sass/style-narrow.scss */
-#titleBar img {
-  width: 30px;
-}
 /* line 73, ../sass/style-narrow.scss */
 #titleBar a {
   position: relative;

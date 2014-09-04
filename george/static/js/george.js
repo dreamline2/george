@@ -107,7 +107,7 @@ George = (function($){
             var url = FBuserAPI + document.location.href;
 
             $.ajax({
-                type: "jsonp",
+                type: "get",
                 url: url,
                 data: data,
                 dataType: "jsonp",
@@ -264,6 +264,53 @@ George.event = {
               itemSelector: '.item'
           });
         });
+    },
+
+    searchFlow: function() {
+        var $searchFrame = $('#search-text'),
+            text = $searchFrame.val() || '';
+
+        if(text) {
+            $.blockUI({ css: {
+                border: 'none',
+                padding: '15px',
+                backgroundColor: '#000',
+                '-webkit-border-radius': '10px',
+                '-moz-border-radius': '10px',
+                opacity: .5,
+                color: '#fff'
+            } });
+
+            George.getSearchList({
+                keyword: text
+            },function(res){
+
+                $searchFrame.attr('value', text);
+
+                George.Data = res;
+                $level.html(George.render(Temp_apend, George.Data) || '<p class="searchNone">- 搜尋不到安心廠商 -</p>');
+
+                var container = document.querySelector('#list-dot-template');
+                var msnry;
+                // initialize Masonry after all images have loaded
+                imagesLoaded( container, function() {
+                    console.log('已載入')
+                  msnry = new Masonry( container, {
+                      // options
+                      columnWidth: 0,
+                      gutter: 0,
+                      itemSelector: '.item'
+                  });
+                });
+
+                setTimeout(function(){
+                    $.unblockUI();
+                },1000);
+            });
+        } else {
+            alert('請輸入想要搜尋的廠商!')
+        }
+
     }
 
 }
