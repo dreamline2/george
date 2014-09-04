@@ -111,8 +111,28 @@ class InfoApi(ApiHandler):
 
         food = Food.get_by_id(_id)
 
-        composition = [{"name": "維生素B群  & C 菸鹼素", "amount": 5.2000, 'unit': "mg"}, {"name":"維生素E α-生育醇", "amount": 1.2400, "unit": "mg"}, {"name":"維生素E   維生素E總量", "amount": 3.0200, "unit": "mg"}, {"name":"礦物質   鈣", "amount": 33.0000, "unit": "mg"}]
 
+        datas = open('20_r').readlines()
+        
+        composition = []
+        
+        pattern = re.sub("\(.*\)", "", _id)
+        pattern = re.sub("-.*", "", pattern)
+
+        for d in datas:
+            if pattern in d:
+                try:
+                    t1, t2, name, unit, value = d.split(' ')
+                    composition.append({"name": name, "amount":float(value.strip()), "unit":unit})
+                except Exception as e:
+                    print e
+
+
+        composition = composition or [{"name": "碳水化合物", "unit": "mg", "amount": 1}]
+        
+        mapping = {"fish": '魚', 'meat': '肉', 'vegetable': '菜'}
+        _type = mapping[food.type]
+        
         result = {
             "name": food.name,
             "price": food.price,
@@ -123,7 +143,7 @@ class InfoApi(ApiHandler):
             "description": food.get_recommand(),
             "image": food.image,
             "composition": composition,
-            "type": "豬肉",
+            "type": _type, 
         }
 
         self.output(result)
@@ -188,7 +208,9 @@ class UserInfo(ApiHandler):
 
 
 
-data = open('food.csv').read().strip()
+safe = open('safe.csv').read().strip()
+unsafe = open('unsafe.csv').read().strip()
+
 
 
 
@@ -197,15 +219,25 @@ class FoodProcessFactor(ApiHandler):
     def get(self):
         keyword = self.request.get('keyword').encode('utf-8')
 
-        rows = data.split('\n')
+        rows = safe.split('\n')
         tmp = []
         for row in rows:
             if keyword in row:
                 try:
                     city, name, address, title, date = row.split()[:5]
-                    tmp.append({'icon': 'http://momkitchen.com/images/logo.png','name': name, 'title':title, 'city':city, 'address': address, 'date': date})
+                    tmp.append({'name': name, 'title':title, 'city':city, 'address': address, 'date': date})
                 except Exception as e:
                     print e
+
+        rows = unsafe.split('\n')
+        for row in rows:
+            if keyword in row:
+                try:
+                    title, name, address, date, issue = row.split()[:5]
+                    tmp.append({'name': name, 'title':title, 'address': address, 'date': date, "issue": issue, "unsafe": True})
+                except Exception as e:
+                    print e
+
 
         self.output(tmp)
 
