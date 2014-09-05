@@ -104,15 +104,18 @@ George = (function($){
         },
 
         loginUser: function(data, succss_callback,error_callback){
-            var url = FBuserAPI + document.location.href;
+            var url = userAPI + 'login';
+            __ajax({}, url, succss_callback, error_callback);
 
-            $.ajax({
-                type: "get",
-                url: url,
-                data: data,
-                dataType: "jsonp",
-                jsonpCallback: succss_callback
-            });
+            // var url = FBuserAPI + document.location.href;
+
+            // $.ajax({
+            //     type: "get",
+            //     url: url,
+            //     data: data,
+            //     dataType: "jsonp",
+            //     jsonpCallback: succss_callback
+            // });
         },
 
         logoutUser: function(data, succss_callback,error_callback){

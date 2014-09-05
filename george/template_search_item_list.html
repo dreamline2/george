@@ -5,13 +5,14 @@
             <p>Top {{=i + 1}}</p>
         </div>
         <div class="level-body">
-            <div class="level-name"></div>
+            <div class="level-name {{?it.data[i].unsafe}} unsafe {{?}}"></div>
             <div class="level-desc">
                 <h2>{{=it.data[i].title}}</h2>
                 <p><span class="level-title">地址：</span>{{=it.data[i].address}}</p>
-                <p><span class="level-title">城市：</span>{{=it.data[i].city}}</p>
+                {{?it.data[i].city}}<p><span class="level-title">城市：</span>{{=it.data[i].city}}</p>{{?}}
+                {{?it.data[i].issue}}<p><span class="level-title">農藥殘留：</span>{{=it.data[i].issue}}</p>{{?}}
                 <p><span class="level-title">日期：</span>{{=it.data[i].date}}</p>
-                <p><span class="level-title">廠商：</span>{{=it.data[i].name}}</p>
+                <p><span class="level-title">{{?it.data[i].unsafe}}店家：{{??}}廠商：{{?}}</span>{{=it.data[i].name}}</p>
             </div>
         </div>
     </div>
