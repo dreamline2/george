@@ -12,6 +12,6 @@
 		<p>{{=it.data.description}}</p>
 		<a id="cookbook" class="button1" target="_bank">尋找食譜</a>
 		<p id="FB_share" class="button1">分享給朋友</p>
-		<a id="foodSecure" class="button1">食品安全認證</a>
+		<a id="foodSecure" class="button1 {{?it.init.category == 'vegetable'}} nosafe {{?}}">{{?it.init.category == "vegetable"}}食品不安全成分{{??}}食品安全認證廠商{{?}}</a>
 	</div>
 </div>

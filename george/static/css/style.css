@@ -1405,3 +1405,28 @@ li.active a, li.active a:hover {
   font-size: 40px;
   margin-top: 45px;
 }
+
+/* line 605, ../sass/style.scss */
+#search .unsafe {
+  background: url("http://subtlepatterns.com/patterns/old_map.png");
+}
+
+/* line 608, ../sass/style.scss */
+#titleBar .degoyu {
+  top: -8px;
+  color: red;
+  font-size: 16px;
+  width: 220px;
+  left: 20px;
+}
+
+/* line 618, ../sass/style.scss */
+.nosafe {
+  background: #983B3B !important;
+  border-bottom: 2px solid #662626 !important;
+  border-right: 2px solid #662626 !important;
+}
+/* line 622, ../sass/style.scss */
+.nosafe:hover {
+  background: #662626 !important;
+}

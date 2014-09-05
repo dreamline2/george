@@ -600,3 +600,26 @@ margin: 1em;
 	font-size: 40px;
 	margin-top: 45px;
 }
+
+
+#search .unsafe {
+	background: url('http://subtlepatterns.com/patterns/old_map.png');
+}
+#titleBar .degoyu {
+	// position: absolute;
+	top: -8px;
+	// right: 340px;
+	color:red;
+	font-size: 16px;
+	width: 220px;
+	left: 20px;
+}
+
+.nosafe {
+	background: #983B3B !important;
+	border-bottom: 2px solid #662626 !important;
+	border-right: 2px solid #662626 !important;
+	&:hover {
+		background: #662626 !important;
+	}
+}

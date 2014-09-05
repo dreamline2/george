@@ -100,3 +100,8 @@ h2 {
 .tabs {
   width: 93%;
 }
+
+/* line 88, ../sass/style-narrow.scss */
+.degoyu {
+  display: none;
+}

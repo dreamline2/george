@@ -87,8 +87,8 @@
 	            $('#cookbook').attr('href',George.event.searchIcookAPI(George.Data.name));
 	            $('#foodSecure').attr('href',George.event.searchSafeAPI(George.env.init.category, George.Data.name, George.Data.type));
 
-	            George.env.init.leftURL = document.location.pathname + '?id=' + George.Data.prev;
-	            George.env.init.rightURL = document.location.pathname + '?id=' + George.Data.next;
+	            George.env.init.leftURL = document.location.pathname + '?category='+ George.env.init.category +'&id=' + George.Data.prev;
+	            George.env.init.rightURL = document.location.pathname + '?category='+ George.env.init.category +'&id=' + George.Data.next;
 
 	           	if(George.Data.prev) {
 	           		$('#leftButton a,#leftfood').attr('href',George.env.init.leftURL);
