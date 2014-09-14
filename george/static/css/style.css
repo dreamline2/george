@@ -1430,3 +1430,8 @@ li.active a, li.active a:hover {
 .nosafe:hover {
   background: #662626 !important;
 }
+
+/* line 626, ../sass/style.scss */
+.text2-QQ {
+  color: #da2424;
+}

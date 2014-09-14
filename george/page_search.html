@@ -11,7 +11,7 @@
             <section class="12u">
                 <div class="list_title">
                     <img class="pre-icon" height="50" src="{{img}}" alt="">
-                    搜尋「{{text}}」食品安心廠商
+                    搜尋「{{text}}」<span class="text2">食品安心廠商</span>
                     <span class="vegetable"></span>
                 </div>
             </section>
@@ -49,6 +49,8 @@
     $w.on({
         ready: function (){
             George.event.initDisplay();
+            if(George.env.init.category == 'vegetable') $('.text2').text('食品不安心廠商').addClass("text2-QQ");
+
             if(George.Utils.getURLParameters().id) $('#search-text').attr('value', decodeURIComponent(George.Utils.getURLParameters().id));
             $(window).on('keypress',function(e){
                 if(e.which == 13) {
